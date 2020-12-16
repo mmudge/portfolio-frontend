@@ -1,11 +1,22 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    projects: []
+  },
+  mutations: {
+    setProjects(state, projects) {
+      state.projects = projects
+    }
+  },
   actions: {},
-  modules: {}
-});
+  modules: {},
+  getters: {
+    projects: state => {
+      return state.projects
+    }
+  }
+})
