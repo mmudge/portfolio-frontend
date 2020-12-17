@@ -6,8 +6,8 @@ export default class Project {
   title!: string
 
   static fetchAll() {
-    // const backendUrl = 'http://127.0.0.1:3000/projects'
-    const backendUrl = 'https://mmudge-portfolio-backend.herokuapp.com/projects'
+    const backendUrl = 'http://127.0.0.1:3000/projects'
+    // const backendUrl = 'https://mmudge-portfolio-backend.herokuapp.com/projects'
     // tcp://localhost:3000
     axios
       .get(backendUrl)

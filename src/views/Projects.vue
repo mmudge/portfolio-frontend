@@ -2,8 +2,9 @@
   <div>
     <v-container>
       <div>
+        <h1>Projects</h1>
         <template v-for="project in projects">
-          <h1 :key="project.id">{{ project.title }}</h1>
+          <p :key="project.id">{{ project.title }}</p>
         </template>
       </div>
     </v-container>

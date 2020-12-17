@@ -7,33 +7,18 @@ import About from '@/views/About.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
+
   {
     path: '/',
+    name: 'landingPage',
+    component: LandingPage
+  },
+  {
+    path: '/projects',
     name: 'projects',
     component: Projects
-  }
-  // {
-  //   path: '/',
-  //   name: 'landingPage',
-  //   component: LandingPage
-  // },
-  // {
-  //   path: '/app',
-  //   name: 'contentWrapper',
-  //   component: ContentWrapper,
-  //   children: [
-  //     {
-  //       path: '/projects',
-  //       name: 'projects',
-  //       component: Projects
-  //     },
-  //     {
-  //       path: '/about',
-  //       name: 'about',
-  //       component: About
-  //     }
-  //   ]
-  // }
+  },
+ 
 ]
 
 const router = new VueRouter({

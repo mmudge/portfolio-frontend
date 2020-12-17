@@ -21,8 +21,11 @@
             :to="{ name: 'projects' }"
             >Portfolio</v-btn
           >
-          <v-btn color="primaryBlue" outlined :to="{ name: 'about' }"
+          <!-- <v-btn color="primaryBlue" outlined :to="{ name: 'about' }"
             >About me</v-btn
+          > -->
+          <v-btn color="primaryBlue" outlined @click.stop="signInUser"
+            >Login</v-btn
           >
         </v-layout>
       </v-card>
@@ -32,8 +35,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import User from '@/models/User'
 @Component
-export default class LandingPage extends Vue {}
+export default class LandingPage extends Vue {
+  signInUser() {
+    User.signIn()
+  }
+}
 </script>
 
 <style>
