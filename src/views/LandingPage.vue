@@ -27,6 +27,10 @@
           <v-btn color="primaryBlue" outlined @click.stop="signInUser"
             >Login</v-btn
           >
+
+          <v-btn color="primaryBlue" outlined @click.stop="fetchProjects"
+            >fetch projects</v-btn
+          >
         </v-layout>
       </v-card>
     </v-container>
@@ -36,10 +40,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import User from '@/models/User'
+import Project from '@/models/Project'
+
 @Component
 export default class LandingPage extends Vue {
   signInUser() {
     User.signIn()
+  }
+
+  fetchProjects() {
+    Project.fetchAll()
   }
 }
 </script>
