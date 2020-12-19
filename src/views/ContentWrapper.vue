@@ -1,20 +1,30 @@
 <template>
-  <div>
+  <div id="content-wrapper">
     <AppNavBar />
-    <router-view> </router-view>
+    <v-main>
+      <router-view> </router-view>
+    </v-main>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import AppNavBar from '@/components/AppNavBar.vue'
+import Footer from '@/components/Footer.vue'
 
 @Component({
   components: {
-    AppNavBar
+    AppNavBar,
+    Footer
   }
 })
 export default class ContentWrapper extends Vue {}
 </script>
 
-<style></style>
+<style>
+#content-wrapper {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+</style>

@@ -8,6 +8,7 @@ import Admin from '@/views/Admin.vue'
 import ContentWrapper from '@/views/ContentWrapper.vue'
 import Login from '@/views/Login.vue'
 import Join from '@/views/Join.vue'
+import About from '@/views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ const routes: Array<RouteConfig> = [
         path: '/projects',
         name: 'projects',
         component: Projects
+      },
+      {
+        path: '/about',
+        name: 'about',
+        component: About
       },
       {
         path: '/admin',

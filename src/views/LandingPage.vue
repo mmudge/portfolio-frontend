@@ -15,26 +15,16 @@
         </v-layout>
         <v-layout justify-center align-center>
           <v-btn
-            color="primaryBlue"
-            dark
+            color="primary"
+            outlined
             class="mr-3"
             :to="{ name: 'projects' }"
-            >Portfolio</v-btn
+            >Projects</v-btn
           >
-          <!-- <v-btn color="primaryBlue" outlined :to="{ name: 'about' }"
+          <v-btn color="primary" outlined class="mr-3" :to="{ name: 'about' }"
             >About me</v-btn
-          > -->
-          <v-btn color="primaryBlue" outlined @click.stop="signInUser"
-            >Login</v-btn
           >
-
-          <v-btn color="primaryBlue" outlined @click.stop="fetchProjects"
-            >fetch projects</v-btn
-          >
-
-          <v-btn color="primaryBlue" outlined @click.stop="clearLocalStorage"
-            >Clear local storage (log out)</v-btn
-          >
+          <v-btn color="primary" outlined @click.stop="signInUser">Login</v-btn>
         </v-layout>
       </v-card>
     </v-container>
