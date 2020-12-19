@@ -7,6 +7,9 @@ import Projects from '@/views/Projects.vue'
 import Admin from '@/views/Admin.vue'
 import ContentWrapper from '@/views/ContentWrapper.vue'
 import Login from '@/views/Login.vue'
+import User from '@/models/User'
+import Join from '@/views/Join.vue'
+import RegistrationWrapper from '@/views/RegistrationWrapper.vue'
 
 Vue.use(VueRouter)
 
@@ -29,17 +32,29 @@ const routes: Array<RouteConfig> = [
     ]
   },
   {
+    path: '/register',
+    name: 'registrationWrapper',
+    component: RegistrationWrapper,
+    children: [
+      {
+        path: '/login',
+        name: 'login',
+        component: Login
+      },
+      {
+        path: '/sign_up',
+        name: 'signUp',
+        component: Join
+      }
+    ]
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: Admin,
     meta: {
       authRequired: true
     }
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
   }
 ]
 
@@ -51,8 +66,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.authRequired)) {
-    Api.getLoggedInUser().then(() => {
-      if (!store.state.loggedInUser) {
+    User.loggedInUser().then(() => {
+      if (!store.getters.loggedInUser) {
         console.log('no logged in user in router, going to login')
         next({
           path: '/login'

@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '@/store'
 
 const devBackendUrl = 'http://127.0.0.1:3000/'
-const prodBackendUrl = 'https://mmudge-portfolio-backend.herokuapp.com/'
+const prodBackendUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
 
 const activeUrl = devBackendUrl
 
@@ -12,14 +12,14 @@ export default class Api {
 
   static get authTokenString() {
     // return `JWT Bearer ${localStorage.token}`
-    return `Bearer ${localStorage.token}`
+    return `Bearer ${localStorage.getItem('token')}`
   }
 
   static getAllProjects() {
     let url = activeUrl
     // const url = prodBackendUrl
 
-    console.log('token in local storage', localStorage.token)
+    console.log('API- token in local storage', localStorage.getItem('token'))
 
     url += 'projects'
     axios
@@ -36,17 +36,14 @@ export default class Api {
       .catch(error => console.log('error fetching projects', error))
   }
 
-  static postSignInUser() {
+  static postSignInUser(userInfo: { email: string; password: string }) {
     const url = activeUrl + 'login'
 
-    axios
+    return axios
       .post(
         url,
         {
-          user: {
-            email: 'mike@mike.com',
-            password: 'mikemike1'
-          }
+          user: userInfo
         },
         {
           headers: {
@@ -55,16 +52,52 @@ export default class Api {
         }
       )
       .then(response => {
-        console.log('POST sign in response', response)
-        localStorage.setItem('token', response.data.token)
+        console.log('POST sign in response', response, response.data)
+        return response.data
       })
       .catch(error => {
         console.log('error signing in user', error)
+        localStorage.removeItem('token')
+        store.commit('setLoggedInUser', null)
+      })
+  }
+
+  static postSignUpUser(userInfo: {
+    email: string
+    password: string
+    password_confirmation: string
+    username: string
+  }) {
+    const url = activeUrl + 'signup'
+
+    return axios
+      .post(
+        url,
+        {
+          user: userInfo
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
+        console.log('POST sign up response', response, response.data)
+        return response.data
+      })
+      .catch(error => {
+        console.log('error signing up user', error)
+        localStorage.removeItem('token')
+        store.commit('setLoggedInUser', null)
       })
   }
 
   static getLoggedInUser() {
-    console.log('local storage token in get logged in user', localStorage.token)
+    console.log(
+      'API - local storage token in get logged in user',
+      localStorage.getItem('token')
+    )
     const url = activeUrl + 'current_user'
     return axios
       .get(url, {
@@ -74,22 +107,12 @@ export default class Api {
         }
       })
       .then(response => {
-        if (response.data.errors) {
-          console.log('current user response no data', response)
-          store.commit('setLoggedInUser', null)
-          localStorage.token = null
-          return response.data.errors
-        } else {
-          console.log('response', response)
-          console.log('current user response', response.data)
-          store.commit('setLoggedInUser', response.data)
-          console.log('User logged in as: ', response.data.email)
-          return response.data
-        }
+        return response.data
       })
       .catch(error => {
-        console.log('Error: get logged failed!', error)
-        throw error
+        console.log('Error: get logged in user failed!', error)
+        localStorage.removeItem('token')
+        store.commit('setLoggedInUser', null)
       })
   }
 }

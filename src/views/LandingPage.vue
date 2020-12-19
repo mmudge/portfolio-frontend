@@ -49,7 +49,7 @@ import Project from '@/models/Project'
 @Component
 export default class LandingPage extends Vue {
   signInUser() {
-    User.signIn()
+    this.$router.push({ name: 'login' })
   }
 
   fetchProjects() {
