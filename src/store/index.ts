@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    appName: "Mike's Portfolio",
     projects: [] as Project[],
     loggedInUser: (null as unknown) as User
   },
@@ -21,6 +22,9 @@ export default new Vuex.Store({
   actions: {},
   modules: {},
   getters: {
+    appName: state => {
+      return state.appName
+    },
     projects: state => {
       return state.projects
     },

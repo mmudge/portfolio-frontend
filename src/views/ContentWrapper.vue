@@ -1,14 +1,19 @@
 <template>
   <div>
-    <h1>nav bar here</h1>
+    <AppNavBar />
     <router-view> </router-view>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import AppNavBar from '@/components/AppNavBar.vue'
 
-@Component
+@Component({
+  components: {
+    AppNavBar
+  }
+})
 export default class ContentWrapper extends Vue {}
 </script>
 

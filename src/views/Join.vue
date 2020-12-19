@@ -62,9 +62,9 @@ import User from '@/models/User'
 @Component
 export default class Join extends Vue {
   email = ''
+  username = ''
   password = ''
   password_confirmation = ''
-  username = ''
 
   async submitUserJoin() {
     const result = await User.signUp(

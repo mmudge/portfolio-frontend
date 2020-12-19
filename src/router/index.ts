@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Api from '@/api'
 import store from '@/store'
+import User from '@/models/User'
 import LandingPage from '@/views/LandingPage.vue'
 import Projects from '@/views/Projects.vue'
 import Admin from '@/views/Admin.vue'
 import ContentWrapper from '@/views/ContentWrapper.vue'
 import Login from '@/views/Login.vue'
-import User from '@/models/User'
 import Join from '@/views/Join.vue'
-import RegistrationWrapper from '@/views/RegistrationWrapper.vue'
 
 Vue.use(VueRouter)
 
@@ -28,14 +26,15 @@ const routes: Array<RouteConfig> = [
         path: '/projects',
         name: 'projects',
         component: Projects
-      }
-    ]
-  },
-  {
-    path: '/register',
-    name: 'registrationWrapper',
-    component: RegistrationWrapper,
-    children: [
+      },
+      {
+        path: '/admin',
+        name: 'admin',
+        component: Admin,
+        meta: {
+          authRequired: true
+        }
+      },
       {
         path: '/login',
         name: 'login',
@@ -47,14 +46,6 @@ const routes: Array<RouteConfig> = [
         component: Join
       }
     ]
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    component: Admin,
-    meta: {
-      authRequired: true
-    }
   }
 ]
 
