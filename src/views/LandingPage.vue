@@ -31,6 +31,10 @@
           <v-btn color="primaryBlue" outlined @click.stop="fetchProjects"
             >fetch projects</v-btn
           >
+
+          <v-btn color="primaryBlue" outlined @click.stop="clearLocalStorage"
+            >Clear local storage (log out)</v-btn
+          >
         </v-layout>
       </v-card>
     </v-container>
@@ -50,6 +54,12 @@ export default class LandingPage extends Vue {
 
   fetchProjects() {
     Project.fetchAll()
+  }
+
+  clearLocalStorage() {
+    console.log('local storage token before clear', localStorage.token)
+    localStorage.removeItem('token')
+    console.log('local storage token after clear', localStorage.token)
   }
 }
 </script>

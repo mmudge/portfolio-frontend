@@ -4,14 +4,20 @@ import store from '@/store'
 const devBackendUrl = 'http://127.0.0.1:3000/'
 const prodBackendUrl = 'https://mmudge-portfolio-backend.herokuapp.com/'
 
+const activeUrl = devBackendUrl
+
 export default class Api {
   id!: number
   title!: string
 
+  static get authTokenString() {
+    // return `JWT Bearer ${localStorage.token}`
+    return `Bearer ${localStorage.token}`
+  }
 
   static getAllProjects() {
-   let url = devBackendUrl 
-    // const url = prodBackendUrl 
+    let url = activeUrl
+    // const url = prodBackendUrl
 
     console.log('token in local storage', localStorage.token)
 
@@ -20,9 +26,9 @@ export default class Api {
       .get(url, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `JWT Bearer ${localStorage.token}`
+          Authorization: this.authTokenString
         }
-  })
+      })
       .then((response: any) => {
         console.log('GET projects response', response.data)
         store.commit('setProjects', response.data)
@@ -31,30 +37,62 @@ export default class Api {
   }
 
   static postSignInUser() {
-    const url = devBackendUrl + 'login'
+    const url = activeUrl + 'login'
 
-    axios.post(url, 
-      { user: {
-        email: 'mike@mike.com',
-        password: 'mikemike1'
-      }},
-       {
-          headers: {
-            'Content-Type': 'application/json',
-            // 'Authorization': 'JWT'
+    axios
+      .post(
+        url,
+        {
+          user: {
+            email: 'mike@mike.com',
+            password: 'mikemike1'
           }
-    })
-      .then((response) => {
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
         console.log('POST sign in response', response)
         localStorage.setItem('token', response.data.token)
       })
-      .catch((error) => {
-        console.log('error signing in user', error);
-      });
+      .catch(error => {
+        console.log('error signing in user', error)
+      })
+  }
+
+  static getLoggedInUser() {
+    console.log('local storage token in get logged in user', localStorage.token)
+    const url = activeUrl + 'current_user'
+    return axios
+      .get(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: this.authTokenString
+        }
+      })
+      .then(response => {
+        if (response.data.errors) {
+          console.log('current user response no data', response)
+          store.commit('setLoggedInUser', null)
+          localStorage.token = null
+          return response.data.errors
+        } else {
+          console.log('response', response)
+          console.log('current user response', response.data)
+          store.commit('setLoggedInUser', response.data)
+          console.log('User logged in as: ', response.data.email)
+          return response.data
+        }
+      })
+      .catch(error => {
+        console.log('Error: get logged failed!', error)
+        throw error
+      })
   }
 }
-
-
 
 // static userJoin(email, username, password, password_confirmation) {
 //   return fetch("http://localhost:3000/signup", {
@@ -105,7 +143,6 @@ export default class Api {
 //   });
 // }
 
-
 // static getLoggedInUser() {
 
 //   return fetch(`http://localhost:3000/current_user`, {
@@ -135,8 +172,6 @@ export default class Api {
 //       return e
 //     })
 // }
-
-
 
 // return fetch(`http://localhost:3000/posts/${updatedPost.id}`, {
 //   method: "PUT",
