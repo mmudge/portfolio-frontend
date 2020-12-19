@@ -1,7 +1,7 @@
 <template>
   <div id="content-wrapper">
     <AppNavBar />
-    <v-main>
+    <v-main class="mb-10">
       <router-view> </router-view>
     </v-main>
     <Footer />

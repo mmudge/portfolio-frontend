@@ -23,28 +23,28 @@ export default class ContactInfo extends AppComponent {
     {
       title: 'Name',
       content: 'Michael Mudge',
-      icon: 'account_circle',
+      icon: 'far fa-user-circle',
       color: 'light-blue darken-1',
       run: () => this.copyToClipboard('Michael Mudge')
     },
     {
       title: 'Email',
       content: 'michaeltmudge@gmail.com',
-      icon: 'alternate_email',
+      icon: 'fas fa-envelope-open-text',
       color: 'light-blue darken-1',
       run: () => this.copyToClipboard('michaeltmudge@gmail.com')
     },
     {
       title: 'Phone',
       content: '951-323-1876',
-      icon: 'phone_iphone',
+      icon: 'fas fa-phone-square-alt',
       color: 'blue darken-2',
       run: () => this.copyToClipboard('951-323-1876')
     },
     {
       title: 'Location',
       content: 'Southern California',
-      icon: 'location_pin',
+      icon: 'far fa-compass',
       color: 'light-blue darken-1',
       run: () => this.copyToClipboard('Southern California')
     }

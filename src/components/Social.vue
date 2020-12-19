@@ -25,19 +25,19 @@ export default class Social extends Vue {
   socialLinks: any[] = [
     {
       text: 'GitLab',
-      icon: 'code',
+      icon: 'fab fa-gitlab',
       // color: "#2962ff",
       link: 'https://gitlab.com/mmudge'
     },
     {
       text: 'GitHub',
-      icon: 'code ',
+      icon: 'fab fa-github',
       // color: "#673ab7",
       link: 'https://github.com/mmudge'
     },
     {
       text: 'LinkedIn',
-      icon: 'people',
+      icon: 'fab fa-linkedin',
       // color: "#09FDD9",
       link: 'https://www.linkedin.com/in/michaeltmudge/'
     }

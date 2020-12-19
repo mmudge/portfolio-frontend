@@ -5,7 +5,7 @@ import User from '@/models/User'
 const devBackendUrl = 'http://127.0.0.1:3000/'
 const prodBackendUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
 
-const activeUrl = devBackendUrl
+const activeUrl = prodBackendUrl
 
 export default class Api {
   id!: number
