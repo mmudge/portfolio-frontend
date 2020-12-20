@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouter, { RouteConfig, Route } from 'vue-router'
 import store from '@/store'
 import User from '@/models/User'
 import LandingPage from '@/views/LandingPage.vue'
@@ -61,6 +61,16 @@ const router = new VueRouter({
   routes
 })
 
+const setNavBarHeight = (route: Route) => {
+  if (route.name === 'landingPage') {
+    console.log('setting nav bar height landing page')
+    store.commit('setNavBarHeight', '126')
+  } else {
+    console.log('setting nav bar height NOT landing page')
+    store.commit('setNavBarHeight', '172')
+  }
+}
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.authRequired)) {
     User.loggedInUser().then(() => {
@@ -69,12 +79,15 @@ router.beforeEach((to, from, next) => {
         next({
           path: '/login'
         })
+        setNavBarHeight(to)
       } else {
         next()
+        setNavBarHeight(to)
       }
     })
   } else {
     next()
+    setNavBarHeight(to)
   }
 })
 

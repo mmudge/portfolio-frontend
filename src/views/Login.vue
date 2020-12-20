@@ -2,35 +2,52 @@
   <v-container fill-height>
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
-        <v-card class="elevation-12">
-          <v-toolbar dark color="primary">
-            <v-toolbar-title>Login</v-toolbar-title>
-          </v-toolbar>
-          <v-card-text>
-            <v-form ref="loginForm" lazy-validation>
-              <v-text-field
-                prepend-icon="person"
-                name="email"
-                label="Email"
-                type="email"
-                v-model="email"
-                required
-              ></v-text-field>
-              <v-text-field
-                prepend-icon="lock"
-                name="password"
-                label="Password"
-                id="password"
-                type="password"
-                required
-                v-model="password"
-              ></v-text-field>
-            </v-form>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" @click.stop="signIn">Login</v-btn>
-          </v-card-actions>
+        <v-card class="pa-10 text--darkText">
+          <h1>Login</h1>
+
+          <v-form ref="loginForm" @submit.prevent lazy-validation>
+            <p class="body-2 pt-10 pb-2 mb-0">Email</p>
+            <v-text-field
+              v-model="email"
+              prepend-inner-icon="fas fa-user-circle"
+              tabindex="1"
+              type="email"
+              required
+              outlined
+              background-color="white"
+              color="primary"
+              hide-details
+              dense
+            ></v-text-field>
+
+            <p class="body-2 pb-2 pt-7 mb-0">Password</p>
+
+            <v-text-field
+              v-model="password"
+              :prepend-inner-icon="
+                showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'
+              "
+              @click:prepend-inner="showPassword = !showPassword"
+              :type="showPassword ? 'text' : 'password'"
+              tabindex="2"
+              required
+              outlined
+              background-color="white"
+              color="primary"
+              hide-details
+              dense
+            ></v-text-field>
+          </v-form>
+
+          <v-btn
+            color="primary"
+            class="mt-10"
+            block
+            tabindex="3"
+            @keyup.enter="signIn"
+            @click.stop="signIn"
+            >Login</v-btn
+          >
         </v-card>
       </v-flex>
     </v-layout>
@@ -45,8 +62,10 @@ import User from '@/models/User'
 @Component
 export default class Login extends Vue {
   valid: boolean = false
-  email = ''
-  password = ''
+  email: string = ''
+  password: string = ''
+
+  showPassword: boolean = false
 
   async signIn() {
     const signInForm = this.$refs.loginForm as HTMLFormElement

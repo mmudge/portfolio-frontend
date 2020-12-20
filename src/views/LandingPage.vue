@@ -1,6 +1,6 @@
 <template>
   <div class="landing-page darkText--text">
-    <v-container class="px-10">
+    <v-container class="px-10" fill-height>
       <v-card color="#F5F5F5" class="py-10" flat>
         <v-layout align-center justify-center class="py-10">
           <v-flex shrink class="px-10">
@@ -95,7 +95,7 @@ export default class LandingPage extends Vue {
 }
 
 .title-text {
-  font-size: 72px;
+  font-size: 76px;
   line-height: 0.9;
 }
 
@@ -106,7 +106,7 @@ export default class LandingPage extends Vue {
 .yellow-line {
   height: 10px;
   background-color: #f6ae2d;
-  margin-top: -27px;
+  margin-top: -30px;
   /* border-bottom: 10px solid #f6ae2d; */
 }
 

@@ -10,6 +10,7 @@ export default new Vuex.Store({
     appName: "Mike's Portfolio",
     projects: [] as Project[],
     loggedInUser: (null as unknown) as User,
+    navBarHeight: '126' as string,
     skillChipsState: {
       javascript: {
         text: 'JavaScript',
@@ -109,6 +110,9 @@ export default new Vuex.Store({
     },
     setLoggedInUser(state, user: User) {
       state.loggedInUser = user
+    },
+    setNavBarHeight(state, height: string) {
+      state.navBarHeight = height
     }
   },
   actions: {},
@@ -117,11 +121,14 @@ export default new Vuex.Store({
     appName: state => {
       return state.appName
     },
-    projects: state => {
-      return state.projects
-    },
     loggedInUser: state => {
       return state.loggedInUser
+    },
+    navBarHeight: state => {
+      return state.navBarHeight
+    },
+    projects: state => {
+      return state.projects
     },
     skillChips: state => {
       return state.skillChipsState

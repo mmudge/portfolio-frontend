@@ -18,12 +18,10 @@ import Project from '@/models/Project'
 @Component
 export default class Projects extends Vue {
   mounted() {
-    console.log('fetching all projects on mounted')
     Project.fetchAll()
   }
 
   get projects() {
-    console.log('projects in the store', this.$store.getters.projects)
     return this.$store.getters.projects
   }
 }

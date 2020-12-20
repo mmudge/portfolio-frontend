@@ -4,7 +4,8 @@
       <v-layout align-center justify-space-around wrap>
         <v-flex shrink>
           <p :class="`{ smAndDown ? 'text-center pb-5' : '' } mb-0`">
-            Michael Mudge Copyright {{ year }}, all rights reserved.
+            Michael Mudge Copyright
+            {{ year }}, all rights reserved.
           </p>
         </v-flex>
 
