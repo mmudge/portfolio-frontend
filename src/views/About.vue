@@ -10,7 +10,7 @@
         </div>
       </v-layout>
 
-      <PageTextContent class="pt-10">
+      <PageTextContent class="mt-16">
         <template v-slot:title>
           Skills
         </template>
@@ -30,7 +30,7 @@
         </template>
       </PageTextContent>
 
-      <PageTextContent class="pt-10">
+      <PageTextContent class="mt-16">
         <template v-slot:title>
           Professional
         </template>
@@ -93,7 +93,7 @@
         </template>
       </PageTextContent> -->
 
-      <PageTextContent class="pt-10">
+      <PageTextContent class="mt-16 pb-16">
         <template v-slot:title>
           Education
         </template>

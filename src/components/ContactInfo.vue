@@ -24,7 +24,7 @@
         <p
           :class="
             `${
-              index === 0 ? 'display-1 font-weight-bold' : 'title '
+              index === 0 ? 'text-h3 font-weight-bold' : 'title '
             } mb-0 font-weight-regular`
           "
         >
