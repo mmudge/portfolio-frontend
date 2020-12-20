@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <v-container :style="aboutPageContainerStyle">
-      <v-layout align-center justify-center wrap class="mt-10">
+      <v-layout align-center justify-center wrap>
         <div :class="mdAndUp ? 'px-5 mr-5' : 'pb-10'">
           <Avatar size="250" />
         </div>
