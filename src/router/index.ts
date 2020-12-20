@@ -15,14 +15,14 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'landingPage',
-    component: LandingPage
-  },
-  {
-    path: '/app',
     name: 'contentWrapper',
     component: ContentWrapper,
     children: [
+      {
+        path: '',
+        name: 'landingPage',
+        component: LandingPage
+      },
       {
         path: '/projects',
         name: 'projects',

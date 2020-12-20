@@ -1,33 +1,25 @@
 <template>
-  <v-app-bar app color="blue darken-4" dark clipped-left>
-    <!-- <v-icon class="hidden-md-and-up" @click="toggleShowDrawer">menu</v-icon>
-      <v-spacer class="hidden-md-and-up"></v-spacer>
-      <v-btn dark text to="/">
-        <v-toolbar-title>{{ appName }}</v-toolbar-title>
-      </v-btn>
-
-      <v-spacer></v-spacer>
-      <v-btn to="/menu" text class="hidden-sm-and-down">Menu</v-btn>
-
-      <v-btn to="/about" text class="hidden-sm-and-down">About us</v-btn>
-      <v-btn class="red lighten-3 hidden-sm-and-down">Order now</v-btn> -->
-
-    <!-- <v-icon class="" @click="toggleShowDrawer">menu</v-icon> -->
-    <!-- <v-spacer class=""></v-spacer> -->
-    <v-btn dark text to="/">
-      <v-toolbar-title>{{ appName }}</v-toolbar-title>
-    </v-btn>
-
-    <v-spacer></v-spacer>
-    <v-btn to="/projects" text>Projects</v-btn>
-    <v-btn to="/about" text>About</v-btn>
-    <template v-if="loggedInUser">
-      <v-btn @click.stop="signOutUser" text>Log out</v-btn>
-    </template>
-    <template v-else>
-      <v-btn to="/login" text>Login</v-btn>
-      <v-btn to="/sign_up" text>Sign up</v-btn>
-    </template>
+  <v-app-bar app color="backgroundGray" height="172" elevate-on-scroll>
+    <v-layout align-center justify-center>
+      <v-btn to="/" text color="primary" x-large class="mr-10">
+        <v-icon large>fab fa-creative-commons-sampling</v-icon></v-btn
+      >
+      <v-btn to="/projects" text color="primary" x-large class="mr-10"
+        >Projects</v-btn
+      >
+      <v-btn to="/about" text color="primary" x-large class="mr-10"
+        >About</v-btn
+      >
+      <template v-if="loggedInUser">
+        <v-btn @click.stop="signOutUser" text color="primary" x-large
+          >Log out</v-btn
+        >
+      </template>
+      <template v-else>
+        <v-btn to="/login" text color="primary" x-large>Login</v-btn>
+        <!-- <v-btn to="/sign_up" text color="primary">Sign up</v-btn> -->
+      </template>
+    </v-layout>
   </v-app-bar>
 </template>
 

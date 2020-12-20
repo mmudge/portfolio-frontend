@@ -3,14 +3,14 @@
     <template v-for="s in socialLinks">
       <v-btn
         small
-        outlined
-        color="primaryBlue"
+        color="darkText"
         class="mr-1"
         :href="s.link"
         :key="s.icon"
+        text
       >
         <v-icon class="mr-1">{{ s.icon }}</v-icon>
-        <p class="mb-0">{{ s.text }}</p>
+        <p class="d-none mb-0">{{ s.text }}</p>
       </v-btn>
     </template>
   </v-layout>

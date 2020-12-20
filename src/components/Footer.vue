@@ -1,14 +1,20 @@
 <template>
-  <v-footer app color="backgroundGray">
+  <v-footer app color="backgroundGray" class="text--darkText">
     <v-container>
-      <v-layout align-center justify-space-between wrap>
-        <v-flex flex-shrink>
+      <v-layout align-center justify-space-around wrap>
+        <v-flex shrink>
           <p :class="`{ smAndDown ? 'text-center pb-5' : '' } mb-0`">
             Michael Mudge Copyright {{ year }}, all rights reserved.
           </p>
         </v-flex>
 
-        <v-flex flex-shrink>
+        <v-flex shrink>
+          <p class="mb-0">
+            michaeltmudge@gmail.com
+          </p>
+        </v-flex>
+
+        <v-flex shrink>
           <Social />
         </v-flex>
       </v-layout>

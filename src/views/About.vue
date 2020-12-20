@@ -6,7 +6,7 @@
 
       <v-layout align-center justify-center wrap class="mt-10">
         <div :class="mdAndUp ? 'px-10' : 'pb-10'">
-          <Avatar height="250" width="250" />
+          <Avatar size="250" />
         </div>
         <div :class="mdAndUp ? 'px-10' : ''">
           <ContactInfo />

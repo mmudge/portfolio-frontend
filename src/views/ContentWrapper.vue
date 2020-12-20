@@ -26,5 +26,6 @@ export default class ContentWrapper extends Vue {}
 #content-wrapper {
   background-color: #fafafa;
   min-height: 100vh;
+  font-family: 'Oxygen', sans-serif;
 }
 </style>

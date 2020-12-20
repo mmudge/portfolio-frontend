@@ -14,8 +14,11 @@ export default new Vuetify({
     options: { customProperties: true },
     themes: {
       light: {
-        primary: '#2962ff',
-        darkText: '#272727',
+        primary: '#145C9E',
+        secondary: '#87BBA2',
+        accent: '#F6AE2D',
+        lightGrayText: '#6D6D6D',
+        darkText: '#011627',
         darkGray: '#3C4042',
         mediumGray: '#808080',
         lightGray: '#bebbbb',

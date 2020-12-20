@@ -1,5 +1,5 @@
 <template>
-  <div v-if="height && width">
+  <div v-if="style">
     <div id="avatar" :style="style"></div>
   </div>
 </template>
@@ -11,14 +11,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   components: {}
 })
 export default class Avatar extends Vue {
-  @Prop() height!: number
-  @Prop() width!: number
+  @Prop() size!: number
 
-  get style() {
-    if (this.height && this.width) {
-      return `height: ${this.height}px; width: ${this.width}px;`
+  get style(): string | null {
+    if (this.size) {
+      return `height: ${this.size}px; width: ${this.size}px;`
     } else {
-      return ''
+      return null
     }
   }
 }
