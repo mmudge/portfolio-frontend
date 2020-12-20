@@ -40,10 +40,10 @@ export default class AppComponent extends Vue {
 
   copyToClipboard(text: string) {
     navigator.clipboard.writeText(text)
+    this.setSnackbar(`${text} copied to your clipboard`, 'info')
+  }
 
-    this.$store.commit('setSnackbar', {
-      text: `${text} copied to your clipboard`,
-      color: 'info'
-    })
+  setSnackbar(text: string, color: string) {
+    this.$store.commit('setSnackbar', { text, color })
   }
 }

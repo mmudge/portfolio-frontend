@@ -123,8 +123,8 @@ import Avatar from '@/components/Avatar.vue'
 import Social from '@/components/Social.vue'
 import ContactInfo from '@/components/ContactInfo.vue'
 import Chip from '@/components/Chip.vue'
-
 import PageTextContent from '@/components/PageTextContent.vue'
+
 @Component({
   components: {
     Avatar,

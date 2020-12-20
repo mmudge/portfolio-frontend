@@ -8,7 +8,13 @@
       <v-layout
         align-center
         justify-start
-        class="pb-1 cursor-pointer-on-hover"
+        :class="
+          `${
+            index === 0 || index === contactInfo[contactInfo.length - 1]
+              ? ''
+              : 'cursor-pointer-on-hover'
+          } pb-1`
+        "
         @click.stop="info.run()"
       >
         <v-icon medium :color="info.color" class="mr-3 d-none">{{
@@ -40,7 +46,9 @@ export default class ContactInfo extends AppComponent {
       content: 'Michael Mudge',
       icon: 'far fa-user-circle',
       color: 'light-blue darken-1',
-      run: () => this.copyToClipboard('Michael Mudge')
+      run: () => {
+        null
+      }
     },
     {
       title: 'Email',
@@ -54,14 +62,16 @@ export default class ContactInfo extends AppComponent {
       content: '951 323 1876',
       icon: 'fas fa-phone-square-alt',
       color: 'blue darken-2',
-      run: () => this.copyToClipboard('951-323-1876')
+      run: () => this.copyToClipboard('951 323 1876')
     },
     {
       title: 'Location',
       content: 'San Clemente, California',
       icon: 'far fa-compass',
       color: 'light-blue darken-1',
-      run: () => this.copyToClipboard('San Clemente, California')
+      run: () => {
+        null
+      }
     }
   ]
 }

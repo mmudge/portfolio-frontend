@@ -11,6 +11,7 @@ export default new Vuex.Store({
     projects: [] as Project[],
     loggedInUser: (null as unknown) as User,
     navBarHeight: '126' as string,
+    snackbar: {} as { text: string; color: string },
     skillChipsState: {
       javascript: {
         text: 'JavaScript',
@@ -134,6 +135,9 @@ export default new Vuex.Store({
     },
     setNavBarHeight(state, height: string) {
       state.navBarHeight = height
+    },
+    setSnackbar(state, payload: { text: string; color: string }) {
+      state.snackbar = payload
     }
   },
   actions: {},
@@ -156,6 +160,9 @@ export default new Vuex.Store({
     },
     eduChips: state => {
       return state.eduChipsState
+    },
+    snackbar: state => {
+      return state.snackbar
     }
   }
 })
