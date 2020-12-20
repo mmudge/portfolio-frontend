@@ -1,10 +1,12 @@
 <template>
   <div>
-    <h2 class="pb-4 darkGray--text">
+    <h2 class="pb-4 darkText--text page-text-title font-weight-bold">
       <slot name="title" />
     </h2>
 
-    <slot name="content" />
+    <div class="page-text-content darkText--text">
+      <slot name="content" />
+    </div>
   </div>
 </template>
 
@@ -13,3 +15,13 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class PageTextContent extends Vue {}
 </script>
+
+<style lang="css">
+.page-text-content > * {
+  font-size: 22px;
+}
+
+.page-text-title {
+  font-size: 28px;
+}
+</style>

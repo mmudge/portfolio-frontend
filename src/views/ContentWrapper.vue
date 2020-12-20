@@ -28,4 +28,8 @@ export default class ContentWrapper extends Vue {}
   min-height: 100vh;
   font-family: 'Oxygen', sans-serif;
 }
+
+.cursor-pointer-on-hover:hover {
+  cursor: pointer;
+}
 </style>

@@ -15,7 +15,7 @@
               <p class="mb-0 pr-5 lightGrayText--text">a</p>
               <div>
                 <h2 class="sub-title-text primary--text">web developer</h2>
-                <div class="yellow-line"></div>
+                <div class="yellow-underline"></div>
               </div>
             </v-layout>
             <v-layout align-baseline justify-center class="pt-3">
@@ -103,11 +103,10 @@ export default class LandingPage extends Vue {
   font-size: 64px;
 }
 
-.yellow-line {
+.yellow-underline {
   height: 10px;
   background-color: #f6ae2d;
   margin-top: -30px;
-  /* border-bottom: 10px solid #f6ae2d; */
 }
 
 .main-text {

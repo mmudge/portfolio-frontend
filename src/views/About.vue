@@ -1,23 +1,18 @@
 <template>
   <div class="about">
-    <v-container>
-      <h1>About me</h1>
-      <v-divider></v-divider>
-
+    <v-container :style="aboutPageContainerStyle">
       <v-layout align-center justify-center wrap class="mt-10">
-        <div :class="mdAndUp ? 'px-10' : 'pb-10'">
+        <div :class="mdAndUp ? 'px-5 mr-5' : 'pb-10'">
           <Avatar size="250" />
         </div>
-        <div :class="mdAndUp ? 'px-10' : ''">
+        <div :class="mdAndUp ? 'px-5' : ''">
           <ContactInfo />
-          <Social />
         </div>
       </v-layout>
 
       <PageTextContent class="pt-10">
         <template v-slot:title>
           Skills
-          <v-divider></v-divider>
         </template>
 
         <template v-slot:content>
@@ -28,7 +23,7 @@
                 :color="chip.color"
                 :icon="chip.icon"
                 :key="chip.text"
-                class="mr-2 my-1"
+                class="mr-4 mb-3"
               />
             </template>
           </v-layout>
@@ -38,11 +33,10 @@
       <PageTextContent class="pt-10">
         <template v-slot:title>
           Professional
-          <v-divider></v-divider>
         </template>
 
         <template v-slot:content>
-          <p class="body-1">
+          <p>
             Software development, programming, coding, and UI/UX design are all
             passions in my life. My focus is on full stack web development and
             while I do enjoy working with data on the backend, my real passion
@@ -51,7 +45,7 @@
             creating a new project, planning the architecture and design,
             building out all the features, all the way to deployment.
           </p>
-          <p class="body-1">
+          <p>
             The biggest thing I have learned in my development experience is
             that I really enjoy the challenge of solving problems. It pushes me
             to constantly learn new things, research new technologies, and
@@ -59,7 +53,7 @@
             always feel fun, exciting, and more like a fun hobby than actual
             work.
           </p>
-          <p class="body-1">
+          <p>
             The main technologies I have experience with are JavaScript (ES6+),
             Vue.js, TypeScript, and both Ruby and Ruby on Rails 5+. I initially
             learned these skills in 2018 while attending
@@ -68,14 +62,14 @@
             have continued developing on the job and in my own free time.
           </p>
 
-          <p class="body-1">
+          <p>
             I’m currently working as a software developer at
             <a class="blue--text" href="https://aeroscan.nl/">AeroScan</a>,
             developing 3D real estate inspection software. We are working with
             some of the biggest real estate companies in the Netherlands with
             the goal of making digital inspections a reality.
           </p>
-          <p class="body-1 mb-0">
+          <p class="mb-0">
             I’m always open to new career and business opportunities. Please
             feel free to contact me by phone, text, or email if you would like
             to have more information.
@@ -86,7 +80,7 @@
       <!-- <PageTextContent class="pt-10">
         <template v-slot:title>
           Personal
-          <v-divider></v-divider>
+
         </template>
 
         <template v-slot:content>
@@ -103,7 +97,6 @@
       <PageTextContent class="pt-10">
         <template v-slot:title>
           Education
-          <v-divider></v-divider>
         </template>
         <template v-slot:content>
           <v-layout wrap class="pb-2">
@@ -147,6 +140,16 @@ export default class About extends AppComponent {
   }
   get eduChips() {
     return this.$store.getters.eduChips
+  }
+
+  get aboutPageContainerStyle() {
+    if (this.lgAndUp) {
+      return 'padding-left: 250px; padding-right: 250px;'
+    } else if (this.md) {
+      return 'padding-left: 100px; padding-right: 100px;'
+    } else {
+      return 'padding-left: 50px; padding-right: 50px;'
+    }
   }
 }
 </script>

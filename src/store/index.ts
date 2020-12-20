@@ -14,13 +14,13 @@ export default new Vuex.Store({
     skillChipsState: {
       javascript: {
         text: 'JavaScript',
-        color: 'amber lighten-1',
+        color: 'amber darken-2',
         icon: 'fab fa-js-square'
       },
       typescript: {
         text: 'TypeScript',
-        color: 'blue lighten-1',
-        icon: 'fab fa-js-square'
+        color: 'blue darken-3',
+        icon: 'fas fa-code'
       },
       vue: { text: 'Vue.js', color: 'green darken-1', icon: 'fab fa-vuejs' },
       vuetify: {
@@ -28,20 +28,31 @@ export default new Vuex.Store({
         color: 'blue darken-1',
         icon: 'fab fa-vuejs'
       },
-      cesium: {
-        text: 'Cesium.js',
-        color: 'blue darken-1',
-        icon: 'fab fa-vuejs'
-      },
-      html: { text: 'HTML5', color: 'orange darken-4', icon: 'fab fa-html5' },
-      css: { text: 'CSS3', color: 'blue darken-3', icon: 'fab fa-css3-alt' },
       rails: {
         text: 'Ruby on Rails',
         color: 'pink darken-1',
         icon: 'fas fa-code'
       },
       ruby: { text: 'Ruby', color: 'pink darken-2', icon: 'fas fa-code' },
+      html: { text: 'HTML5', color: 'orange darken-4', icon: 'fab fa-html5' },
+      css: { text: 'CSS3', color: 'blue darken-3', icon: 'fab fa-css3-alt' },
       rspec: { text: 'RSpec', color: 'pink darken-3', icon: 'fas fa-code' },
+      cesium: {
+        text: 'Cesium.js',
+        color: 'blue darken-1',
+        icon: 'fas fa-code'
+      },
+      bootstrap: {
+        text: 'Bootstrap 4',
+        color: 'blue darken-1',
+        icon: 'fas fa-code'
+      },
+      mobile: {
+        text: 'Mobile Responsive Design',
+
+        color: 'deep-purple',
+        icon: 'fas fa-code'
+      },
       git: {
         text: 'git',
         color: 'deep-orange darken-4',
@@ -78,17 +89,27 @@ export default new Vuex.Store({
       googleCloud: {
         text: 'Google Cloud Services',
         color: 'light-blue darken-1',
-        icon: 'fab fa-code'
+        icon: 'fab fa-google'
       },
       mvc: {
         text: 'MVC Design Pattern',
-        color: 'deep-purple',
+        color: 'blue darken-1',
         icon: 'fas fa-code'
       },
       scrum: {
-        text: 'Scrum & Agile work flows',
+        text: 'Agile Work Flow',
+        color: 'deep-orange accent-1',
+        icon: 'fas fa-briefcase'
+      },
+      jira: {
+        text: 'Jira',
         color: 'deep-orange accent-2',
-        icon: 'fas fa-code'
+        icon: 'fab fa-jira'
+      },
+      trello: {
+        text: 'Trello',
+        color: 'deep-purple accent-2',
+        icon: 'fab fa-trello'
       }
     },
     eduChipsState: [

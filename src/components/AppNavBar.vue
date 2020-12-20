@@ -52,3 +52,5 @@ export default class AppNavBar extends AppComponent {
   }
 }
 </script>
+
+<style lang="css"></style>

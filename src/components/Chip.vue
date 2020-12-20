@@ -3,6 +3,7 @@
     :color="color ? color : 'light-blue lighten-1'"
     outlined
     class="cursor-pointer-on-hover"
+    tile
   >
     <v-icon v-if="icon" small fab class="mr-2">{{ icon }}</v-icon>
     <p class="mb-0 font-weight-bold">{{ text }}</p>

@@ -15,6 +15,9 @@ export default class AppComponent extends Vue {
     return this.md || this.lg || this.xl
   }
 
+  get lgAndUp() {
+    return this.lg || this.xl
+  }
   get xs() {
     return this.$vuetify.breakpoint.xs
   }

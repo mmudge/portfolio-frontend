@@ -3,14 +3,14 @@
     <v-container>
       <v-layout align-center justify-space-around wrap>
         <v-flex shrink>
-          <p :class="`{ smAndDown ? 'text-center pb-5' : '' } mb-0`">
+          <p :class="`${smAndDown ? 'text-center pb-5' : ''} mb-0`">
             Michael Mudge Copyright
             {{ year }}, all rights reserved.
           </p>
         </v-flex>
 
         <v-flex shrink>
-          <p class="mb-0">
+          <p @click="copyEmailToClipBoard" class="mb-0 cursor-pointer-on-hover">
             michaeltmudge@gmail.com
           </p>
         </v-flex>
@@ -36,6 +36,10 @@ import AppComponent from '@/components/AppComponent'
 export default class Footer extends AppComponent {
   get year() {
     return new Date().getFullYear()
+  }
+
+  copyEmailToClipBoard() {
+    this.copyToClipboard('michaeltmudge@gmail.com')
   }
 }
 </script>

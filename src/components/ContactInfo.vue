@@ -1,14 +1,29 @@
 <template>
   <div>
-    <div v-for="info in contactInfo" :key="info.title" class="pb-3">
+    <div
+      v-for="(info, index) in contactInfo"
+      :key="info.title"
+      class="pb-2 darkText--text"
+    >
       <v-layout
         align-center
         justify-start
         class="pb-1 cursor-pointer-on-hover"
         @click.stop="info.run()"
       >
-        <v-icon medium :color="info.color" class="mr-3">{{ info.icon }}</v-icon>
-        <p class="mb-0 title font-weight-regular">{{ info.content }}</p>
+        <v-icon medium :color="info.color" class="mr-3 d-none">{{
+          info.icon
+        }}</v-icon>
+
+        <p
+          :class="
+            `${
+              index === 0 ? 'display-1 font-weight-bold' : 'title '
+            } mb-0 font-weight-regular`
+          "
+        >
+          {{ info.content }}
+        </p>
       </v-layout>
     </div>
   </div>
@@ -36,17 +51,17 @@ export default class ContactInfo extends AppComponent {
     },
     {
       title: 'Phone',
-      content: '951-323-1876',
+      content: '951 323 1876',
       icon: 'fas fa-phone-square-alt',
       color: 'blue darken-2',
       run: () => this.copyToClipboard('951-323-1876')
     },
     {
       title: 'Location',
-      content: 'Southern California',
+      content: 'San Clemente, California',
       icon: 'far fa-compass',
       color: 'light-blue darken-1',
-      run: () => this.copyToClipboard('Southern California')
+      run: () => this.copyToClipboard('San Clemente, California')
     }
   ]
 }
