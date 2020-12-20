@@ -37,29 +37,28 @@
 
         <template v-slot:content>
           <p>
-            Software development, programming, coding, and UI/UX design are all
-            passions in my life. My focus is on full stack web development and
-            while I do enjoy working with data on the backend, my real passion
-            is bringing that data to life on the front end. Building web
-            applications is something I enjoy from start to finish, from
-            creating a new project, planning the architecture and design,
-            building out all the features, all the way to deployment.
+            Coding, design, and software development are my passion. My focus is
+            on full stack web development and while I do enjoy working with data
+            on the backend, my real passion is bringing that data to life on the
+            front end. Building web applications is something I enjoy from start
+            to finish, from creating a new project, planning the architecture
+            and design, building out all the features, all the way to
+            deployment.
           </p>
           <p>
             The biggest thing I have learned in my development experience is
             that I really enjoy the challenge of solving problems. It pushes me
             to constantly learn new things, research new technologies, and
             experiment with code in order to find solutions. This makes my work
-            always feel fun, exciting, and more like a fun hobby than actual
-            work.
+            always feel fun, exciting, and more like a hobby than actual work.
           </p>
           <p>
             The main technologies I have experience with are JavaScript (ES6+),
-            Vue.js, TypeScript, and both Ruby and Ruby on Rails 5+. I initially
-            learned these skills in 2018 while attending
+            Vue.js, TypeScript, Ruby, and Ruby on Rails. I initially learned
+            these skills in 2018 while attending
             <a class="red--text" href="https://www.lewagon.com/">Le Wagon</a>
             Amsterdam. After my bootcamp I was hired by one of my teachers and
-            have continued developing on the job and in my own free time.
+            have continued my learning on the job and in my own free time.
           </p>
 
           <p>
