@@ -1,12 +1,17 @@
 <template>
   <div>
-    <v-container>
+    <v-container v-if="loggedInUser">
       <div>
         <h1>Projects</h1>
         <template v-for="project in projects">
           <p :key="project.id">{{ project.title }}</p>
         </template>
       </div>
+    </v-container>
+    <v-container v-else>
+      <v-layout align-center justify-center>
+        <h1>This page is currently under construction</h1>
+      </v-layout>
     </v-container>
   </div>
 </template>
