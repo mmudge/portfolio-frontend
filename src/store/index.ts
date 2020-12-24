@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Project from '@/models/Project'
 import User from '@/models/User'
+import ProjectsModule from './ProjectsModule'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     appName: "Mike's Portfolio",
-    projects: [] as Project[],
     loggedInUser: (null as unknown) as User,
     navBarHeight: '126' as string,
     snackbar: {} as { text: string; color: string },
@@ -126,6 +126,7 @@ export default new Vuex.Store({
       }
     ]
   },
+
   mutations: {
     setProjects(state, projects: Project[]) {
       state.projects = projects
@@ -141,7 +142,9 @@ export default new Vuex.Store({
     }
   },
   actions: {},
-  modules: {},
+  modules: {
+    projects: ProjectsModule
+  },
   getters: {
     appName: state => {
       return state.appName
@@ -151,9 +154,6 @@ export default new Vuex.Store({
     },
     navBarHeight: state => {
       return state.navBarHeight
-    },
-    projects: state => {
-      return state.projects
     },
     skillChips: state => {
       return state.skillChipsState

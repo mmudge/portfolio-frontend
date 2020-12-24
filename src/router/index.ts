@@ -14,12 +14,12 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'contentWrapper',
+    path: '',
+    name: '',
     component: ContentWrapper,
     children: [
       {
-        path: '',
+        path: '/',
         name: 'landingPage',
         component: LandingPage
       },
@@ -63,10 +63,8 @@ const router = new VueRouter({
 
 const setNavBarHeight = (route: Route) => {
   if (route.name === 'landingPage') {
-    console.log('setting nav bar height landing page')
     store.commit('setNavBarHeight', '126')
   } else {
-    console.log('setting nav bar height NOT landing page')
     store.commit('setNavBarHeight', '172')
   }
 }

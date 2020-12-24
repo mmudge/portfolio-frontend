@@ -1,36 +1,24 @@
 import axios from 'axios'
 import store from '@/store'
 import User from '@/models/User'
+import { ProjectDetails } from '@/types/types'
 
-const devBackendUrl = 'http://127.0.0.1:3000/'
-const prodBackendUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
+let baseUrl = ''
+console.log('Env: ', process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+  baseUrl = 'http://127.0.0.1:3000/'
+} else {
+  baseUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
+}
 
-const activeUrl = devBackendUrl
+// const devBackendUrl = 'http://127.0.0.1:3000/'
+// const prodBackendUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
+
+const activeUrl = baseUrl
 
 export default class Api {
-  id!: number
-  title!: string
-
   static get authTokenString() {
     return `Bearer ${localStorage.getItem('token')}`
-  }
-
-  static getAllProjects() {
-    let url = activeUrl
-
-    url += 'projects'
-    axios
-      .get(url, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: this.authTokenString
-        }
-      })
-      .then((response: any) => {
-        console.log('GET projects response', response.data)
-        store.commit('setProjects', response.data)
-      })
-      .catch(error => console.log('error fetching projects', error))
   }
 
   static getLoggedInUser() {
@@ -125,6 +113,48 @@ export default class Api {
       })
       .catch(error => {
         console.log('error signing out user', error)
+      })
+  }
+
+  static getAllProjects() {
+    let url = activeUrl
+
+    url += 'projects'
+    return axios
+      .get(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: this.authTokenString
+        }
+      })
+      .then((response: any) => {
+        return response.data
+      })
+      .catch(error => console.log('error fetching projects', error))
+  }
+
+  static createProject(projectDetails: ProjectDetails) {
+    const url = activeUrl + 'projects'
+
+    return axios
+      .post(
+        url,
+        {
+          project: projectDetails
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: this.authTokenString
+          }
+        }
+      )
+      .then(response => {
+        console.log('POST create project response', response, response.data)
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error creating project', error)
       })
   }
 }
