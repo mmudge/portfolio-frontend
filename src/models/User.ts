@@ -58,7 +58,6 @@ export default class User {
       const result = await Api.deleteSignOutUser(store.getters.getLoggedInUser)
       if (result) {
         localStorage.removeItem('token')
-        console.log('setting logged in user to null')
         store.commit('setLoggedInUser', null)
       }
       return result

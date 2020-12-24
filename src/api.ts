@@ -11,18 +11,13 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   baseUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
 }
 
-// const devBackendUrl = 'http://127.0.0.1:3000/'
-// const prodBackendUrl = 'https://mmudge-portfolio-api.herokuapp.com/'
-
-const activeUrl = baseUrl
-
 export default class Api {
   static get authTokenString() {
     return `Bearer ${localStorage.getItem('token')}`
   }
 
   static getLoggedInUser() {
-    const url = activeUrl + 'current_user'
+    const url = baseUrl + 'current_user'
     return axios
       .get(url, {
         headers: {
@@ -41,7 +36,7 @@ export default class Api {
   }
 
   static postSignInUser(userInfo: { email: string; password: string }) {
-    const url = activeUrl + 'login'
+    const url = baseUrl + 'login'
 
     return axios
       .post(
@@ -56,7 +51,6 @@ export default class Api {
         }
       )
       .then(response => {
-        console.log('POST sign in response', response, response.data)
         return response.data
       })
       .catch(error => {
@@ -72,7 +66,7 @@ export default class Api {
     password_confirmation: string
     username: string
   }) {
-    const url = activeUrl + 'signup'
+    const url = baseUrl + 'signup'
 
     return axios
       .post(
@@ -87,7 +81,6 @@ export default class Api {
         }
       )
       .then(response => {
-        console.log('POST sign up response', response, response.data)
         return response.data
       })
       .catch(error => {
@@ -98,7 +91,7 @@ export default class Api {
   }
 
   static deleteSignOutUser(user: User) {
-    const url = activeUrl + 'logout'
+    const url = baseUrl + 'logout'
 
     return axios
       .delete(url, {
@@ -108,7 +101,6 @@ export default class Api {
         data: user
       })
       .then(response => {
-        console.log('DELETE sign out response', response, response.data)
         return response.data
       })
       .catch(error => {
@@ -117,7 +109,7 @@ export default class Api {
   }
 
   static getAllProjects() {
-    let url = activeUrl
+    let url = baseUrl
 
     url += 'projects'
     return axios
@@ -134,7 +126,7 @@ export default class Api {
   }
 
   static createProject(projectDetails: ProjectDetails) {
-    const url = activeUrl + 'projects'
+    const url = baseUrl + 'projects'
 
     return axios
       .post(
@@ -150,11 +142,34 @@ export default class Api {
         }
       )
       .then(response => {
-        console.log('POST create project response', response, response.data)
         return response.data
       })
       .catch(error => {
         console.log('Error creating project', error)
+      })
+  }
+
+  static updateProject(projectId: number, projectDetails: ProjectDetails) {
+    const url = baseUrl + `projects/${projectId}`
+
+    return axios
+      .put(
+        url,
+        {
+          project: projectDetails
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: this.authTokenString
+          }
+        }
+      )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error updating project', error)
       })
   }
 }

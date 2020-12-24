@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import AppComponent from '@/components/AppComponent'
+import AppComponent from '@/components/AppComponent.ts'
 import ProjectsTable from '@/components/projects/ProjectsTable.vue'
 import CreateOrUpdateProject from '@/components/projects/CreateOrUpdateProject.vue'
 

@@ -55,8 +55,7 @@ export default class CreateOrUpdateProject extends AppComponent {
   onFormOpenChanged() {
     if (this.projectToUpdateId) {
       this.setProject()
-    }
-    if (!this.formOpened) {
+    } else if (!this.formOpened) {
       this.resetDataProps()
     }
   }
@@ -72,16 +71,23 @@ export default class CreateOrUpdateProject extends AppComponent {
     }
   }
 
-  updateProject() {
-    console.log('update project')
+  async updateProject() {
+    const project: ProjectDetails = { title: this.title }
+    const result = await Project.updateProject(this.projectToUpdateId, project)
+    if (result.errors) {
+      console.log('errors updating')
+      this.setSnackbar('Error updating project', 'error')
+    } else {
+      this.setSnackbar('Project updated successfully', 'success')
+      this.$emit('closeDialog')
+    }
   }
 
   async createProject() {
-    console.log('create project')
     const project: ProjectDetails = { title: this.title }
-    const result = Project.createProject(project)
+    const result = await Project.createProject(project)
     if (result.errors) {
-      console.log('errors createing')
+      console.log('errors creating')
       this.setSnackbar('Error creating project', 'error')
     } else {
       this.setSnackbar('Project created successfully', 'success')
