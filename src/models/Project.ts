@@ -34,6 +34,15 @@ export default class Project {
     return project
   }
 
+  static async deleteProject(projectId: number) {
+    const result = await Api.deleteProject(projectId)
+    if (result) {
+      store.commit('projects/removeProject', projectId)
+    }
+
+    return result
+  }
+
   static findProject(projectId: number) {
     return store.getters['projects/projects'].find(
       (project: Project) => project.id === projectId

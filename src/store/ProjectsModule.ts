@@ -14,9 +14,9 @@ export default class ProjectsModule extends VuexModule {
     this.projectsState = [...this.projectsState, project]
   }
 
-  @Mutation removeProject(project: Project): void {
+  @Mutation removeProject(projectId: number): void {
     this.projectsState = this.projectsState.filter(
-      (p: Project) => p.id != project.id
+      (p: Project) => p.id != projectId
     )
   }
 

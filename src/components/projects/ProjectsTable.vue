@@ -89,6 +89,13 @@ export default class ProjectsTable extends AppComponent {
     this.updateProjectDialog = true
   }
 
+  async deleteProject(projectId: number) {
+    const deleted = await Project.deleteProject(projectId)
+    if (deleted) {
+      this.setSnackbar('Project deleted', 'warning')
+    }
+  }
+
   onCloseDialog() {
     this.updateProjectDialog = false
   }

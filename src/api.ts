@@ -172,4 +172,21 @@ export default class Api {
         console.log('Error updating project', error)
       })
   }
+
+  static deleteProject(projectId: number) {
+    const url = baseUrl + `projects/${projectId}`
+
+    return axios
+      .delete(url, {
+        headers: {
+          Authorization: this.authTokenString
+        }
+      })
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('error deleting project', error)
+      })
+  }
 }
