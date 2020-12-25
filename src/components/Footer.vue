@@ -1,5 +1,5 @@
 <template>
-  <v-footer app color="backgroundGray" class="text--darkText">
+  <v-footer app absolute color="backgroundGray" class="text--darkText">
     <v-container>
       <v-layout align-center justify-space-around wrap>
         <v-flex shrink>
