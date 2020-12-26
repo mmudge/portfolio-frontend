@@ -20,7 +20,6 @@ export default class Project {
 
   static async createProject(projectDetails: ProjectDetails) {
     const project: Project = await Api.createProject(projectDetails)
-
     if (project && !project.errors) {
       store.commit('projects/addProject', project)
     }

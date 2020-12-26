@@ -28,7 +28,7 @@ export default class Projects extends AppComponent {
   }
 
   get projects() {
-    return this.$store.getters.projects
+    return this.$store.getters['projects/projects']
   }
 }
 </script>

@@ -128,9 +128,6 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    setProjects(state, projects: Project[]) {
-      state.projects = projects
-    },
     setLoggedInUser(state, user: User) {
       state.loggedInUser = user
     },
