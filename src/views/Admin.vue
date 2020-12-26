@@ -13,7 +13,10 @@
     </v-container>
 
     <v-dialog v-model="createProjectDialog" width="500">
-      <CreateOrUpdateProject @closeDialog="onCloseDialog" />
+      <CreateOrUpdateProject
+        @closeDialog="onCloseDialog"
+        :formOpened="createProjectDialog"
+      />
     </v-dialog>
   </div>
 </template>

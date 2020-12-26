@@ -60,6 +60,24 @@ export default class ProjectsTable extends AppComponent {
       value: 'title'
     },
     {
+      text: 'Description',
+      align: 'left',
+      sortable: false,
+      value: 'description'
+    },
+    {
+      text: 'Link',
+      align: 'left',
+      sortable: false,
+      value: 'link'
+    },
+    {
+      text: 'Published',
+      align: 'left',
+      sortable: false,
+      value: 'published'
+    },
+    {
       text: 'Actions',
       align: 'right',
       sortable: false,

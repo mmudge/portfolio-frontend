@@ -17,6 +17,9 @@
       >
 
       <template v-if="loggedInUser">
+        <v-btn to="/admin" text color="primary" class="mr-10" x-large
+          >Admin</v-btn
+        >
         <v-btn @click.stop="signOutUser" text color="primary" x-large
           >Log out</v-btn
         >

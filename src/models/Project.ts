@@ -5,6 +5,10 @@ import { ProjectDetails } from '@/types/types'
 export default class Project {
   id!: number
   title!: string
+  description!: string
+  link!: string
+  published!: boolean
+
   errors!: string[]
 
   static async fetchAll() {

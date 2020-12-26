@@ -17,11 +17,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import Project from '@/models/Project'
+import AppComponent from '@/components/AppComponent'
 
 @Component
-export default class Projects extends Vue {
+export default class Projects extends AppComponent {
   mounted() {
     Project.fetchAll()
   }

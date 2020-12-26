@@ -7,14 +7,34 @@
     <v-form @submit.prevent ref="projectForm" class="mt-10">
       <v-text-field v-model="title" tabindex="1" outlined label="Title">
       </v-text-field>
+      <v-textarea
+        v-model="description"
+        tabindex="2"
+        outlined
+        label="Description"
+        rows="3"
+      >
+      </v-textarea>
+      <v-text-field
+        v-model="link"
+        tabindex="3"
+        outlined
+        label="Link"
+      ></v-text-field>
+      <v-switch
+        v-model="published"
+        label="Published"
+        color="success"
+      ></v-switch>
     </v-form>
 
     <template v-if="projectToUpdateId">
       <v-btn
         color="primary"
-        tabindex="2"
+        tabindex="3"
         dark
         block
+        class="mt-5"
         @keyup.enter="updateProject"
         @click.stop="updateProject"
         >Update</v-btn
@@ -24,7 +44,7 @@
     <template v-else>
       <v-btn
         color="primary"
-        tabindex="2"
+        tabindex="3"
         class="mt-5"
         dark
         block
@@ -50,6 +70,9 @@ export default class CreateOrUpdateProject extends AppComponent {
   @Prop() projectToUpdateId!: number
 
   title: string = ''
+  description: string = ''
+  link: string = ''
+  published: boolean = false
 
   @Watch('formOpened', { immediate: true })
   onFormOpenChanged() {
@@ -61,7 +84,11 @@ export default class CreateOrUpdateProject extends AppComponent {
   }
 
   resetDataProps() {
+    console.log('resetting data props')
     this.title = ''
+    this.description = ''
+    this.link = ''
+    this.published = false
   }
 
   setProject() {
@@ -72,7 +99,12 @@ export default class CreateOrUpdateProject extends AppComponent {
   }
 
   async updateProject() {
-    const project: ProjectDetails = { title: this.title }
+    const project: ProjectDetails = {
+      title: this.title,
+      description: this.description,
+      link: this.link,
+      published: this.published
+    }
     const result = await Project.updateProject(this.projectToUpdateId, project)
     if (result.errors) {
       console.log('errors updating')
@@ -84,7 +116,12 @@ export default class CreateOrUpdateProject extends AppComponent {
   }
 
   async createProject() {
-    const project: ProjectDetails = { title: this.title }
+    const project: ProjectDetails = {
+      title: this.title,
+      description: this.description,
+      link: this.link,
+      published: this.published
+    }
     const result = await Project.createProject(project)
     if (result.errors) {
       console.log('errors creating')
