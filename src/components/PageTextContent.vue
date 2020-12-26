@@ -18,10 +18,10 @@ export default class PageTextContent extends Vue {}
 
 <style lang="css">
 .page-text-content > * {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .page-text-title {
-  font-size: 28px;
+  font-size: 18px;
 }
 </style>

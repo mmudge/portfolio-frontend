@@ -42,4 +42,8 @@ export default class ProjectsModule extends VuexModule {
   get projects(): Project[] {
     return this.projectsState
   }
+
+  get publishedProjects(): Project[] {
+    return this.projectsState.filter((p: Project) => p.published)
+  }
 }
