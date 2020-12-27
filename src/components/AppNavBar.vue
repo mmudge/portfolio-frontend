@@ -7,8 +7,8 @@
   >
     <v-layout align-center justify-center>
       <v-btn to="/" text color="primary" x-large class="mr-10">
-        <v-icon large>fab fa-creative-commons-sampling</v-icon></v-btn
-      >
+        <v-icon large>far fa-compass</v-icon>
+      </v-btn>
       <v-btn to="/projects" text color="primary" x-large class="mr-10"
         >Projects</v-btn
       >
