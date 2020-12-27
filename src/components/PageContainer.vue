@@ -16,7 +16,7 @@ export default class PageContainer extends AppComponent {
     } else if (this.md) {
       return 'padding-left: 100px; padding-right: 100px;'
     } else {
-      return 'padding-left: 50px; padding-right: 50px;'
+      return 'padding-left: 25px; padding-right: 25px; padding-top: 100px;'
     }
   }
 }

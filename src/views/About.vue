@@ -39,12 +39,12 @@
           <template v-slot:content>
             <p>
               Coding, design, and software development are my passion. My focus
-              is on full stack web development and while I do enjoy working with
-              data on the backend, my real passion is bringing that data to life
-              on the front end. Building web applications is something I enjoy
-              from start to finish, from creating a new project, planning the
-              architecture and design, building out all the features, all the
-              way to deployment.
+              is on full stack web development. I enjoy working with data on the
+              backend, however my real passion is bringing that data to life on
+              the front end. Building web applications is something I enjoy from
+              start to finish, from creating a new project, planning
+              architecture and design, building out features, going through user
+              feedback loops to improve features, all the way to deployment.
             </p>
             <p>
               The biggest thing I have learned in my development experience is
@@ -145,21 +145,7 @@ export default class About extends AppComponent {
   get eduChips() {
     return this.$store.getters.eduChips
   }
-
-  get aboutPageContainerStyle() {
-    if (this.lgAndUp) {
-      return 'padding-left: 250px; padding-right: 250px;'
-    } else if (this.md) {
-      return 'padding-left: 100px; padding-right: 100px;'
-    } else {
-      return 'padding-left: 50px; padding-right: 50px;'
-    }
-  }
 }
 </script>
 
-<style scoped>
-.about {
-  padding-top: 64px;
-}
-</style>
+<style scoped></style>

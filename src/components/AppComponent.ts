@@ -18,6 +18,7 @@ export default class AppComponent extends Vue {
   get lgAndUp() {
     return this.lg || this.xl
   }
+
   get xs() {
     return this.$vuetify.breakpoint.xs
   }
@@ -35,7 +36,7 @@ export default class AppComponent extends Vue {
   }
 
   get xl() {
-    return this.$vuetify.breakpoint.md
+    return this.$vuetify.breakpoint.xl
   }
 
   copyToClipboard(text: string) {
@@ -45,5 +46,11 @@ export default class AppComponent extends Vue {
 
   setSnackbar(text: string, color: string) {
     this.$store.commit('setSnackbar', { text, color })
+  }
+
+  routeTo(routeName: string) {
+    if (this.$router.currentRoute.name != routeName) {
+      this.$router.push({ name: routeName })
+    }
   }
 }

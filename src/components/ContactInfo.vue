@@ -7,13 +7,14 @@
     >
       <v-layout
         align-center
-        justify-start
+        :justify-start="mdAndUp"
+        :justify-center="smAndDown"
         :class="
           `${
             index === 0 || index === contactInfo[contactInfo.length - 1]
               ? ''
               : 'cursor-pointer-on-hover'
-          } pb-1`
+          } ${smAndDown ? 'text-center' : ''} pb-1`
         "
         @click.stop="info.run()"
       >

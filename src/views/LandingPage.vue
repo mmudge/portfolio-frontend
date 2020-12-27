@@ -1,6 +1,6 @@
 <template>
-  <div class="landing-page darkText--text">
-    <v-container class="px-10" fill-height>
+  <div>
+    <v-container v-if="mdAndUp" class="landing-page darkText--text px-10">
       <v-card color="#F5F5F5" class="py-10" flat>
         <v-layout align-center justify-center class="py-10">
           <v-flex shrink class="px-10">
@@ -50,21 +50,49 @@
         </v-layout>
       </v-card>
     </v-container>
+
+    <PageContainer>
+      <template v-slot:content>
+        <p>Hello! I'm Mike</p>
+        <p class="primary--text">a <strong>web developer</strong></p>
+        <p>based in southern california.</p>
+        <v-btn
+          color="accent"
+          class="mt-5"
+          large
+          block
+          :to="{ name: 'projects' }"
+          >Projects</v-btn
+        >
+        <v-btn
+          color="primary"
+          class="mt-5"
+          outlined
+          large
+          block
+          :to="{ name: 'about' }"
+          >About me</v-btn
+        >
+      </template>
+    </PageContainer>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import User from '@/models/User'
 import Project from '@/models/Project'
 import Avatar from '@/components/Avatar.vue'
+import PageContainer from '@/components/PageContainer.vue'
+import AppComponent from '@/components/AppComponent'
 
 @Component({
   components: {
-    Avatar
+    Avatar,
+    PageContainer
   }
 })
-export default class LandingPage extends Vue {
+export default class LandingPage extends AppComponent {
   signInUser() {
     this.$router.push({ name: 'login' })
   }
@@ -83,8 +111,8 @@ export default class LandingPage extends Vue {
 
 <style>
 .landing-page {
-  background-color: #fafafa;
-  min-height: 100%;
+  /* background-color: #fafafa;
+  min-height: 100%; */
   display: flex;
   align-items: center;
   justify-content: center;
