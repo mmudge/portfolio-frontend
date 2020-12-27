@@ -2,10 +2,8 @@
   <div>
     <PageContainer>
       <template v-slot:content>
-        <h1>This page is currently under construction.</h1>
-
         <template v-for="project in publishedProjects">
-          <p class="d-none" :key="project.id">{{ project.title }}</p>
+          <ProjectCard :key="project.id" :project="project" class="mb-5" />
         </template>
       </template>
     </PageContainer>
@@ -17,10 +15,12 @@ import { Component } from 'vue-property-decorator'
 import Project from '@/models/Project'
 import AppComponent from '@/components/AppComponent'
 import PageContainer from '@/components/PageContainer.vue'
+import ProjectCard from '@/components/projects/ProjectCard.vue'
 
 @Component({
   components: {
-    PageContainer
+    PageContainer,
+    ProjectCard
   }
 })
 export default class Projects extends AppComponent {
@@ -28,7 +28,7 @@ export default class Projects extends AppComponent {
     Project.fetchAll()
   }
 
-  get publishedProjects() {
+  get publishedProjects(): Project[] {
     return this.$store.getters['projects/publishedProjects']
   }
 }

@@ -21,17 +21,24 @@
         outlined
         label="Link"
       ></v-text-field>
+      <v-text-field
+        v-model="githubLink"
+        tabindex="4"
+        outlined
+        label="Link"
+      ></v-text-field>
       <v-switch
         v-model="published"
         label="Published"
         color="success"
+        tabindex="5"
       ></v-switch>
     </v-form>
 
     <template v-if="projectToUpdateId">
       <v-btn
         color="primary"
-        tabindex="3"
+        tabindex="6"
         dark
         block
         class="mt-5"
@@ -44,7 +51,7 @@
     <template v-else>
       <v-btn
         color="primary"
-        tabindex="3"
+        tabindex="6"
         class="mt-5"
         dark
         block
@@ -72,6 +79,7 @@ export default class CreateOrUpdateProject extends AppComponent {
   title: string = ''
   description: string = ''
   link: string = ''
+  githubLink: string = ''
   published: boolean = false
 
   @Watch('formOpened', { immediate: true })
@@ -84,17 +92,21 @@ export default class CreateOrUpdateProject extends AppComponent {
   }
 
   resetDataProps() {
-    console.log('resetting data props')
     this.title = ''
     this.description = ''
     this.link = ''
     this.published = false
+    this.githubLink = ''
   }
 
   setProject() {
     const project: Project = Project.findProject(this.projectToUpdateId)
     if (project) {
       this.title = project.title
+      this.description = project.description
+      this.link = project.link
+      this.published = project.published
+      this.githubLink = project.github_link
     }
   }
 
@@ -103,8 +115,10 @@ export default class CreateOrUpdateProject extends AppComponent {
       title: this.title,
       description: this.description,
       link: this.link,
-      published: this.published
+      published: this.published,
+      github_link: this.githubLink
     }
+
     const result = await Project.updateProject(this.projectToUpdateId, project)
     if (result.errors) {
       console.log('errors updating')
@@ -120,8 +134,10 @@ export default class CreateOrUpdateProject extends AppComponent {
       title: this.title,
       description: this.description,
       link: this.link,
-      published: this.published
+      published: this.published,
+      github_link: this.githubLink
     }
+
     const result = await Project.createProject(project)
     if (result.errors) {
       console.log('errors creating')

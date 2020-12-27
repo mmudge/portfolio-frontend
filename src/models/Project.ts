@@ -7,6 +7,7 @@ export default class Project {
   title!: string
   description!: string
   link!: string
+  github_link!: string
   published!: boolean
 
   errors!: string[]

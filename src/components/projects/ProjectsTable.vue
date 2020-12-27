@@ -10,8 +10,12 @@
       no-data-text="No data"
       no-results-text="No results"
     >
+      <template v-slot:item.description="{ item }">
+        <div class="py-3">{{ item.description }}</div>
+      </template>
+
       <template v-slot:item.actions="{ item }">
-        <v-btn color="primary" text dark small @click="updateProject(item.id)"
+        <v-btn color="primary" text dark x-small @click="updateProject(item.id)"
           ><v-icon>far fa-edit</v-icon></v-btn
         >
         <v-btn
@@ -19,7 +23,7 @@
           color="red lighten-1"
           text
           dark
-          small
+          x-small
           @click="deleteProject(item.id)"
         >
           <v-icon>
@@ -57,31 +61,43 @@ export default class ProjectsTable extends AppComponent {
       text: 'Title',
       align: 'left',
       sortable: false,
-      value: 'title'
+      value: 'title',
+      width: '20%'
     },
     {
       text: 'Description',
       align: 'left',
       sortable: false,
-      value: 'description'
+      value: 'description',
+      width: '30%'
     },
     {
       text: 'Link',
       align: 'left',
       sortable: false,
-      value: 'link'
+      value: 'link',
+      width: '15%'
+    },
+    {
+      text: 'Github',
+      align: 'left',
+      sortable: false,
+      value: 'github_link',
+      width: '15%'
     },
     {
       text: 'Published',
       align: 'left',
       sortable: false,
-      value: 'published'
+      value: 'published',
+      width: '5%'
     },
     {
       text: 'Actions',
       align: 'right',
       sortable: false,
-      value: 'actions'
+      value: 'actions',
+      width: '15%'
     }
   ]
 
