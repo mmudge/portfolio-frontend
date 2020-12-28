@@ -51,7 +51,7 @@
       </v-card>
     </v-container>
 
-    <PageContainer>
+    <PageContainer v-if="smAndDown">
       <template v-slot:content>
         <p>Hello! I'm Mike</p>
         <p class="primary--text">a <strong>web developer</strong></p>
