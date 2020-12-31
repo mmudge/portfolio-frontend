@@ -2,7 +2,7 @@
   <PageContainer>
     <template v-slot:content>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md4>
+        <v-flex xs12 sm8 md7>
           <v-card class="pa-10 text--darkText">
             <h1>Login</h1>
 

@@ -5,3 +5,9 @@ export interface ProjectDetails {
   github_link: string
   published: boolean
 }
+
+export interface MessageDetails {
+  email: string
+  name: string
+  body: string
+}

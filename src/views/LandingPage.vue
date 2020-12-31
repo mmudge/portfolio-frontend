@@ -75,6 +75,12 @@
         >
       </template>
     </PageContainer>
+
+    <PageContainer class="my-16">
+      <template v-slot:content>
+        <ContactForm />
+      </template>
+    </PageContainer>
   </div>
 </template>
 
@@ -85,11 +91,13 @@ import Project from '@/models/Project'
 import Avatar from '@/components/Avatar.vue'
 import PageContainer from '@/components/PageContainer.vue'
 import AppComponent from '@/components/AppComponent'
+import ContactForm from '@/components/ContactForm.vue'
 
 @Component({
   components: {
     Avatar,
-    PageContainer
+    PageContainer,
+    ContactForm
   }
 })
 export default class LandingPage extends AppComponent {

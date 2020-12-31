@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
 import User from '@/models/User'
-import { ProjectDetails } from '@/types/types'
+import { ProjectDetails, MessageDetails } from '@/types/types'
 
 let baseUrl = ''
 console.log('Env: ', process.env.NODE_ENV)
@@ -187,6 +187,30 @@ export default class Api {
       })
       .catch(error => {
         console.log('error deleting project', error)
+      })
+  }
+
+  static createMessage(messageDetails: MessageDetails) {
+    const url = baseUrl + 'messages'
+
+    return axios
+      .post(
+        url,
+        {
+          message: messageDetails
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: this.authTokenString
+          }
+        }
+      )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error creating message', error)
       })
   }
 }

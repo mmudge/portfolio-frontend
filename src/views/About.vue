@@ -113,6 +113,7 @@
             </v-layout>
           </template>
         </PageTextContent>
+        <ContactForm class="my-16" />
       </template>
     </PageContainer>
   </div>
@@ -127,6 +128,7 @@ import ContactInfo from '@/components/ContactInfo.vue'
 import Chip from '@/components/Chip.vue'
 import PageTextContent from '@/components/PageTextContent.vue'
 import PageContainer from '@/components/PageContainer.vue'
+import ContactForm from '@/components/ContactForm.vue'
 
 @Component({
   components: {
@@ -135,7 +137,8 @@ import PageContainer from '@/components/PageContainer.vue'
     ContactInfo,
     Chip,
     PageTextContent,
-    PageContainer
+    PageContainer,
+    ContactForm
   }
 })
 export default class About extends AppComponent {
@@ -145,6 +148,14 @@ export default class About extends AppComponent {
   get eduChips() {
     return this.$store.getters.eduChips
   }
+
+  // test() {
+  //   Message.createMessage({
+  //     name: 'mikey mudge',
+  //     email: 'bla@bla.com',
+  //     body: 'asfdasdfadsf'
+  //   })
+  // }
 }
 </script>
 
