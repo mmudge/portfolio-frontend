@@ -25,7 +25,7 @@
         v-model="githubLink"
         tabindex="4"
         outlined
-        label="Link"
+        label="Github Link"
       ></v-text-field>
       <v-switch
         v-model="published"
