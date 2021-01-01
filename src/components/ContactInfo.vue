@@ -3,7 +3,7 @@
     <div
       v-for="(info, index) in contactInfo"
       :key="info.title"
-      class="pb-2 darkText--text"
+      class="pb-2 lightGray--text"
     >
       <v-layout
         align-center
@@ -25,7 +25,7 @@
         <p
           :class="
             `${
-              index === 0 ? 'text-h3 font-weight-bold' : 'title '
+              index === 0 ? 'text-h3 font-weight-bold blue1--text' : 'title '
             } mb-0 font-weight-regular`
           "
         >
@@ -67,7 +67,7 @@ export default class ContactInfo extends AppComponent {
     },
     {
       title: 'Location',
-      content: 'San Clemente, California',
+      content: 'Southern California',
       icon: 'far fa-compass',
       color: 'light-blue darken-1',
       run: () => {

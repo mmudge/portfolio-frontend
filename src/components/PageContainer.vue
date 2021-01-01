@@ -12,11 +12,11 @@ import AppComponent from '@/components/AppComponent'
 export default class PageContainer extends AppComponent {
   get containerStyle() {
     if (this.lgAndUp) {
-      return 'padding-left: 250px; padding-right: 250px;'
+      return 'padding-left: 250px; padding-right: 250px; padding-top: 150px;'
     } else if (this.md) {
-      return 'padding-left: 100px; padding-right: 100px;'
+      return 'padding-left: 100px; padding-right: 100px; padding-top: 150px;'
     } else {
-      return 'padding-left: 25px; padding-right: 25px; padding-top: 100px;'
+      return 'padding-left: 25px; padding-right: 25px; padding-top: 150px;'
     }
   }
 }

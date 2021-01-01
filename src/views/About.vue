@@ -38,8 +38,8 @@
 
           <template v-slot:content>
             <p>
-              Coding, design, and software development are my passion. My focus
-              is on full stack web development. I enjoy working with data on the
+              Building, coding, and designing software is my passion. My focus
+              is full stack web development. I enjoy working with data on the
               backend, however my real passion is bringing that data to life on
               the front end. Building web applications is something I enjoy from
               start to finish, from creating a new project, planning
@@ -148,15 +148,10 @@ export default class About extends AppComponent {
   get eduChips() {
     return this.$store.getters.eduChips
   }
-
-  // test() {
-  //   Message.createMessage({
-  //     name: 'mikey mudge',
-  //     email: 'bla@bla.com',
-  //     body: 'asfdasdfadsf'
-  //   })
-  // }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.about {
+}
+</style>

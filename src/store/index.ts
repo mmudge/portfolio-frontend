@@ -59,10 +59,10 @@ export default new Vuex.Store({
         color: 'deep-orange darken-4',
         icon: 'fab fa-git-square'
       },
-      github: { text: 'GitHub', color: 'grey darken-3', icon: 'fab fa-github' },
+      github: { text: 'GitHub', color: 'mediumGray', icon: 'fab fa-github' },
       gitlab: {
         text: 'GitLab',
-        color: 'deep-purple darken-4',
+        color: 'deep-purple lighten-1',
         icon: 'fab fa-gitlab'
       },
       sql: {
@@ -72,7 +72,7 @@ export default new Vuex.Store({
       },
       postgres: {
         text: 'Postgresql',
-        color: 'indigo darken-4',
+        color: 'indigo lighten-2',
         icon: 'fas fa-database'
       },
       heroku: {
@@ -88,7 +88,7 @@ export default new Vuex.Store({
       },
       // aws: { text: 'AWS S3', color: 'light-blue darken-1', icon: 'fab fa-aws' },
       googleCloud: {
-        text: 'Google Cloud Services',
+        text: 'GCS',
         color: 'light-blue darken-1',
         icon: 'fab fa-google'
       },

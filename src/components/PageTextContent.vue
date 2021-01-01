@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2 class="pb-4 darkText--text page-text-title font-weight-bold">
+    <h2 class="pb-4 blue1--text page-text-title font-weight-bold">
       <slot name="title" />
     </h2>
 
-    <div class="page-text-content darkText--text">
+    <div class="page-text-content lightGray--text">
       <slot name="content" />
     </div>
   </div>
