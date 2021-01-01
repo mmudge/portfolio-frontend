@@ -2,11 +2,16 @@
   <div class="about">
     <PageContainer>
       <template v-slot:content>
-        <v-layout align-center justify-center wrap>
+        <v-layout
+          align-center
+          justify-center
+          :wrap="smAndDown"
+          :nowrap="mdAndUp"
+        >
           <div :class="mdAndUp ? 'px-5 mr-5' : 'pb-10'">
             <Avatar size="250" />
           </div>
-          <div :class="mdAndUp ? 'px-5' : ''">
+          <div :class="mdAndUp ? 'px-5' : 'pt-10'">
             <ContactInfo />
           </div>
         </v-layout>
