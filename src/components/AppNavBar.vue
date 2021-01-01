@@ -2,12 +2,12 @@
   <div>
     <template v-if="smAndDown">
       <v-btn
-        color="white"
+        color="black2"
         x-large
         class="mobile-hamburger"
         @click.stop="showDrawer = !showDrawer"
       >
-        <v-icon color="primary">fas fa-bars </v-icon>
+        <v-icon color="white">fas fa-bars</v-icon>
       </v-btn>
 
       <v-navigation-drawer
@@ -15,35 +15,63 @@
         temporary
         fixed
         class="py-10 px-5"
+        color="black2"
       >
-        <h1 class="text-center">Michael Mudge</h1>
+        <v-layout justify-center @click.stop="routeTo('landingPage')">
+          <h1 class="text-center blue1--text font-weight-medium">
+            Michael
+          </h1>
+          <h1 class="text-center blue1--text font-weight-bold">
+            Mudge
+          </h1>
+        </v-layout>
         <v-layout column>
-          <v-btn to="/" text color="primary" x-large class="mt-5">
+          <!-- <v-btn to="/" text color="primary" large class="mt-5">
             <v-icon large>far fa-compass</v-icon>
-          </v-btn>
+          </v-btn> -->
 
-          <v-btn to="/projects" text color="primary" x-large class="mt-5"
+          <v-btn
+            to="/projects"
+            text
+            color="white"
+            x-large
+            class="mt-5 font-weight-bold"
             >Projects</v-btn
           >
-          <v-btn to="/about" text color="primary" x-large class="mt-5"
+          <v-btn
+            to="/about"
+            text
+            color="white"
+            x-large
+            class="mt-5 font-weight-bold"
             >About</v-btn
           >
 
           <template v-if="loggedInUser">
-            <v-btn to="/admin" text color="primary" class="mt-5" x-large
+            <v-btn
+              to="/admin"
+              text
+              color="white"
+              class="mt-5 font-weight-bold"
+              x-large
               >Admin</v-btn
             >
             <v-btn
               @click.stop="signOutUser"
               text
-              class="mt-5"
-              color="primary"
+              class="mt-5 font-weight-bold"
+              color="white"
               x-large
               >Log out</v-btn
             >
           </template>
           <template v-else>
-            <v-btn to="/login" text color="primary" class="mt-5" x-large
+            <v-btn
+              to="/login"
+              text
+              color="white"
+              class="mt-5 font-weight-bold"
+              x-large
               >Login</v-btn
             >
           </template>
@@ -54,35 +82,76 @@
     </template>
 
     <template v-if="mdAndUp">
-      <v-app-bar
-        app
-        color="backgroundGray"
-        :height="navBarHeight"
-        elevate-on-scroll
-      >
-        <v-layout align-center justify-center>
-          <v-btn to="/" text color="primary" x-large class="mr-10">
-            <v-icon large>far fa-compass</v-icon>
-          </v-btn>
-
-          <v-btn to="/projects" text color="primary" x-large class="mr-10"
-            >Projects</v-btn
-          >
-          <v-btn to="/about" text color="primary" x-large class="mr-10"
-            >About</v-btn
-          >
-
-          <template v-if="loggedInUser">
-            <v-btn to="/admin" text color="primary" class="mr-10" x-large
-              >Admin</v-btn
+      <!-- <v-app-bar app color="black2" :height="navBarHeight" elevate-on-scroll> -->
+      <v-app-bar app color="black2" elevate-on-scroll height="112px">
+        <v-layout align-center justify-space-between>
+          <v-flex shrink>
+            <v-layout
+              justify-start
+              class="cursor-pointer-on-hover"
+              @click.stop="routeTo('landingPage')"
             >
-            <v-btn @click.stop="signOutUser" text color="primary" x-large
-              >Log out</v-btn
-            >
-          </template>
-          <template v-else>
-            <v-btn to="/login" text color="primary" x-large>Login</v-btn>
-          </template>
+              <h1 class="text-h5 blue1--text">MICHAEL</h1>
+              <h1 class="text-h5 blue1--text font-weight-bold">MUDGE</h1>
+            </v-layout>
+          </v-flex>
+
+          <v-flex shrink>
+            <v-layout>
+              <!-- <v-btn to="/" text color="white" large class="mr-10">
+                <v-icon large>far fa-compass</v-icon>
+              </v-btn> -->
+
+              <v-btn
+                to="/projects"
+                text
+                color="white"
+                x-large
+                class="mr-10 font-weight-bold"
+                >Projects</v-btn
+              >
+              <v-btn
+                to="/about"
+                text
+                color="white"
+                x-large
+                class="mr-10 font-weight-bold"
+                >About</v-btn
+              >
+
+              <template v-if="loggedInUser">
+                <v-btn
+                  to="/admin"
+                  text
+                  color="white"
+                  class="mr-10 font-weight-bold"
+                  x-large
+                  >Admin</v-btn
+                >
+                <v-btn
+                  @click.stop="signOutUser"
+                  text
+                  color="white"
+                  class="font-weight-bold"
+                  x-large
+                  >Log out</v-btn
+                >
+              </template>
+              <template v-else>
+                <v-btn
+                  to="/login"
+                  text
+                  color="white"
+                  class="font-weight-bold"
+                  x-large
+                  >Login</v-btn
+                >
+              </template>
+            </v-layout>
+          </v-flex>
+          <v-flex shrink>
+            <Social />
+          </v-flex>
         </v-layout>
       </v-app-bar>
     </template>

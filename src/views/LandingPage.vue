@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="mdAndUp" class="landing-page darkText--text px-10">
+    <!-- <v-container v-if="mdAndUp" class="landing-page darkText--text px-10">
       <v-card color="#F5F5F5" class="py-10" flat>
         <v-layout align-center justify-center class="py-10">
           <v-flex shrink class="px-10">
@@ -49,34 +49,65 @@
           </v-flex>
         </v-layout>
       </v-card>
+    </v-container> -->
+
+    <v-container
+      :class="`${mdAndUp ? 'md-padding' : 'px-5 sm-padding text-center'}`"
+    >
+      <v-layout wrap>
+        <div>
+          <h1 class="text-h4 font-weight-medium blue1--text">MICHAEL MUDGE</h1>
+          <p class=" mb-0 text-h2 white--text font-weight-medium pt-16">
+            Let's build something
+          </p>
+          <p class="text-h2 white--text font-weight-medium">
+            together!
+          </p>
+          <p class="text-h5 mediumGray--text">
+            Web development - Full stack - Front end - UX/UI design
+          </p>
+          <v-layout
+            class="pt-10"
+            :justify-start="mdAndUp"
+            :justify-center="smAndDown"
+            wrap
+          >
+            <v-btn
+              color="blue1"
+              dark
+              :class="`${mdAndUp ? 'mr-5 x-wide' : 'mb-5'} font-weight-bold`"
+              x-large
+              :block="smAndDown"
+              :to="{ name: 'projects' }"
+              >Projects</v-btn
+            >
+            <v-btn
+              color="white"
+              outlined
+              :class="`${mdAndUp ? 'x-wide' : ''}`"
+              :block="smAndDown"
+              x-large
+              :to="{ name: 'about' }"
+            >
+              <v-icon class="pr-5" small>fas fa-download</v-icon>
+
+              Resume</v-btn
+            >
+          </v-layout>
+        </div>
+        <v-flex shrink class="px-10">
+          <v-layout
+            :class="`${smAndDown ? 'pt-16' : ''}`"
+            justify-center
+            align-center
+          >
+            <Avatar :size="300" />
+          </v-layout>
+        </v-flex>
+      </v-layout>
     </v-container>
 
-    <PageContainer v-if="smAndDown">
-      <template v-slot:content>
-        <p>Hello! I'm Mike</p>
-        <p class="primary--text">a <strong>web developer</strong></p>
-        <p>based in southern california.</p>
-        <v-btn
-          color="accent"
-          class="mt-5"
-          large
-          block
-          :to="{ name: 'projects' }"
-          >Projects</v-btn
-        >
-        <v-btn
-          color="primary"
-          class="mt-5"
-          outlined
-          large
-          block
-          :to="{ name: 'about' }"
-          >About me</v-btn
-        >
-      </template>
-    </PageContainer>
-
-    <PageContainer class="my-16">
+    <PageContainer :style="mdAndUp ? 'padding-top: 200px;' : ''">
       <template v-slot:content>
         <ContactForm />
       </template>
@@ -150,7 +181,16 @@ export default class LandingPage extends AppComponent {
 }
 
 .x-wide {
-  padding-left: 100px !important;
-  padding-right: 100px !important;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+
+.md-padding {
+  padding-top: 150px;
+  padding-left: 100px;
+}
+
+.sm-padding {
+  padding-top: 150px;
 }
 </style>

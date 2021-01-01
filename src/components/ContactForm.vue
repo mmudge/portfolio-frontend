@@ -1,37 +1,51 @@
 <template>
-  <v-card
-    :class="`${smAndDown ? 'pa-5' : 'pa-16'}`"
-    flat
-    outlined
-    background-color="white"
-  >
-    <h1 class="primary--text pb-2">Contact me</h1>
-    <p>
+  <v-card :class="`${smAndDown ? 'pa-5' : 'pa-16'}`" flat dark>
+    <h1 class="blue1--text pb-2">Contact me</h1>
+    <p class="mediumGray--text">
       If you have any questions or would like to get in contact with me about
       anything please send me a message!
     </p>
     <v-form @submit.prevent ref="contactForm">
-      <p class="body-2 pb-2 pt-4 mb-0 primary--text font-weight-medium">
+      <p class="body-2 pb-2 pt-4 mb-0 blue1--text font-weight-medium">
         Your name
       </p>
-      <v-text-field v-model="name" tabindex="1" outlined hide-details>
+      <v-text-field
+        v-model="name"
+        tabindex="1"
+        background-color="black2"
+        outlined
+        hide-details
+      >
       </v-text-field>
-      <p class="body-2 pb-2 pt-4 mb-0 primary--text font-weight-medium">
+      <p class="body-2 pb-2 pt-4 mb-0 blue1--text font-weight-medium">
         Your email
       </p>
-      <v-text-field v-model="email" tabindex="2" outlined hide-details>
+      <v-text-field
+        v-model="email"
+        tabindex="2"
+        background-color="black2"
+        outlined
+        hide-details
+      >
       </v-text-field>
-      <p class="body-2 pb-2 pt-4 mb-0 primary--text font-weight-medium">
+      <p class="body-2 pb-2 pt-4 mb-0 blue1--text font-weight-medium">
         Message
       </p>
-      <v-textarea v-model="body" tabindex="3" outlined hide-details rows="3">
+      <v-textarea
+        v-model="body"
+        tabindex="3"
+        background-color="black2"
+        outlined
+        hide-details
+        rows="3"
+      >
       </v-textarea>
     </v-form>
 
     <v-btn
-      color="primary"
+      color="blue1"
       tabindex="4"
-      class="mt-10"
+      class="mt-10 font-weight-bold"
       dark
       block
       x-large

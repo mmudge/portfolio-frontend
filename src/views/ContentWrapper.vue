@@ -4,7 +4,7 @@
     <v-main class="mb-10">
       <router-view> </router-view>
     </v-main>
-    <Footer />
+    <Footer class="mt-16" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default class ContentWrapper extends Vue {}
 
 <style>
 #content-wrapper {
-  background-color: #fafafa;
+  background-color: #222222;
   min-height: 100vh;
   font-family: 'Oxygen', sans-serif;
 }
