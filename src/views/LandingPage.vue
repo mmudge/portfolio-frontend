@@ -63,9 +63,16 @@
           <p class="text-h2 white--text font-weight-medium">
             together!
           </p>
-          <p class="text-h5 mediumGray--text">
-            Web development - Full stack - Front end - UX/UI design
-          </p>
+          <v-layout class="text-h5 mediumGray--text" align-center justify-start>
+            <p class="mb-0">Web Development</p>
+            <v-icon x-small color="blue1" class="px-3">fas fa-circle</v-icon>
+            <p class="mb-0">Full Stack</p>
+            <v-icon x-small color="blue1" class="px-3">fas fa-circle</v-icon>
+            <p class="mb-0">Front End</p>
+            <v-icon x-small color="blue1" class="px-3">fas fa-circle</v-icon>
+            <p class="mb-0">UX/UI Design</p>
+          </v-layout>
+
           <v-layout
             class="pt-10"
             :justify-start="mdAndUp"
