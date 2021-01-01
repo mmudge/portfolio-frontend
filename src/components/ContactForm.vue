@@ -1,6 +1,12 @@
 <template>
   <v-card :class="`${smAndDown ? 'pa-5' : 'pa-16'}`" flat dark>
     <h1 class="blue1--text pb-2">Contact me</h1>
+    <div class="py-5">
+      <p class="text-h6 mb-0 pb-1">Michael Mudge</p>
+      <p class="text-h6 mb-0 pb-1">michaeltmudge@gmail.com</p>
+      <p class="text-h6 mb-0 pb-1">951 323 1876</p>
+    </div>
+
     <p class="mediumGray--text">
       If you have any questions or would like to get in contact with me about
       anything please send me a message!

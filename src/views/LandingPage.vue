@@ -56,16 +56,18 @@
     >
       <v-layout wrap>
         <div>
-          <h1 class="text-h4 font-weight-medium blue1--text">MICHAEL MUDGE</h1>
-          <p class=" mb-0 text-h2 white--text font-weight-medium pt-16">
+          <p class=" mb-0 text-h2 white--text font-weight-medium">
             Let's build something
           </p>
           <p class="text-h2 white--text font-weight-medium">
             together!
           </p>
           <div class="text-h5 mediumGray--text" align-center justify-start>
+            <p class="mb-0 text-h3 blue1--text py-2">
+              Web Developer
+            </p>
             <p class="mb-0">
-              Web Development - Full Stack - Front End - UX/UI Design
+              Full Stack - Front End - UX/UI Design
             </p>
           </div>
 
@@ -78,13 +80,13 @@
             <v-btn
               color="blue1"
               dark
-              :class="`${mdAndUp ? 'mr-5 x-wide' : 'mb-5'} font-weight-bold`"
+              :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
               x-large
               :block="smAndDown"
               :to="{ name: 'projects' }"
               >Projects</v-btn
             >
-            <v-btn
+            <!-- <v-btn
               color="white"
               outlined
               :class="`${mdAndUp ? 'x-wide' : ''}`"
@@ -95,6 +97,16 @@
               <v-icon class="pr-5" small>fas fa-download</v-icon>
 
               Resume</v-btn
+            > -->
+            <v-btn
+              color="white"
+              outlined
+              :class="`${mdAndUp ? 'x-wide' : ''}`"
+              :block="smAndDown"
+              x-large
+              href="#contact-form"
+            >
+              Contact me</v-btn
             >
           </v-layout>
         </div>
@@ -110,7 +122,10 @@
       </v-layout>
     </v-container>
 
-    <PageContainer :style="mdAndUp ? 'padding-top: 200px;' : ''">
+    <PageContainer
+      id="contact-form"
+      :style="mdAndUp ? 'padding-top: 200px;' : ''"
+    >
       <template v-slot:content>
         <ContactForm />
       </template>

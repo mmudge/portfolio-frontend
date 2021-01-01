@@ -98,10 +98,6 @@
 
           <v-flex shrink>
             <v-layout>
-              <!-- <v-btn to="/" text color="white" large class="mr-10">
-                <v-icon large>far fa-compass</v-icon>
-              </v-btn> -->
-
               <v-btn
                 to="/projects"
                 text

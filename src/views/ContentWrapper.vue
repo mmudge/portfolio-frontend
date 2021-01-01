@@ -32,4 +32,8 @@ export default class ContentWrapper extends Vue {}
 .cursor-pointer-on-hover:hover {
   cursor: pointer;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 </style>

@@ -25,7 +25,6 @@ export default class Avatar extends Vue {
 
 <style scoped>
 #avatar {
-  /* background-image: url('../assets/profilepic.jpg'); */
   background-image: url('../assets/profilepic-cutout.png');
   background-color: #333333;
   background-repeat: no-repeat;
