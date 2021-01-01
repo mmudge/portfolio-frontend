@@ -1,5 +1,5 @@
 <template>
-  <div v-if="style">
+  <div v-if="style" class="elevation-10">
     <div id="avatar" :style="style"></div>
   </div>
 </template>
@@ -26,9 +26,10 @@ export default class Avatar extends Vue {
 <style scoped>
 #avatar {
   background-image: url('../assets/profilepic-cutout.png');
-  background-color: #333333;
+  background-color: #519872;
   background-repeat: no-repeat;
-  border-radius: 50%;
+  /* border-radius: 10%; */
+  padding: 10px;
   background-size: cover;
   background-position: center;
   background-position: -50px;

@@ -24,7 +24,7 @@ export default class ContentWrapper extends Vue {}
 
 <style>
 #content-wrapper {
-  background-color: #222222;
+  background-color: #f4f7f5;
   min-height: 100vh;
   font-family: 'Oxygen', sans-serif;
 }
@@ -35,5 +35,6 @@ export default class ContentWrapper extends Vue {}
 
 html {
   scroll-behavior: smooth;
+  color: #202030;
 }
 </style>

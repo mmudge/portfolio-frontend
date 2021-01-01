@@ -56,17 +56,17 @@
     >
       <v-layout wrap>
         <div>
-          <p class=" mb-0 text-h2 white--text font-weight-medium">
+          <p class=" mb-0 text-h2 blackText1--text font-weight-regular">
             Let's build something
           </p>
-          <p class="text-h2 white--text font-weight-medium">
+          <p class="text-h2 blackText1--text font-weight-regular">
             together!
           </p>
-          <div class="text-h5 mediumGray--text" align-center justify-start>
-            <p class="mb-0 text-h3 blue1--text py-2">
+          <div class="text-h5 " align-center justify-start>
+            <p class="mb-0 text-h3 green1--text py-2 font-weight-bold">
               Web Developer
             </p>
-            <p class="mb-0">
+            <p class="mb-0 mediumGray--text">
               Full Stack - Front End - UX/UI Design
             </p>
           </div>
@@ -78,7 +78,8 @@
             wrap
           >
             <v-btn
-              color="blue1"
+              color="green1"
+              tile
               dark
               :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
               x-large
@@ -99,7 +100,8 @@
               Resume</v-btn
             > -->
             <v-btn
-              color="white"
+              color="green1"
+              tile
               outlined
               :class="`${mdAndUp ? 'x-wide' : ''}`"
               :block="smAndDown"
@@ -110,7 +112,7 @@
             >
           </v-layout>
         </div>
-        <v-flex shrink class="px-10">
+        <!-- <v-flex shrink class="px-10">
           <v-layout
             :class="`${smAndDown ? 'pt-16' : ''}`"
             justify-center
@@ -118,9 +120,46 @@
           >
             <Avatar :size="300" />
           </v-layout>
-        </v-flex>
+        </v-flex> -->
       </v-layout>
     </v-container>
+
+    <PageContainer :style="mdAndUp ? '' : ''">
+      <template v-slot:content>
+        <v-layout align-center>
+          <v-flex shrink>
+            <Avatar :size="300" />
+          </v-flex>
+          <v-flex>
+            <div class="mx-auto" style="max-width: 60%;">
+              <p class="text-h3">
+                Hey there, I'm Mike!
+              </p>
+              <p class="text-h6 font-weight-regular">
+                I'm a software developer located in Southern California
+                specializing in building web applications and custom websites.
+              </p>
+            </div>
+          </v-flex>
+        </v-layout>
+      </template>
+    </PageContainer>
+
+    <PageContainer :bgColor="'#F4F7F5'" :style="mdAndUp ? '' : ''">
+      <template v-slot:content>
+        <div class="mx-auto text-center">
+          <h6 class="body-1">My favorite and most used</h6>
+          <h1 class="text-h3 font-weight-medium pt-3">Technologies</h1>
+        </div>
+        <v-layout align-center class="pt-16">
+          <template v-for="card in skillCards">
+            <v-flex sm12 md4 px-2 :key="card.title">
+              <LandingPageSkillCard :cardInfo="card" />
+            </v-flex>
+          </template>
+        </v-layout>
+      </template>
+    </PageContainer>
 
     <PageContainer
       id="contact-form"
@@ -141,15 +180,35 @@ import Avatar from '@/components/Avatar.vue'
 import PageContainer from '@/components/PageContainer.vue'
 import AppComponent from '@/components/AppComponent'
 import ContactForm from '@/components/ContactForm.vue'
+import LandingPageSkillCard from '@/components/LandingPageSkillCard.vue'
 
 @Component({
   components: {
     Avatar,
     PageContainer,
-    ContactForm
+    ContactForm,
+    LandingPageSkillCard
   }
 })
 export default class LandingPage extends AppComponent {
+  skillCards: any[] = [
+    {
+      title: 'JavaScript',
+      icon: 'fab fa-js',
+      skills: ['TypeScript', 'Vue JS', 'Cesium JS']
+    },
+    {
+      title: 'Ruby on Rails',
+      icon: 'fas fa-code',
+      skills: ['Ruby', 'Rspec', 'Devise']
+    },
+    {
+      title: 'Web Design',
+      icon: 'fas fa-code',
+      skills: ['HTML5', 'CSS3', 'Mobile Responsive']
+    }
+  ]
+
   signInUser() {
     this.$router.push({ name: 'login' })
   }
@@ -204,11 +263,12 @@ export default class LandingPage extends AppComponent {
 }
 
 .md-padding {
-  padding-top: 150px;
-  padding-left: 100px;
+  /* padding-top: 150px;
+  padding-left: 100px; */
+  padding: 150px 100px;
 }
 
 .sm-padding {
-  padding-top: 150px;
+  padding: 150px 0 150px 0;
 }
 </style>

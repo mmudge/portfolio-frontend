@@ -16,7 +16,7 @@
           </div>
         </v-layout>
 
-        <PageTextContent class="mt-16">
+        <PageTextContent class="mt-16" id="skills">
           <template v-slot:title>
             SKILLS
           </template>

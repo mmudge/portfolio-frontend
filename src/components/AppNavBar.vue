@@ -83,7 +83,7 @@
 
     <template v-if="mdAndUp">
       <!-- <v-app-bar app color="black2" :height="navBarHeight" elevate-on-scroll> -->
-      <v-app-bar app color="black2" elevate-on-scroll height="112px">
+      <v-app-bar app color="white2" elevate-on-scroll height="112px">
         <v-layout align-center justify-space-between>
           <v-flex shrink>
             <v-layout
@@ -91,8 +91,8 @@
               class="cursor-pointer-on-hover"
               @click.stop="routeTo('landingPage')"
             >
-              <h1 class="text-h5 blue1--text">MICHAEL</h1>
-              <h1 class="text-h5 blue1--text font-weight-bold">MUDGE</h1>
+              <h1 class="text-h5 blackText1--text">MICHAEL</h1>
+              <h1 class="text-h5 blackText1--text font-weight-bold">MUDGE</h1>
             </v-layout>
           </v-flex>
 
@@ -101,17 +101,17 @@
               <v-btn
                 to="/projects"
                 text
-                color="white"
+                color="blackText1"
                 x-large
-                class="mr-10 font-weight-bold"
+                class="font-weight-bold"
                 >Projects</v-btn
               >
               <v-btn
                 to="/about"
                 text
-                color="white"
+                color="blackText1"
                 x-large
-                class="mr-10 font-weight-bold"
+                class="font-weight-bold"
                 >About</v-btn
               >
 
@@ -119,15 +119,15 @@
                 <v-btn
                   to="/admin"
                   text
-                  color="white"
-                  class="mr-10 font-weight-bold"
+                  color="blackText1"
+                  class="font-weight-bold"
                   x-large
                   >Admin</v-btn
                 >
                 <v-btn
                   @click.stop="signOutUser"
                   text
-                  color="white"
+                  color="blackText1"
                   class="font-weight-bold"
                   x-large
                   >Log out</v-btn
@@ -137,16 +137,15 @@
                 <v-btn
                   to="/login"
                   text
-                  color="white"
+                  color="blackText1"
                   class="font-weight-bold"
                   x-large
                   >Login</v-btn
                 >
               </template>
+
+              <!-- <Social /> -->
             </v-layout>
-          </v-flex>
-          <v-flex shrink>
-            <Social />
           </v-flex>
         </v-layout>
       </v-app-bar>
