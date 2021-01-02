@@ -17,4 +17,13 @@ import Snackbar from '@/components/Snackbar.vue'
 export default class App extends Vue {}
 </script>
 
-<style></style>
+<style>
+.v-application .text-h1,
+.v-application .text-h2,
+.v-application .text-h3,
+.v-application .text-h4,
+.v-application .text-h5,
+.v-application .text-h6 {
+  font-family: 'Oxygen', sans-serif !important;
+}
+</style>

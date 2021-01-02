@@ -17,14 +17,16 @@
         class="py-10 px-5"
         color="black2"
       >
-        <v-layout justify-center @click.stop="routeTo('landingPage')">
-          <h1 class="text-center blue1--text font-weight-medium">
-            Michael
-          </h1>
-          <h1 class="text-center blue1--text font-weight-bold">
-            Mudge
-          </h1>
-        </v-layout>
+        <div>
+          <v-layout justify-center @click.stop="routeTo('landingPage')">
+            <h1 class="text-center blue1--text font-weight-medium ">
+              Michael
+            </h1>
+            <h1 class="text-center blue1--text font-weight-bold">
+              Mudge
+            </h1>
+          </v-layout>
+        </div>
         <v-layout column>
           <!-- <v-btn to="/" text color="primary" large class="mt-5">
             <v-icon large>far fa-compass</v-icon>
@@ -82,18 +84,20 @@
     </template>
 
     <template v-if="mdAndUp">
-      <!-- <v-app-bar app color="black2" :height="navBarHeight" elevate-on-scroll> -->
       <v-app-bar app color="white2" elevate-on-scroll height="112px">
-        <v-layout align-center justify-space-between>
+        <v-layout align-center justify-space-between class="px-5">
           <v-flex shrink>
-            <v-layout
-              justify-start
-              class="cursor-pointer-on-hover"
-              @click.stop="routeTo('landingPage')"
-            >
-              <h1 class="text-h5 blackText1--text">MICHAEL</h1>
-              <h1 class="text-h5 blackText1--text font-weight-bold">MUDGE</h1>
-            </v-layout>
+            <div>
+              <v-layout
+                justify-start
+                class="cursor-pointer-on-hover"
+                @click.stop="routeTo('landingPage')"
+              >
+                <h1 class="text-h5 blackText1--text">MICHAEL</h1>
+                <h1 class="text-h5 blackText1--text font-weight-bold">MUDGE</h1>
+              </v-layout>
+              <div style="height: 4px; background-color: #E53935;"></div>
+            </div>
           </v-flex>
 
           <v-flex shrink>
@@ -143,8 +147,6 @@
                   >Login</v-btn
                 >
               </template>
-
-              <!-- <Social /> -->
             </v-layout>
           </v-flex>
         </v-layout>
@@ -157,12 +159,9 @@
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import User from '@/models/User'
-import Social from '@/components/Social.vue'
 
 @Component({
-  components: {
-    Social
-  }
+  components: {}
 })
 export default class AppNavBar extends AppComponent {
   showDrawer: boolean = false

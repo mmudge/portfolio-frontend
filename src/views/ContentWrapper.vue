@@ -24,9 +24,10 @@ export default class ContentWrapper extends Vue {}
 
 <style>
 #content-wrapper {
-  background-color: #f4f7f5;
+  /* background-color: #f4f7f5; */
+  background-color: #f5f5f5;
   min-height: 100vh;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Oxygen', sans-serif !important;
 }
 
 .cursor-pointer-on-hover:hover {
@@ -36,5 +37,6 @@ export default class ContentWrapper extends Vue {}
 html {
   scroll-behavior: smooth;
   color: #202030;
+  font-family: 'Oxygen', sans-serif !important;
 }
 </style>
