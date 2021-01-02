@@ -1,20 +1,11 @@
 <template>
-  <v-footer app absolute color="black2" dark class="text--darkText">
+  <v-footer app absolute color="white2" dark class="blackText1--text">
     <v-container>
       <v-layout align-center justify-space-around wrap>
         <v-flex shrink>
           <p :class="`${smAndDown ? 'text-center mb-5' : ''} mb-0`">
             Michael Mudge Copyright
             {{ year }}, all rights reserved.
-          </p>
-        </v-flex>
-
-        <v-flex shrink>
-          <p
-            @click="copyEmailToClipBoard"
-            :class="`${smAndDown ? 'mb-5' : ''} mb-0 cursor-pointer-on-hover1`"
-          >
-            michaeltmudge@gmail.com
           </p>
         </v-flex>
 

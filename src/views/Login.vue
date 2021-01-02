@@ -4,14 +4,14 @@
   <v-layout align-center justify-center>
     <v-flex shrink>
       <v-card
-        class="pa-10 text--darkText"
-        color="black2"
+        class="pa-10 blackText1--text"
+        color="white2"
         style="width: 400px; margin-top: 100px;"
       >
-        <h1 class="text-h4 font-weight-bold blue1--text">Login</h1>
+        <h1 class="text-h4 font-weight-bold blackText1--text">Login</h1>
 
         <v-form ref="loginForm" @submit.prevent lazy-validation>
-          <p class="blue1--text body-2 pt-10 pb-2 mb-0">Email</p>
+          <p class="darkGray--text body-2 pt-10 pb-2 mb-0">Email</p>
           <v-text-field
             v-model="email"
             prepend-inner-icon="fas fa-user-circle"
@@ -19,14 +19,12 @@
             type="email"
             required
             outlined
-            color="black2"
+            color="darkGray"
             hide-details
-            dark
-            solo-inverted
             dense
           ></v-text-field>
 
-          <p class="blue1--text body-2 pb-2 pt-7 mb-0">Password</p>
+          <p class="darkGray--text body-2 pb-2 pt-7 mb-0">Password</p>
 
           <v-text-field
             v-model="password"
@@ -38,16 +36,14 @@
             tabindex="2"
             required
             outlined
-            color="black2"
+            color="darkGray"
             hide-details
-            dark
-            solo-inverted
             dense
           ></v-text-field>
         </v-form>
 
         <v-btn
-          color="blue1"
+          color="red lighten-1"
           class="mt-10 font-weight-bold"
           dark
           block

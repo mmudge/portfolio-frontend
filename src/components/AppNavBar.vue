@@ -147,6 +147,7 @@
                   >Login</v-btn
                 >
               </template>
+              <Social />
             </v-layout>
           </v-flex>
         </v-layout>
@@ -159,9 +160,12 @@
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import User from '@/models/User'
+import Social from '@/components/Social.vue'
 
 @Component({
-  components: {}
+  components: {
+    Social
+  }
 })
 export default class AppNavBar extends AppComponent {
   showDrawer: boolean = false

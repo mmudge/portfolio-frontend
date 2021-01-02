@@ -1,54 +1,75 @@
 <template>
   <div>
-    <v-container fluid class="main-content-container pa-0">
+    <v-container
+      fluid
+      :class="`${smAndDown ? 'px-5' : ''} main-content-container pa-0`"
+    >
       <div class="cover-image">
         <div class="image-overlay"></div>
       </div>
-      <v-layout align-center justify-center class="text-center cover-content">
-        <v-flex shrink>
-          <p class="text-h1 blackText1--text font-weight-bold text-center mb-0">
-            WEB DEVELOPER
-          </p>
+      <div class="cover-content text-center">
+        <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
+          <h1 class="text-h4 blackText1--text">MICHAEL</h1>
+          <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
+        </v-layout>
+        <v-layout align-center justify-center wrap>
+          <v-flex shrink>
+            <p
+              :class="
+                `${
+                  smAndDown ? 'text-h3' : 'text-h1'
+                } blackText1--text font-weight-bold text-center mb-0`
+              "
+            >
+              WEB DEVELOPER
+            </p>
 
-          <p class="text-h3 mb-0 black2--text font-weight-bold pt-5">
-            Full Stack - Front End - UX/UI Design
-          </p>
+            <p
+              :class="
+                `${
+                  smAndDown ? 'text-h5' : 'text-h3'
+                } mb-0 black2--text font-weight-bold pt-5`
+              "
+            >
+              Full Stack - Front End - UX/UI Design
+            </p>
 
-          <v-layout justify-center wrap class="pt-10">
-            <v-btn
-              color="red lighten-1"
-              tile
-              dark
-              :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
-              x-large
-              :block="smAndDown"
-              :to="{ name: 'projects' }"
-              >Projects</v-btn
-            >
-            <v-btn
-              color="blackText1"
-              tile
-              outlined
-              :class="`${mdAndUp ? 'x-wide' : ''}`"
-              :block="smAndDown"
-              x-large
-              href="#contact-form"
-            >
-              Contact me</v-btn
-            >
-          </v-layout>
-        </v-flex>
-      </v-layout>
+            <v-layout justify-center wrap :class="`pt-10`">
+              <v-btn
+                color="red lighten-1"
+                tile
+                dark
+                :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
+                x-large
+                :block="smAndDown"
+                :to="{ name: 'projects' }"
+                >Projects</v-btn
+              >
+              <v-btn
+                color="blackText1"
+                tile
+                outlined
+                :class="`${mdAndUp ? 'x-wide' : ''}`"
+                :block="smAndDown"
+                x-large
+                href="#contact-form"
+              >
+                Contact me</v-btn
+              >
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </div>
     </v-container>
 
     <PageContainer :style="mdAndUp ? '' : ''">
       <template v-slot:content>
-        <v-layout align-center>
-          <v-flex shrink>
+        <v-layout align-center :wrap="smAndDown">
+          <v-flex shrink :class="smAndDown ? 'mx-auto' : ''">
             <Avatar :size="300" />
           </v-flex>
-          <v-flex>
-            <div class="mx-auto" style="max-width: 60%;">
+          <v-flex :class="smAndDown ? 'pt-10' : ''">
+            <div class="mx-auto" :style="mdAndUp ? 'max-width: 60%;' : ''">
               <p class="text-h3">
                 Hello, I'm Mike!
               </p>
@@ -57,7 +78,13 @@
                 applications and custom websites. Let's build something
                 together!
               </p>
-              <v-btn color="red lighten-1" class="font-weight-bold" dark small>
+              <v-btn
+                color="red lighten-1"
+                href="#contact-form"
+                class="font-weight-bold"
+                dark
+                small
+              >
                 <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a
                 message
               </v-btn>
@@ -73,9 +100,14 @@
           <p class="body-1 mb-0">My favorite and most used</p>
           <h1 class="text-h3 font-weight-medium">Technologies</h1>
         </div>
-        <v-layout align-center class="pt-16">
+        <v-layout align-center class="pt-16" wrap>
           <template v-for="card in skillCards">
-            <v-flex sm12 md4 px-2 :key="card.title">
+            <v-flex
+              sm12
+              md4
+              :class="mdAndUp ? 'pr-1' : 'pb-5'"
+              :key="card.title"
+            >
               <LandingPageSkillCard :cardInfo="card" />
             </v-flex>
           </template>
@@ -83,10 +115,7 @@
       </template>
     </PageContainer>
 
-    <PageContainer
-      id="contact-form"
-      :style="mdAndUp ? 'padding-top: 200px;' : ''"
-    >
+    <PageContainer id="contact-form">
       <template v-slot:content>
         <ContactForm />
       </template>
@@ -117,16 +146,19 @@ export default class LandingPage extends AppComponent {
     {
       title: 'JavaScript',
       icon: 'fab fa-js',
+      text: 'My favorite coding language for bringing data to life',
       skills: ['TypeScript', 'Vue JS', 'Cesium JS']
     },
     {
       title: 'Ruby on Rails',
       icon: 'fas fa-code',
+      text: 'Great for getting projects up and running fast',
       skills: ['Ruby', 'Rspec', 'Devise']
     },
     {
       title: 'Web Design',
       icon: 'fas fa-code',
+      text: 'Express yourself with your own personal style',
       skills: ['HTML5', 'CSS3', 'Mobile Responsive']
     }
   ]
@@ -167,7 +199,6 @@ export default class LandingPage extends AppComponent {
 
 .cover-image {
   background-position: center;
-  /* background-position: left 400px; */
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('../assets/laptop.jpg');

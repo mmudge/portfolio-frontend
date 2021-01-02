@@ -15,8 +15,12 @@
             <ContactInfo />
           </div>
         </v-layout>
+      </template>
+    </PageContainer>
 
-        <PageTextContent class="mt-16" id="skills">
+    <PageContainer :bgColor="'#f5f5f5'">
+      <template v-slot:content>
+        <PageTextContent id="skills">
           <template v-slot:title>
             SKILLS
           </template>
@@ -35,8 +39,12 @@
             </v-layout>
           </template>
         </PageTextContent>
+      </template>
+    </PageContainer>
 
-        <PageTextContent class="mt-16">
+    <PageContainer>
+      <template v-slot:content>
+        <PageTextContent>
           <template v-slot:title>
             PROFESSIONAL
           </template>
@@ -82,8 +90,10 @@
             </p>
           </template>
         </PageTextContent>
+      </template>
+    </PageContainer>
 
-        <!-- <PageTextContent class="pt-10">
+    <!-- <PageTextContent class="pt-10">
         <template v-slot:title>
           Personal
 
@@ -100,7 +110,9 @@
         </template>
       </PageTextContent> -->
 
-        <PageTextContent class="mt-16 pb-16">
+    <PageContainer :bgColor="'#f5f5f5'">
+      <template v-slot:content>
+        <PageTextContent>
           <template v-slot:title>
             EDUCATION
           </template>
@@ -118,7 +130,12 @@
             </v-layout>
           </template>
         </PageTextContent>
-        <ContactForm class="my-16" />
+      </template>
+    </PageContainer>
+
+    <PageContainer>
+      <template v-slot:content>
+        <ContactForm class="my-16" id="contact-form" />
       </template>
     </PageContainer>
   </div>

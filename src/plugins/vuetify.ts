@@ -37,6 +37,7 @@ export default new Vuetify({
         // white1: '#F4F7F5',
         white1: '#efefef',
         white2: '#fafafa',
+        white3: '#f5f5f5',
         blackText1: '#202030',
         green1: '#519872'
       }

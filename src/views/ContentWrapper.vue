@@ -1,10 +1,12 @@
 <template>
   <div id="content-wrapper">
     <AppNavBar />
-    <v-main class="mb-10">
-      <router-view> </router-view>
+    <v-main class="pb-16">
+      <v-slide-x-transition>
+        <router-view> </router-view>
+      </v-slide-x-transition>
     </v-main>
-    <Footer class="mt-16" />
+    <Footer />
   </div>
 </template>
 

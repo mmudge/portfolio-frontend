@@ -2,8 +2,8 @@
   <div>
     <v-container>
       <v-layout class="pb-5" align-center justify-space-between>
-        <h1>Projects</h1>
-        <v-btn dark color="primary" @click="createProject"
+        <h1 class="blackText1--text">Projects</h1>
+        <v-btn dark color="red lighten-1" @click="createProject"
           >Create Project</v-btn
         >
       </v-layout>

@@ -2,7 +2,9 @@
   <div>
     <PageContainer>
       <template v-slot:content>
-        <h1 v-if="smAndDown" class="text-center pb-5 blue1--text">Projects</h1>
+        <h1 v-if="smAndDown" class="text-center pb-5 blackText1--text">
+          Projects
+        </h1>
         <template v-for="project in publishedProjects">
           <ProjectCard :key="project.id" :project="project" class="mb-5" />
         </template>

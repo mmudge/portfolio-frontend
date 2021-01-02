@@ -1,13 +1,16 @@
 <template>
-  <v-card v-if="project" class="px-10 py-5" color="black2" flat>
+  <v-card v-if="project" class="px-10 py-5 elevation-1" outlined flat>
     <v-layout align-center justify-space-between class="mb-5">
-      <h2 class="blue1--text text-h4">{{ project.title }}</h2>
+      <div style="width: fit-content;">
+        <h2 class="blackText1--text text-h4">{{ project.title }}</h2>
+        <div style="height: 4px; background-color: #E53935;"></div>
+      </div>
 
       <v-layout justify-end>
         <v-btn
           v-if="project.github_link"
           class="mr-3"
-          color="white"
+          color="blackText1"
           icon
           target="_blank"
           :href="project.github_link"
@@ -15,12 +18,12 @@
           <v-icon>fab fa-github</v-icon>
         </v-btn>
 
-        <v-btn color="white" icon target="_blank" :href="project.link">
+        <v-btn color="blackText1" icon target="_blank" :href="project.link">
           <v-icon>fas fa-link</v-icon>
         </v-btn>
       </v-layout>
     </v-layout>
-    <p class="lightGray--text">{{ project.description }}</p>
+    <p class="darkGray--text">{{ project.description }}</p>
   </v-card>
 </template>
 

@@ -1,44 +1,35 @@
 <template>
   <div>
-    <div
-      v-for="(info, index) in contactInfo"
-      :key="info.title"
-      class="pb-2 lightGray--text"
-    >
-      <v-layout
-        align-center
-        :justify-start="mdAndUp"
-        :justify-center="smAndDown"
-        :class="
-          `${
-            index === 0 || index === contactInfo[contactInfo.length - 1]
-              ? ''
-              : 'cursor-pointer-on-hover'
-          } ${smAndDown ? 'text-center' : ''} pb-1`
-        "
-        @click.stop="info.run()"
-      >
-        <v-icon medium :color="info.color" class="mr-3 d-none">{{
-          info.icon
-        }}</v-icon>
-
-        <p
-          :class="
-            `${
-              index === 0 ? 'text-h3 font-weight-bold blue1--text' : 'title '
-            } mb-0 font-weight-regular`
-          "
-        >
-          {{ info.content }}
+    <div :class="`pb-2 ${smAndDown ? 'text-center' : ''}`">
+      <div>
+        <v-layout align-center class="pb-5">
+          <h1 class="text-h2 blackText1--text">MICHAEL</h1>
+          <h1 class="text-h2 blackText1--text font-weight-bold">MUDGE</h1>
+        </v-layout>
+        <p class="text-h5 mb-0 pb-1 darkGray--text font-weight-regular">
+          michaeltmudge@gmail.com
         </p>
-      </v-layout>
+        <p class="text-h5 mb-0 pb-1 darkGray--text font-weight-regular">
+          951 323 1876
+        </p>
+      </div>
     </div>
+    <v-btn
+      color="red lighten-1"
+      href="#contact-form"
+      class="font-weight-bold"
+      dark
+      small
+    >
+      <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
+    </v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
+
 @Component
 export default class ContactInfo extends AppComponent {
   contactInfo: any[] = [
