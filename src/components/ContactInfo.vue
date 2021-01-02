@@ -1,28 +1,38 @@
 <template>
   <div>
-    <div :class="`pb-2 ${smAndDown ? 'text-center' : ''}`">
+    <div :class="`${smAndDown ? 'text-center' : ''}`">
       <div>
-        <v-layout align-center class="pb-5">
+        <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
+          <h1 class="text-h4 blackText1--text">MICHAEL</h1>
+          <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
+        </v-layout>
+        <v-layout v-else align-center class="pb-5">
           <h1 class="text-h2 blackText1--text">MICHAEL</h1>
           <h1 class="text-h2 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
         <p class="text-h5 mb-0 pb-1 darkGray--text font-weight-regular">
           michaeltmudge@gmail.com
         </p>
-        <p class="text-h5 mb-0 pb-1 darkGray--text font-weight-regular">
+        <p
+          :class="
+            `${
+              smAndDown ? 'mt-5' : ''
+            } text-h5 mb-0 pb-1 darkGray--text font-weight-regular`
+          "
+        >
           951 323 1876
         </p>
       </div>
+      <v-btn
+        color="red lighten-1"
+        href="#contact-form"
+        class="font-weight-bold mt-5"
+        dark
+        small
+      >
+        <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
+      </v-btn>
     </div>
-    <v-btn
-      color="red lighten-1"
-      href="#contact-form"
-      class="font-weight-bold"
-      dark
-      small
-    >
-      <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
-    </v-btn>
   </div>
 </template>
 

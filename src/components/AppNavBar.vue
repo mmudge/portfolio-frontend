@@ -2,12 +2,13 @@
   <div>
     <template v-if="smAndDown">
       <v-btn
-        color="black2"
+        color="white2"
         x-large
         class="mobile-hamburger"
         @click.stop="showDrawer = !showDrawer"
+        dark
       >
-        <v-icon color="white">fas fa-bars</v-icon>
+        <v-icon color="red lighten-1">fas fa-bars</v-icon>
       </v-btn>
 
       <v-navigation-drawer
@@ -15,27 +16,26 @@
         temporary
         fixed
         class="py-10 px-5"
-        color="black2"
+        color="white3"
       >
         <div>
-          <v-layout justify-center @click.stop="routeTo('landingPage')">
-            <h1 class="text-center blue1--text font-weight-medium ">
-              Michael
-            </h1>
-            <h1 class="text-center blue1--text font-weight-bold">
-              Mudge
-            </h1>
-          </v-layout>
+          <div
+            @click.stop="routeTo('landingPage')"
+            style="width: fit-content;"
+            class="mx-auto"
+          >
+            <v-layout align-center justify-center>
+              <h1 class="text-h6 blackText1--text">MICHAEL</h1>
+              <h1 class="text-h6 blackText1--text font-weight-bold">MUDGE</h1>
+            </v-layout>
+            <div style="height: 4px; background-color: #E53935;"></div>
+          </div>
         </div>
         <v-layout column>
-          <!-- <v-btn to="/" text color="primary" large class="mt-5">
-            <v-icon large>far fa-compass</v-icon>
-          </v-btn> -->
-
           <v-btn
             to="/projects"
             text
-            color="white"
+            color="darkGray"
             x-large
             class="mt-5 font-weight-bold"
             >Projects</v-btn
@@ -43,7 +43,7 @@
           <v-btn
             to="/about"
             text
-            color="white"
+            color="darkGray"
             x-large
             class="mt-5 font-weight-bold"
             >About</v-btn
@@ -53,7 +53,7 @@
             <v-btn
               to="/admin"
               text
-              color="white"
+              color="darkGray"
               class="mt-5 font-weight-bold"
               x-large
               >Admin</v-btn
@@ -62,7 +62,7 @@
               @click.stop="signOutUser"
               text
               class="mt-5 font-weight-bold"
-              color="white"
+              color="darkGray"
               x-large
               >Log out</v-btn
             >
@@ -71,7 +71,7 @@
             <v-btn
               to="/login"
               text
-              color="white"
+              color="darkGray"
               class="mt-5 font-weight-bold"
               x-large
               >Login</v-btn
