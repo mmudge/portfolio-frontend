@@ -1,7 +1,7 @@
 <template>
   <v-card v-if="cardInfo" flat outlined class="pa-10">
     <h1 class="blackText1--text">{{ cardInfo.title }}</h1>
-    <p class="darkGray--text pb-3">
+    <p class="body-2 darkGray--text pb-3">
       {{ cardInfo.text }}
     </p>
 
@@ -14,16 +14,10 @@
       </v-layout>
     </div>
 
-    <p class="mb-0 pt-5">Experience: {{ calcTime }} yrs</p>
-
-    <!-- <v-layout class="pt-10">
-      <v-flex grow></v-flex>
-      <v-flex shrink>
-        <v-icon size="65" color="green1">{{ cardInfo.icon }}</v-icon>
-      </v-flex>
-    </v-layout> -->
-
-    <!-- <v-btn x-small text class="mt-5" to="/about#skills">view more</v-btn> -->
+    <p class="mb-0 py-5">
+      Experience: <strong>{{ calcTime }} yrs</strong>
+    </p>
+    <div style="height: 2px; background-color: #E53935;"></div>
   </v-card>
 </template>
 

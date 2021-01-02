@@ -83,7 +83,6 @@
                 href="#contact-form"
                 class="font-weight-bold"
                 dark
-                small
                 tile
               >
                 <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a
@@ -147,7 +146,7 @@ export default class LandingPage extends AppComponent {
     {
       title: 'JavaScript',
       icon: 'fab fa-js',
-      text: 'My favorite coding language for bringing data to life',
+      text: 'My favorite language for bringing data to life',
       skills: ['TypeScript', 'Vue JS', 'Cesium JS']
     },
     {
