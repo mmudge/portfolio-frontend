@@ -84,6 +84,7 @@
                 class="font-weight-bold"
                 dark
                 small
+                tile
               >
                 <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a
                 message

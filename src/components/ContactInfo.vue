@@ -29,6 +29,7 @@
         class="font-weight-bold mt-5"
         dark
         small
+        tile
       >
         <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
       </v-btn>

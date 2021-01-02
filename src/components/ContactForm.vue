@@ -74,6 +74,7 @@
           dark
           block
           x-large
+          tile
           @keyup.enter="createMessage"
           @click.stop="createMessage"
         >
