@@ -7,19 +7,25 @@
           <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
         <v-layout v-else align-center class="pb-5">
-          <h1 class="text-h2 blackText1--text">MICHAEL</h1>
+          <h1 class="text-h2 blackText1--text pr-2">MICHAEL</h1>
           <h1 class="text-h2 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
-        <p class="text-h5 mb-0 py-2 darkGray--text font-weight-regular">
+        <p class="mb-0 pt-2 body-2 font-weight-bold lightGray--text">
+          EMAIL
+        </p>
+        <p class="text-h5 mb-0 pb-2 darkGray--text font-weight-regular">
           michaeltmudge@gmail.com
         </p>
         <p
           :class="
             `${
               smAndDown ? 'mt-5' : ''
-            } text-h5 mb-0 py-2 darkGray--text font-weight-regular`
+            } mb-0 body-2 pt-2 font-weight-bold lightGray--text`
           "
         >
+          PHONE
+        </p>
+        <p :class="` text-h5 mb-0 pb-2 darkGray--text font-weight-regular`">
           951 323 1876
         </p>
       </div>

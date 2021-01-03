@@ -8,7 +8,7 @@
           :wrap="smAndDown"
           :nowrap="mdAndUp"
         >
-          <div :class="mdAndUp ? 'px-5 mr-5' : 'pb-10'">
+          <div :class="mdAndUp ? 'px-5 mr-16' : 'pb-10'">
             <Avatar size="250" />
           </div>
           <div :class="mdAndUp ? 'px-5' : 'pt-10'">
