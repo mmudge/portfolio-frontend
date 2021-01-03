@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative;">
-    <div id="avatar-bg" class=""></div>
+    <div id="avatar-bg" :style="redTriangleStyle"></div>
     <div v-if="style" style="position: relative;" class="elevation-10">
       <div id="avatar" :style="style"></div>
     </div>
@@ -23,16 +23,26 @@ export default class Avatar extends Vue {
       return null
     }
   }
+
+  get redTriangleStyle() {
+    if (this.size) {
+      // const borderSize: number = this.size * 0.53
+      const borderSize: number = this.size * 0.59
+      const offset: number = this.size * 0.116
+      // const offset: number = this.size * 0.100008
+      return `border-top: ${borderSize}px solid transparent; border-right: ${borderSize}px solid transparent; border-left: ${borderSize}px solid #e53935; border-bottom: ${borderSize}px solid #e53935; bottom: -${offset}px; left: -${offset}px;;`
+    } else {
+      return ''
+    }
+  }
 }
 </script>
 
 <style scoped>
 #avatar {
   background-image: url('../assets/profilepic-cutout.png');
-  /* background-color: #0077b6; */
   background-color: #efefef;
   background-repeat: no-repeat;
-  /* border-radius: 10%; */
   padding: 10px;
   background-size: cover;
   background-position: center;
@@ -40,17 +50,9 @@ export default class Avatar extends Vue {
 }
 
 #avatar-bg {
-  /* background-color: #efefef; */
   width: 0px;
   height: 0px;
-  border-top: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-left: 160px solid #e53935;
-  border-bottom: 160px solid #e53935;
   border-radius: 2px;
   position: absolute;
-  /* background-color: #e53935; */
-  bottom: -35px;
-  left: -35px;
 }
 </style>

@@ -68,7 +68,7 @@
           </v-textarea>
         </v-form>
         <v-btn
-          color="red lighten-1"
+          color="red darken-1"
           tabindex="4"
           class="mt-10 font-weight-bold"
           dark

@@ -43,7 +43,7 @@
         </v-form>
 
         <v-btn
-          color="red lighten-1"
+          color="red darken-1"
           class="mt-10 font-weight-bold"
           dark
           block

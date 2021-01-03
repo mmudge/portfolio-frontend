@@ -36,7 +36,7 @@
 
             <v-layout justify-center wrap :class="`pt-10`">
               <v-btn
-                color="red lighten-1"
+                color="red darken-1"
                 tile
                 dark
                 :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
@@ -68,7 +68,7 @@
           <v-flex shrink :class="smAndDown ? 'mx-auto' : ''">
             <Avatar :size="300" />
           </v-flex>
-          <v-flex :class="smAndDown ? 'pt-10' : ''">
+          <v-flex :class="smAndDown ? 'pt-16' : ''">
             <div class="mx-auto" :style="mdAndUp ? 'max-width: 60%;' : ''">
               <p class="text-h3">
                 Hello, I'm Mike!
@@ -79,7 +79,7 @@
                 together!
               </p>
               <v-btn
-                color="red lighten-1"
+                color="red darken-1"
                 href="#contact-form"
                 class="font-weight-bold"
                 dark
