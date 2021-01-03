@@ -29,15 +29,7 @@
           951 323 1876
         </p>
       </div>
-      <v-btn
-        color="red darken-1"
-        href="#contact-form"
-        class="font-weight-bold mt-5"
-        dark
-        tile
-      >
-        <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
-      </v-btn>
+      <SendMessageButton :anchor="'contact-form'" class="mt-5" />
     </div>
   </div>
 </template>
@@ -45,8 +37,13 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
+import SendMessageButton from '@/components/SendMessageButton.vue'
 
-@Component
+@Component({
+  components: {
+    SendMessageButton
+  }
+})
 export default class ContactInfo extends AppComponent {
   contactInfo: any[] = [
     {

@@ -78,16 +78,7 @@
                 applications and custom websites. Let's build something
                 together!
               </p>
-              <v-btn
-                color="red darken-1"
-                href="#contact-form"
-                class="font-weight-bold"
-                dark
-                tile
-              >
-                <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a
-                message
-              </v-btn>
+              <SendMessageButton :anchor="'contact-form'" />
             </div>
           </v-flex>
         </v-layout>
@@ -132,13 +123,15 @@ import PageContainer from '@/components/PageContainer.vue'
 import AppComponent from '@/components/AppComponent'
 import ContactForm from '@/components/ContactForm.vue'
 import LandingPageSkillCard from '@/components/LandingPageSkillCard.vue'
+import SendMessageButton from '@/components/SendMessageButton.vue'
 
 @Component({
   components: {
     Avatar,
     PageContainer,
     ContactForm,
-    LandingPageSkillCard
+    LandingPageSkillCard,
+    SendMessageButton
   }
 })
 export default class LandingPage extends AppComponent {
