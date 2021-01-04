@@ -2,7 +2,12 @@
   <div>
     <div :class="`${smAndDown ? 'text-center' : ''}`">
       <div>
-        <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
+        <v-layout
+          v-if="smAndDown"
+          align-center
+          justify-center
+          :class="mdAndUp ? 'pb-16' : 'py-4'"
+        >
           <h1 class="text-h4 blackText1--text">MICHAEL</h1>
           <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
@@ -10,7 +15,7 @@
           <h1 class="text-h2 blackText1--text pr-2">MICHAEL</h1>
           <h1 class="text-h2 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
-        <p class="mb-0 pt-2 body-2 font-weight-bold lightGray--text">
+        <p class="mb-0 pt-2 body-2 font-weight-bold mediumGray--text">
           EMAIL
         </p>
         <p class="text-h5 mb-0 pb-2 darkGray--text font-weight-regular">
@@ -19,8 +24,8 @@
         <p
           :class="
             `${
-              smAndDown ? 'mt-5' : ''
-            } mb-0 body-2 pt-2 font-weight-bold lightGray--text`
+              smAndDown ? '' : ''
+            } mb-0 body-2 pt-2 font-weight-bold mediumGray--text`
           "
         >
           PHONE

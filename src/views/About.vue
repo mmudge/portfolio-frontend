@@ -1,22 +1,23 @@
 <template>
-  <div class="about">
-    <PageContainer>
+  <div>
+    <PageBanner :fullScreen="false" :imageName="'typing-bg.jpg'">
       <template v-slot:content>
         <v-layout
           align-center
           justify-center
           :wrap="smAndDown"
           :nowrap="mdAndUp"
+          :class="smAndDown ? 'pt-8' : ''"
         >
-          <div :class="mdAndUp ? 'px-5 mr-16' : 'pb-10'">
-            <Avatar size="250" />
+          <div :class="mdAndUp ? 'px-5 mr-16' : 'pb-5'">
+            <Avatar size="250" :showRedBg="false" />
           </div>
-          <div :class="mdAndUp ? 'px-5' : 'pt-10'">
+          <div :class="mdAndUp ? 'px-5' : ''">
             <ContactInfo />
           </div>
         </v-layout>
       </template>
-    </PageContainer>
+    </PageBanner>
 
     <PageContainer :bgColor="'#f5f5f5'">
       <template v-slot:content>
@@ -145,22 +146,22 @@
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import Avatar from '@/components/Avatar.vue'
-import Social from '@/components/Social.vue'
 import ContactInfo from '@/components/ContactInfo.vue'
 import Chip from '@/components/Chip.vue'
 import PageTextContent from '@/components/PageTextContent.vue'
 import PageContainer from '@/components/PageContainer.vue'
 import ContactForm from '@/components/ContactForm.vue'
+import PageBanner from '@/components/PageBanner.vue'
 
 @Component({
   components: {
     Avatar,
-    Social,
     ContactInfo,
     Chip,
     PageTextContent,
     PageContainer,
-    ContactForm
+    ContactForm,
+    PageBanner
   }
 })
 export default class About extends AppComponent {
@@ -173,7 +174,4 @@ export default class About extends AppComponent {
 }
 </script>
 
-<style scoped>
-.about {
-}
-</style>
+<style scoped></style>

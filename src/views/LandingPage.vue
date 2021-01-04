@@ -1,72 +1,70 @@
 <template>
   <div>
-    <v-container
-      fluid
-      :class="`${smAndDown ? 'px-5' : ''} main-content-container pa-0`"
-    >
-      <div class="cover-image">
-        <div class="image-overlay"></div>
-      </div>
-      <div class="cover-content text-center">
-        <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
-          <h1 class="text-h4 blackText1--text">MICHAEL</h1>
-          <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
-        </v-layout>
-        <v-layout align-center justify-center wrap>
-          <v-flex shrink>
-            <p
-              :class="
-                `${
-                  smAndDown ? 'text-h3' : 'text-h1'
-                } blackText1--text font-weight-bold text-center mb-0`
-              "
-            >
-              WEB DEVELOPER
-            </p>
+    <PageBanner :fullScreen="true" :imageName="'laptop'">
+      <template v-slot:content>
+        <div class="text-center">
+          <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
+            <h1 class="text-h4 blackText1--text">MICHAEL</h1>
+            <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
+          </v-layout>
+          <v-layout align-center justify-center wrap>
+            <v-flex shrink>
+              <p
+                :class="
+                  `${
+                    smAndDown ? 'text-h3' : 'text-h1'
+                  } blackText1--text font-weight-bold text-center mb-0`
+                "
+              >
+                WEB DEVELOPER
+              </p>
 
-            <p
-              :class="
-                `${
-                  smAndDown ? 'text-h5' : 'text-h3'
-                } mb-0 black2--text font-weight-bold pt-5`
-              "
-            >
-              Full Stack - Front End - UX/UI Design
-            </p>
+              <p
+                :class="
+                  `${
+                    smAndDown ? 'text-h5' : 'text-h3'
+                  } mb-0 black2--text font-weight-bold pt-5`
+                "
+              >
+                Full Stack - Front End - UX/UI Design
+              </p>
 
-            <v-layout justify-center wrap :class="`pt-10`">
-              <v-btn
-                color="red darken-1"
-                tile
-                dark
-                :class="`${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`"
-                x-large
-                :block="smAndDown"
-                :to="{ name: 'projects' }"
-                >Projects</v-btn
-              >
-              <v-btn
-                color="blackText1"
-                tile
-                outlined
-                :class="`${mdAndUp ? 'x-wide' : ''}`"
-                :block="smAndDown"
-                x-large
-                href="#contact-form"
-              >
-                Contact me</v-btn
-              >
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </div>
-    </v-container>
+              <v-layout justify-center wrap :class="`pt-10`">
+                <v-btn
+                  color="red darken-1"
+                  tile
+                  dark
+                  :class="
+                    `${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`
+                  "
+                  x-large
+                  :block="smAndDown"
+                  :to="{ name: 'projects' }"
+                  >Projects</v-btn
+                >
+                <v-btn
+                  color="blackText1"
+                  tile
+                  outlined
+                  :class="`${mdAndUp ? 'x-wide' : ''}`"
+                  :block="smAndDown"
+                  x-large
+                  href="#contact-form"
+                >
+                  Contact me</v-btn
+                >
+              </v-layout>
+            </v-flex>
+          </v-layout>
+        </div>
+      </template>
+    </PageBanner>
 
     <PageContainer :style="mdAndUp ? '' : ''">
       <template v-slot:content>
         <v-layout align-center :wrap="smAndDown">
           <v-flex shrink :class="smAndDown ? 'mx-auto' : ''">
-            <Avatar :size="300" />
+            <Avatar :size="300" :showRedBg="true" />
           </v-flex>
           <v-flex :class="smAndDown ? 'pt-16' : ''">
             <div class="mx-auto" :style="mdAndUp ? 'max-width: 60%;' : ''">
@@ -124,6 +122,7 @@ import AppComponent from '@/components/AppComponent'
 import ContactForm from '@/components/ContactForm.vue'
 import LandingPageSkillCard from '@/components/LandingPageSkillCard.vue'
 import SendMessageButton from '@/components/SendMessageButton.vue'
+import PageBanner from '@/components/PageBanner.vue'
 
 @Component({
   components: {
@@ -131,7 +130,8 @@ import SendMessageButton from '@/components/SendMessageButton.vue'
     PageContainer,
     ContactForm,
     LandingPageSkillCard,
-    SendMessageButton
+    SendMessageButton,
+    PageBanner
   }
 })
 export default class LandingPage extends AppComponent {
@@ -159,16 +159,6 @@ export default class LandingPage extends AppComponent {
   signInUser() {
     this.$router.push({ name: 'login' })
   }
-
-  fetchProjects() {
-    Project.fetchAll()
-  }
-
-  clearLocalStorage() {
-    console.log('local storage token before clear', localStorage.token)
-    localStorage.removeItem('token')
-    console.log('local storage token after clear', localStorage.token)
-  }
 }
 </script>
 
@@ -176,49 +166,5 @@ export default class LandingPage extends AppComponent {
 .x-wide {
   padding-left: 100px !important;
   padding-right: 100px !important;
-}
-
-.md-padding {
-  padding: 150px 100px;
-}
-
-.sm-padding {
-  padding: 150px 0 150px 0;
-}
-
-.main-content-container {
-  height: calc(100vh - 64px);
-}
-
-.cover-image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('../assets/laptop.jpg');
-  height: calc(100vh - 64px);
-  filter: blur(2px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.image-overlay {
-  width: 100%;
-  height: 100%;
-  background-color: #efefef;
-  opacity: 0.8;
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: calc(100vh - 64px); */
-}
-
-.cover-content {
-  padding-top: 150px;
-  position: relative;
 }
 </style>
