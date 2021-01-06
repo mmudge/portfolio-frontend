@@ -15,10 +15,7 @@
               <div style="width: fit-content;">
                 <h2 class="blackText1--text text-h4">{{ project.title }}</h2>
                 <v-slide-x-transition>
-                  <div
-                    v-if="hover"
-                    style="height: 4px; background-color: #E53935;"
-                  ></div>
+                  <div v-if="hover" class="red2" style="height: 4px;"></div>
                 </v-slide-x-transition>
               </div>
             </v-flex>

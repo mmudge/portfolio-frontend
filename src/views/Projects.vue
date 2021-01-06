@@ -8,8 +8,8 @@
       <template v-slot:content>
         <v-layout align-center justify-center>
           <div class="text-center">
-            <h1 class="text-h2 font-weight-medium grayText--text">
-              Projects
+            <h1 class="text-h3 font-weight-bold grayText--text">
+              PROJECTS
             </h1>
             <p class="text-h6 pt-5 font-weight-light mediumGray--text">
               Some of my work over the past few years

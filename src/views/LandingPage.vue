@@ -131,9 +131,9 @@
 
     <PageContainer :bgColor="'#f5f5f5'" :style="mdAndUp ? '' : ''">
       <template v-slot:content>
-        <div class="mx-auto text-center grayText--text">
-          <p class="body-1 mb-0">My favorite and most used</p>
-          <h1 class="text-h3 font-weight-medium">Technologies</h1>
+        <div class="mx-auto text-center">
+          <p class="body-2 mb-0 mediumGray--text">My favorite and most used</p>
+          <h1 class="text-h4 font-weight-bold grayText--text">TECHNOLOGIES</h1>
         </div>
         <v-layout align-center class="pt-16" wrap>
           <template v-for="card in skillCards">
@@ -183,21 +183,23 @@ import PageBanner from '@/components/PageBanner.vue'
 export default class LandingPage extends AppComponent {
   skillCards: any[] = [
     {
-      title: 'JavaScript',
-      icon: 'fab fa-js',
-      text: 'My favorite language for bringing data to life',
+      title: 'JAVASCRIPT',
+      icons: ['fab fa-js'],
+      text: 'My favorite language for bringing data to life!',
       skills: ['TypeScript', 'Vue JS', 'Cesium JS']
     },
     {
-      title: 'Ruby on Rails',
-      icon: 'fas fa-code',
-      text: 'Great for getting projects up and running fast',
+      title: 'RUBY ON RAILS',
+      // icon: 'fas fa-code',
+      icons: ['fas fa-laptop-code'],
+      text: 'Turn your idea into a business, fast!',
       skills: ['Ruby', 'Rspec', 'Devise']
     },
     {
-      title: 'Web Design',
-      icon: 'fas fa-code',
-      text: 'Express yourself with your own personal style',
+      title: 'WEB DESIGN',
+      // icon: 'fas fa-code',
+      icons: ['fab fa-html5', 'fab fa-css3-alt'],
+      text: 'Great for designing amazing user experiences!',
       skills: ['HTML5', 'CSS3', 'Mobile Responsive']
     }
   ]

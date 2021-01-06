@@ -24,7 +24,8 @@ export default class App extends Vue {}
 .v-application .text-h4,
 .v-application .text-h5,
 .v-application .text-h6,
-.v-application .body-1 {
+.v-application .body-1,
+.v-application .body-2 {
   font-family: 'Oxygen', sans-serif !important;
 }
 </style>

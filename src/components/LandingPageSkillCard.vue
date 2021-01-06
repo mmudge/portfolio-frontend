@@ -1,23 +1,36 @@
 <template>
   <v-card v-if="cardInfo" flat outlined class="pa-10">
-    <h1 class="grayText--text">{{ cardInfo.title }}</h1>
-    <p class="body-2 grayText--text pb-3">
+    <v-layout align-center justify-start>
+      <v-icon
+        size="85"
+        color="red2"
+        class="pr-5"
+        v-for="icon in cardInfo.icons"
+        :key="icon"
+        >{{ icon }}</v-icon
+      >
+    </v-layout>
+
+    <h1 class="text-h5 grayText--text pt-10 font-weight-bold">
+      {{ cardInfo.title }}
+    </h1>
+    <p class="body-2 mediumGray--text pt-2 pb-3">
       {{ cardInfo.text }}
     </p>
 
     <div v-for="skill in cardInfo.skills" :key="skill" class="mb-0">
       <v-layout align-center>
-        <v-icon x-small class="mr-2" color="red lighten-1"
-          >fas fa-greater-than</v-icon
+        <v-icon x-small class="mr-5" color="red2"
+          >fas fa-long-arrow-alt-right</v-icon
         >
-        <p class="mb-0">{{ skill }}</p>
+        <p class="mb-0 font-weight-bold grayText--text">{{ skill }}</p>
       </v-layout>
     </div>
 
     <p class="mb-0 py-5">
-      Experience: <strong>{{ calcTime }} yrs</strong>
+      Exp: <strong>{{ calcTime }} yrs</strong>
     </p>
-    <div style="height: 2px; background-color: #E53935;"></div>
+    <div class="red2" style="height: 1px;"></div>
   </v-card>
 </template>
 
