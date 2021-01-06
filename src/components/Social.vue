@@ -1,16 +1,8 @@
 <template>
   <v-layout justify-center align-center>
     <template v-for="s in socialLinks">
-      <v-btn
-        small
-        color="blackText1"
-        class="mr-1"
-        :href="s.link"
-        :key="s.icon"
-        text
-      >
-        <v-icon class="mr-1">{{ s.icon }}</v-icon>
-        <p class="d-none mb-0">{{ s.text }}</p>
+      <v-btn color="grayText" class="mr-1" :href="s.link" :key="s.icon" icon>
+        <v-icon>{{ s.icon }}</v-icon>
       </v-btn>
     </template>
   </v-layout>

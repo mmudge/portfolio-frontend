@@ -25,8 +25,8 @@
             class="mx-auto"
           >
             <v-layout align-center justify-center>
-              <h1 class="text-h6 blackText1--text">MICHAEL</h1>
-              <h1 class="text-h6 blackText1--text font-weight-bold">MUDGE</h1>
+              <h1 class="text-h6 grayText--text">MICHAEL</h1>
+              <h1 class="text-h6 grayText--text font-weight-bold">MUDGE</h1>
             </v-layout>
             <div style="height: 4px; background-color: #E53935;"></div>
           </div>
@@ -85,19 +85,20 @@
 
     <template v-if="mdAndUp">
       <v-app-bar app color="white2" elevate-on-scroll height="112px">
-        <v-layout align-center justify-space-between class="px-5">
+        <v-layout align-center justify-space-between class="app-nav-bar">
           <v-flex shrink>
-            <div>
+            <!-- <div>
               <v-layout
                 justify-start
                 class="cursor-pointer-on-hover"
                 @click.stop="routeTo('landingPage')"
               >
-                <h1 class="text-h5 blackText1--text">MICHAEL</h1>
-                <h1 class="text-h5 blackText1--text font-weight-bold">MUDGE</h1>
+                <h1 class="text-h5 grayText--text">MICHAEL</h1>
+                <h1 class="text-h5 grayText--text font-weight-bold">MUDGE</h1>
               </v-layout>
-              <div style="height: 4px; background-color: #E53935;"></div>
-            </div>
+              <div class="red2" style="height: 4px; margin-top: -3px;"></div>
+            </div> -->
+            <NameLogo />
           </v-flex>
 
           <v-flex shrink>
@@ -105,7 +106,7 @@
               <v-btn
                 to="/projects"
                 text
-                color="blackText1"
+                color="grayText"
                 x-large
                 class="font-weight-bold"
                 >Projects</v-btn
@@ -113,7 +114,7 @@
               <v-btn
                 to="/about"
                 text
-                color="blackText1"
+                color="grayText"
                 x-large
                 class="font-weight-bold"
                 >About</v-btn
@@ -123,7 +124,7 @@
                 <v-btn
                   to="/admin"
                   text
-                  color="blackText1"
+                  color="grayText"
                   class="font-weight-bold"
                   x-large
                   >Admin</v-btn
@@ -131,7 +132,7 @@
                 <v-btn
                   @click.stop="signOutUser"
                   text
-                  color="blackText1"
+                  color="grayText"
                   class="font-weight-bold"
                   x-large
                   >Log out</v-btn
@@ -141,7 +142,7 @@
                 <v-btn
                   to="/login"
                   text
-                  color="blackText1"
+                  color="grayText"
                   class="font-weight-bold"
                   x-large
                   >Login</v-btn
@@ -161,10 +162,12 @@ import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import User from '@/models/User'
 import Social from '@/components/Social.vue'
+import NameLogo from '@/components/NameLogo.vue'
 
 @Component({
   components: {
-    Social
+    Social,
+    NameLogo
   }
 })
 export default class AppNavBar extends AppComponent {
@@ -232,18 +235,6 @@ export default class AppNavBar extends AppComponent {
     return this.getNavItems.filter((item: any) => item.show)
   }
 
-  //   get selectedMainToolbarItems() {
-  //   return this.mainToolbarItems.map((item: any) => {
-  //     if (item.name === this.activeTool) {
-  //       const selected = { selected: true }
-  //       return { ...item, ...selected }
-  //     } else {
-  //       const notSelected = { selected: false }
-  //       return { ...item, ...notSelected }
-  //     }
-  //   })
-  // }
-
   get appName() {
     return this.$store.getters.appName
   }
@@ -273,5 +264,11 @@ export default class AppNavBar extends AppComponent {
   top: 20px;
   left: 20px;
   z-index: 1;
+}
+
+.app-nav-bar {
+  /* max-width: 1170px;
+  margin: 0 auto; */
+  padding: 0px 116px;
 }
 </style>

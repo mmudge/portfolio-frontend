@@ -39,7 +39,11 @@ export default new Vuetify({
         white2: '#fafafa',
         white3: '#f5f5f5',
         blackText1: '#202030',
-        green1: '#519872'
+        green1: '#519872',
+        grayText: '#2E404C',
+        grayText2: '#A9B4BD',
+        grayText3: '#D1D7DB',
+        red2: '#DF2F4D'
       }
     }
   }
