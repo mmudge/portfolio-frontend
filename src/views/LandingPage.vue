@@ -20,7 +20,7 @@
               } grayText--text font-weight-light mb-0`
             "
           >
-            Full Stack, Front end, UI/UX Design
+            Full Stack - Front End - UI/UX Design
           </h2>
           <v-layout class="mt-10" wrap>
             <v-btn
