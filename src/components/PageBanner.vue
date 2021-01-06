@@ -9,7 +9,10 @@
         <div class="image-overlay"></div>
       </div>
 
-      <div :style="heightStyle" class="cover-content">
+      <div
+        :style="centerdContent ? centeredContentStyle : landingPageStyle"
+        class="cover-content"
+      >
         <slot name="content" />
       </div>
     </v-container>
@@ -26,8 +29,25 @@ import AppComponent from '@/components/AppComponent'
 export default class PageBanner extends AppComponent {
   @Prop() fullScreen!: boolean
   @Prop() imageName!: string
+  @Prop() centerContent!: boolean
 
-  get heightStyle() {
+  get centeredContentStyle(): string {
+    return (
+      'display: flex; justify-content: center; align-items: center;' +
+      ' ' +
+      this.heightStyle
+    )
+  }
+
+  get landingPageStyle(): string {
+    let styleString = 'display: flex; align-items: center;'
+    if (this.mdAndUp) {
+      styleString += ' padding: 0px 132px;'
+    }
+    return styleString + ' ' + this.heightStyle
+  }
+
+  get heightStyle(): string {
     if (this.smAndDown) {
       return 'height: 100vh;'
     } else if (this.fullScreen) {
@@ -37,7 +57,7 @@ export default class PageBanner extends AppComponent {
     }
   }
 
-  get bgImage() {
+  get bgImage(): string {
     if (this.imageName === 'laptop') {
       return 'laptop-bg'
     } else {
@@ -49,12 +69,25 @@ export default class PageBanner extends AppComponent {
 
 <style>
 .laptop-bg {
-  background-image: url('../assets/laptop.jpg');
+  background-color: #efefef;
+  background-image: url('../assets/typing2.jpg');
+  background-blend-mode: luminosity;
+}
+
+.laptop-bg .image-overlay {
+  opacity: 0.7;
 }
 
 .typing-bg {
+  background-color: #efefef;
   background-image: url('../assets/typing-bg.jpg');
+  background-blend-mode: luminosity;
 }
+
+.typing-bg .image-overlay {
+  opacity: 0.825;
+}
+
 .cover-image {
   background-position: center;
   background-repeat: no-repeat;
@@ -71,13 +104,25 @@ export default class PageBanner extends AppComponent {
   width: 100%;
   height: 100%;
   background-color: #fafafa;
-  opacity: 0.825;
 }
 
 .cover-content {
   position: relative;
+}
+
+.cover-content > div {
+  /* height: 100%; */
+}
+
+.centered-content {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.landing-page {
+  display: flex;
+  align-items: center;
+  padding: 0px 132px;
 }
 </style>

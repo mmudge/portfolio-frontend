@@ -7,7 +7,7 @@
   >
     <div style="width: fit-content;" class="pb-5">
       <h1 class="blackText1--text">Contact me</h1>
-      <div style="height: 4px; background-color: #E53935;"></div>
+      <div class="red2" style="height: 4px;"></div>
     </div>
     <v-layout align-center wrap>
       <v-flex sm12 md4>
@@ -68,13 +68,12 @@
           </v-textarea>
         </v-form>
         <v-btn
-          color="red darken-1"
+          color="red2"
           tabindex="4"
           class="mt-10 font-weight-bold"
           dark
           block
           x-large
-          tile
           @keyup.enter="createMessage"
           @click.stop="createMessage"
         >

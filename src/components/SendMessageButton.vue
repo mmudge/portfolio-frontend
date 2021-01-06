@@ -1,10 +1,9 @@
 <template>
   <v-btn
-    color="red darken-1"
+    color="red2"
     :href="anchor ? `#${anchor}` : ''"
     class="font-weight-bold"
     dark
-    tile
   >
     <v-icon small class="mr-3">far fa-envelope</v-icon>Send me a message
   </v-btn>

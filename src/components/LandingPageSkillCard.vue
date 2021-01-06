@@ -1,7 +1,7 @@
 <template>
   <v-card v-if="cardInfo" flat outlined class="pa-10">
-    <h1 class="blackText1--text">{{ cardInfo.title }}</h1>
-    <p class="body-2 darkGray--text pb-3">
+    <h1 class="grayText--text">{{ cardInfo.title }}</h1>
+    <p class="body-2 grayText--text pb-3">
       {{ cardInfo.text }}
     </p>
 

@@ -10,7 +10,9 @@
         </v-flex>
 
         <v-flex shrink>
-          <Social />
+          <div>
+            <Social :extraMargin="true" />
+          </div>
         </v-flex>
       </v-layout>
     </v-container>

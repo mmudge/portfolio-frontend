@@ -12,8 +12,8 @@
           <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
         </v-layout>
         <v-layout v-else align-center class="pb-5">
-          <h1 class="text-h2 blackText1--text pr-2">MICHAEL</h1>
-          <h1 class="text-h2 blackText1--text font-weight-bold">MUDGE</h1>
+          <h1 class="text-h3 grayText--text">MICHAEL</h1>
+          <h1 class="text-h3 grayText--text font-weight-bold">MUDGE</h1>
         </v-layout>
         <p class="mb-0 pt-2 body-2 font-weight-bold mediumGray--text">
           EMAIL

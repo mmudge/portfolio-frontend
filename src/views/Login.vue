@@ -4,11 +4,11 @@
   <v-layout align-center justify-center>
     <v-flex shrink>
       <v-card
-        class="pa-10 blackText1--text"
+        class="pa-10 grayText--text"
         color="white2"
         style="width: 400px; margin-top: 100px;"
       >
-        <h1 class="text-h4 font-weight-bold blackText1--text">Login</h1>
+        <h1 class="text-h4 font-weight-bold grayText--text">Login</h1>
 
         <v-form ref="loginForm" @submit.prevent lazy-validation>
           <p class="darkGray--text body-2 pt-10 pb-2 mb-0">Email</p>
@@ -43,7 +43,7 @@
         </v-form>
 
         <v-btn
-          color="red darken-1"
+          color="red2"
           class="mt-10 font-weight-bold"
           dark
           block

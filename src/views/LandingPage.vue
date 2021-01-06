@@ -2,7 +2,53 @@
   <div>
     <PageBanner :fullScreen="true" :imageName="'laptop'">
       <template v-slot:content>
-        <div class="text-center">
+        <div :class="smAndDown ? 'text-center' : ''">
+          <h1
+            :class="
+              `${
+                smAndDown ? 'text-h3' : 'text-h2'
+              } grayText--text font-weight-bold mb-0`
+            "
+          >
+            WEB DEVELOPER
+          </h1>
+
+          <h2
+            :class="
+              `${
+                smAndDown ? 'text-h6' : 'text-h5 pt-3'
+              } grayText--text font-weight-light mb-0`
+            "
+          >
+            Full Stack, Front end, UI/UX Design
+          </h2>
+          <v-layout class="mt-10">
+            <v-btn
+              color="red2"
+              dark
+              :class="`${mdAndUp ? 'mr-3' : 'mb-5'} font-weight-bold`"
+              x-large
+              :block="smAndDown"
+              :to="{ name: 'projects' }"
+            >
+              <v-icon class="mr-3">fas fa-long-arrow-alt-right</v-icon>
+
+              Projects</v-btn
+            >
+
+            <v-btn
+              color="grayText"
+              outlined
+              :class="`${mdAndUp ? '' : ''}`"
+              :block="smAndDown"
+              x-large
+              href="#contact-form"
+            >
+              Contact me</v-btn
+            >
+          </v-layout>
+        </div>
+        <!-- <div class="text-center">
           <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
             <h1 class="text-h4 blackText1--text">MICHAEL</h1>
             <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
@@ -56,7 +102,7 @@
               </v-layout>
             </v-flex>
           </v-layout>
-        </div>
+        </div> -->
       </template>
     </PageBanner>
 
@@ -68,10 +114,10 @@
           </v-flex>
           <v-flex :class="smAndDown ? 'pt-16' : ''">
             <div class="mx-auto" :style="mdAndUp ? 'max-width: 60%;' : ''">
-              <p class="text-h3">
+              <p class="text-h3 grayText--text">
                 Hello, I'm Mike!
               </p>
-              <p class="text-h6 font-weight-regular">
+              <p class="text-h6 font-weight-regular grayText--text">
                 I'm a software developer who specializes in building web
                 applications and custom websites. Let's build something
                 together!
@@ -85,7 +131,7 @@
 
     <PageContainer :bgColor="'#f5f5f5'" :style="mdAndUp ? '' : ''">
       <template v-slot:content>
-        <div class="mx-auto text-center">
+        <div class="mx-auto text-center grayText--text">
           <p class="body-1 mb-0">My favorite and most used</p>
           <h1 class="text-h3 font-weight-medium">Technologies</h1>
         </div>

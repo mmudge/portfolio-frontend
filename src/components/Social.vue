@@ -1,7 +1,13 @@
 <template>
   <v-layout justify-center align-center>
     <template v-for="s in socialLinks">
-      <v-btn color="grayText" class="mr-1" :href="s.link" :key="s.icon" icon>
+      <v-btn
+        color="grayText"
+        :class="extraMargin ? 'mr-5' : 'mr-1'"
+        :href="s.link"
+        :key="s.icon"
+        icon
+      >
         <v-icon>{{ s.icon }}</v-icon>
       </v-btn>
     </template>
@@ -13,6 +19,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class Social extends Vue {
   @Prop() color!: string
+  @Prop() extraMargin!: boolean
 
   socialLinks: any[] = [
     {

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <PageBanner :fullScreen="false" :imageName="'typing-bg.jpg'">
+    <PageBanner
+      :fullScreen="false"
+      :imageName="'typing-bg.jpg'"
+      :centerContent="true"
+    >
       <template v-slot:content>
         <v-layout
           align-center
