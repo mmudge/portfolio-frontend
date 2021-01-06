@@ -22,7 +22,7 @@
           >
             Full Stack, Front end, UI/UX Design
           </h2>
-          <v-layout class="mt-10">
+          <v-layout class="mt-10" wrap>
             <v-btn
               color="red2"
               dark
