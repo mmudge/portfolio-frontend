@@ -48,61 +48,6 @@
             >
           </v-layout>
         </div>
-        <!-- <div class="text-center">
-          <v-layout v-if="smAndDown" align-center justify-center class="pb-16">
-            <h1 class="text-h4 blackText1--text">MICHAEL</h1>
-            <h1 class="text-h4 blackText1--text font-weight-bold">MUDGE</h1>
-          </v-layout>
-          <v-layout align-center justify-center wrap>
-            <v-flex shrink>
-              <p
-                :class="
-                  `${
-                    smAndDown ? 'text-h3' : 'text-h1'
-                  } blackText1--text font-weight-bold text-center mb-0`
-                "
-              >
-                WEB DEVELOPER
-              </p>
-
-              <p
-                :class="
-                  `${
-                    smAndDown ? 'text-h5' : 'text-h3'
-                  } mb-0 black2--text font-weight-bold pt-5`
-                "
-              >
-                Full Stack - Front End - UX/UI Design
-              </p>
-
-              <v-layout justify-center wrap :class="`pt-10`">
-                <v-btn
-                  color="red darken-1"
-                  tile
-                  dark
-                  :class="
-                    `${mdAndUp ? 'mr-3 x-wide' : 'mb-5'} font-weight-bold`
-                  "
-                  x-large
-                  :block="smAndDown"
-                  :to="{ name: 'projects' }"
-                  >Projects</v-btn
-                >
-                <v-btn
-                  color="blackText1"
-                  tile
-                  outlined
-                  :class="`${mdAndUp ? 'x-wide' : ''}`"
-                  :block="smAndDown"
-                  x-large
-                  href="#contact-form"
-                >
-                  Contact me</v-btn
-                >
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </div> -->
       </template>
     </PageBanner>
 
@@ -190,14 +135,12 @@ export default class LandingPage extends AppComponent {
     },
     {
       title: 'RUBY ON RAILS',
-      // icon: 'fas fa-code',
       icons: ['fas fa-laptop-code'],
       text: 'Turn your idea into a business, fast!',
       skills: ['Ruby', 'Rspec', 'Devise']
     },
     {
       title: 'WEB DESIGN',
-      // icon: 'fas fa-code',
       icons: ['fab fa-html5', 'fab fa-css3-alt'],
       text: 'Great for designing amazing user experiences!',
       skills: ['HTML5', 'CSS3', 'Mobile Responsive']
