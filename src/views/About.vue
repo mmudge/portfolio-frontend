@@ -34,7 +34,7 @@
             <v-layout wrap class="pb-2">
               <template v-for="chip in skills">
                 <Chip
-                  :text="chip.text"
+                  :text="chip.title"
                   :color="chip.color"
                   :icon="chip.icon"
                   :key="chip.text"

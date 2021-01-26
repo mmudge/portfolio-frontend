@@ -13,6 +13,7 @@ export interface MessageDetails {
 }
 
 export interface Skill {
+  title: string
   text: string
   color: string
   icon: string

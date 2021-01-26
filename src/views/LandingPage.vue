@@ -74,7 +74,10 @@
       </template>
     </PageContainer>
 
-    <PageContainer :bgColor="'#f5f5f5'" :style="mdAndUp ? '' : ''">
+    <PageContainer
+      :bgColor="'#f5f5f5'"
+      :style="mdAndUp ? '' : 'display: none;'"
+    >
       <template v-slot:content>
         <div class="mx-auto text-center">
           <p class="body-2 mb-0 mediumGray--text">My favorite and most used</p>
