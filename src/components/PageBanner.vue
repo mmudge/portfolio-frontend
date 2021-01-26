@@ -10,7 +10,7 @@
       </div>
 
       <div
-        :style="centerdContent ? centeredContentStyle : landingPageStyle"
+        :style="centerContent ? centeredContentStyle : landingPageStyle"
         class="cover-content"
       >
         <slot name="content" />

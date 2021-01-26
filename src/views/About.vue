@@ -32,7 +32,7 @@
 
           <template v-slot:content>
             <v-layout wrap class="pb-2">
-              <template v-for="chip in skillChips">
+              <template v-for="chip in skills">
                 <Chip
                   :text="chip.text"
                   :color="chip.color"
@@ -156,6 +156,7 @@ import PageTextContent from '@/components/PageTextContent.vue'
 import PageContainer from '@/components/PageContainer.vue'
 import ContactForm from '@/components/ContactForm.vue'
 import PageBanner from '@/components/PageBanner.vue'
+import { Skill } from '@/types/types.ts'
 
 @Component({
   components: {
@@ -169,8 +170,8 @@ import PageBanner from '@/components/PageBanner.vue'
   }
 })
 export default class About extends AppComponent {
-  get skillChips() {
-    return this.$store.getters.skillChips
+  get skills(): Skill[] {
+    return this.$store.getters.skills
   }
   get eduChips() {
     return this.$store.getters.eduChips

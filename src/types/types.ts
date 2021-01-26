@@ -11,3 +11,9 @@ export interface MessageDetails {
   name: string
   body: string
 }
+
+export interface Skill {
+  text: string
+  color: string
+  icon: string
+}

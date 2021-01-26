@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="cardInfo" flat outlined class="pa-10">
+  <!-- <v-card v-if="cardInfo" flat outlined class="pa-10">
     <v-layout align-center justify-start>
       <v-icon
         size="85"
@@ -31,6 +31,10 @@
       Exp: <strong>{{ calcTime }} yrs</strong>
     </p>
     <div class="red2" style="height: 1px;"></div>
+  </v-card> -->
+  <v-card v-if="skill" class="pa-10" style="height: 300px;">
+    <v-icon size="85" :color="skill.color">{{ skill.icon }}</v-icon>
+    <h2>{{ skill.text }}</h2>
   </v-card>
 </template>
 
@@ -38,12 +42,13 @@
 import { Component, Prop } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import moment from 'moment'
+import { Skill } from '@/types/types.ts'
 
 @Component({
   components: {}
 })
-export default class LandingPageSkillCard extends AppComponent {
-  @Prop() cardInfo!: number
+export default class SkillCard extends AppComponent {
+  @Prop() skill!: Skill
 
   get calcTime() {
     const a = moment()

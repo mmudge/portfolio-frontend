@@ -80,18 +80,7 @@
           <p class="body-2 mb-0 mediumGray--text">My favorite and most used</p>
           <h1 class="text-h4 font-weight-bold grayText--text">TECHNOLOGIES</h1>
         </div>
-        <v-layout align-center class="pt-16" wrap>
-          <template v-for="card in skillCards">
-            <v-flex
-              sm12
-              md4
-              :class="mdAndUp ? 'pr-1' : 'pb-5'"
-              :key="card.title"
-            >
-              <LandingPageSkillCard :cardInfo="card" />
-            </v-flex>
-          </template>
-        </v-layout>
+        <SkillCardSlider class="pt-16" />
       </template>
     </PageContainer>
 
@@ -105,52 +94,25 @@
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
-import User from '@/models/User'
-import Project from '@/models/Project'
 import Avatar from '@/components/Avatar.vue'
 import PageContainer from '@/components/PageContainer.vue'
 import AppComponent from '@/components/AppComponent'
 import ContactForm from '@/components/ContactForm.vue'
-import LandingPageSkillCard from '@/components/LandingPageSkillCard.vue'
 import SendMessageButton from '@/components/SendMessageButton.vue'
 import PageBanner from '@/components/PageBanner.vue'
+import SkillCardSlider from '@/components/SkillCardSlider.vue'
 
 @Component({
   components: {
     Avatar,
     PageContainer,
     ContactForm,
-    LandingPageSkillCard,
     SendMessageButton,
-    PageBanner
+    PageBanner,
+    SkillCardSlider
   }
 })
-export default class LandingPage extends AppComponent {
-  skillCards: any[] = [
-    {
-      title: 'JAVASCRIPT',
-      icons: ['fab fa-js'],
-      text: 'My favorite language for bringing data to life!',
-      skills: ['TypeScript', 'Vue JS', 'Cesium JS']
-    },
-    {
-      title: 'RUBY ON RAILS',
-      icons: ['fas fa-laptop-code'],
-      text: 'Turn your idea into a business, fast!',
-      skills: ['Ruby', 'Rspec', 'Devise']
-    },
-    {
-      title: 'WEB DESIGN',
-      icons: ['fab fa-html5', 'fab fa-css3-alt'],
-      text: 'Great for designing amazing user experiences!',
-      skills: ['HTML5', 'CSS3', 'Mobile Responsive']
-    }
-  ]
-
-  signInUser() {
-    this.$router.push({ name: 'login' })
-  }
-}
+export default class LandingPage extends AppComponent {}
 </script>
 
 <style>
