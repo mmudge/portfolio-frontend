@@ -1,6 +1,4 @@
 <template>
-  <!-- <PageContainer>
-    <template v-slot:content> -->
   <v-layout align-center justify-center>
     <v-flex shrink>
       <v-card
@@ -55,8 +53,6 @@
       </v-card>
     </v-flex>
   </v-layout>
-  <!-- </template>
-  </PageContainer> -->
 </template>
 
 <script lang="ts">
