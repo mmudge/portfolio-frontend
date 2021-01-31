@@ -258,4 +258,48 @@ export default class Api {
         console.log('Error creating technology', error)
       })
   }
+
+  static updateTechnology(
+    technologyId: number,
+    technologyDetails: TechnologyDetails
+  ) {
+    const url = baseUrl + `technologies/${technologyId}`
+
+    return axios
+      .put(
+        url,
+        {
+          technology: technologyDetails
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: this.authTokenString
+          }
+        }
+      )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error updating technology', error)
+      })
+  }
+
+  static deleteTechnology(technologyId: number) {
+    const url = baseUrl + `technologies/${technologyId}`
+
+    return axios
+      .delete(url, {
+        headers: {
+          Authorization: this.authTokenString
+        }
+      })
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('error deleting technology', error)
+      })
+  }
 }

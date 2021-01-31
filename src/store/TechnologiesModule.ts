@@ -8,7 +8,6 @@ export default class TechnologiesModule extends VuexModule {
 
   @Mutation setTechnologies(technologies: Technology[]): void {
     this.technologiesState = technologies
-    console.log('technologies set', this.technologiesState)
   }
 
   @Mutation addTechnology(technology: Technology): void {

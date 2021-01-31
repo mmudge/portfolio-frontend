@@ -47,14 +47,14 @@
         </v-btn>
       </template>
     </v-data-table>
-    <!--
+
     <v-dialog v-model="updateTechnologyDialog" width="500">
-      <CreateOrUpdateProject
+      <CreateOrUpdateTechnology
         @closeDialog="onCloseDialog"
-        :projectToUpdateId="projectToUpdateId"
-        :formOpened="updateProjectDialog"
+        :technologyToUpdateId="technologyToUpdateId"
+        :formOpened="updateTechnologyDialog"
       />
-    </v-dialog> -->
+    </v-dialog>
   </div>
 </template>
 
@@ -62,11 +62,11 @@
 import { Component } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import Technology from '@/models/Technology'
-// import CreateOrUpdateTechnology from '@/components/projects/CreateOrUpdateTechnology.vue'
+import CreateOrUpdateTechnology from '@/components/technologies/CreateOrUpdateTechnology.vue'
 
 @Component({
   components: {
-    // CreateOrUpdateTechnology
+    CreateOrUpdateTechnology
   }
 })
 export default class TechnologiesTable extends AppComponent {
@@ -121,10 +121,10 @@ export default class TechnologiesTable extends AppComponent {
   }
 
   async deleteTechnology(technologyId: number) {
-    // const deleted = await Technology.deleteTechnology(technologyId)
-    // if (deleted) {
-    //   this.setSnackbar('Technology deleted', 'warning')
-    // }
+    const deleted = await Technology.deleteTechnology(technologyId)
+    if (deleted) {
+      this.setSnackbar('Technology deleted', 'warning')
+    }
   }
 
   onCloseDialog() {

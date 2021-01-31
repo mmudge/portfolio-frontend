@@ -11,7 +11,6 @@ export default class Technology {
 
   static async fetchAll() {
     const technologies: Technology[] = await Api.getAllTechnologies()
-    console.log('fetched technologies', technologies)
     if (technologies) {
       store.commit('technologies/setTechnologies', technologies)
     }
@@ -29,11 +28,23 @@ export default class Technology {
     technologyId: number,
     technologyDetails: TechnologyDetails
   ) {
-    // const project: Project = await Api.updateProject(projectId, projectDetails)
-    // if (project && !project.errors) {
-    //   store.commit('projects/updateProject', project)
-    // }
-    // return project
+    const technology: Technology = await Api.updateTechnology(
+      technologyId,
+      technologyDetails
+    )
+    if (technology && !technology.errors) {
+      store.commit('technologies/updateTechnology', technology)
+    }
+    return technology
+  }
+
+  static async deleteTechnology(technologyId: number) {
+    const result = await Api.deleteTechnology(technologyId)
+    if (result) {
+      store.commit('technologies/removeTechnology', technologyId)
+    }
+
+    return result
   }
 
   static findTechnology(technologyId: number) {
