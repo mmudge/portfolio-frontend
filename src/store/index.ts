@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import User from '@/models/User'
 import ProjectsModule from './ProjectsModule'
+import TechnologiesModule from './TechnologiesModule'
 import { Skill } from '@/types/types.ts'
 
 Vue.use(Vuex)
@@ -231,7 +232,8 @@ export default new Vuex.Store({
   },
   actions: {},
   modules: {
-    projects: ProjectsModule
+    projects: ProjectsModule,
+    technologies: TechnologiesModule
   },
   getters: {
     appName: state => {

@@ -1,7 +1,11 @@
 import axios from 'axios'
 import store from '@/store'
 import User from '@/models/User'
-import { ProjectDetails, MessageDetails } from '@/types/types'
+import {
+  ProjectDetails,
+  MessageDetails,
+  TechnologyDetails
+} from '@/types/types'
 
 let baseUrl = ''
 console.log('Env: ', process.env.NODE_ENV)
@@ -211,6 +215,47 @@ export default class Api {
       })
       .catch(error => {
         console.log('Error creating message', error)
+      })
+  }
+
+  static getAllTechnologies() {
+    let url = baseUrl
+
+    url += 'technologies'
+    return axios
+      .get(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: this.authTokenString
+        }
+      })
+      .then((response: any) => {
+        return response.data
+      })
+      .catch(error => console.log('error fetching technologies', error))
+  }
+
+  static createTechnology(technologyDetails: TechnologyDetails) {
+    const url = baseUrl + 'technologies'
+
+    return axios
+      .post(
+        url,
+        {
+          technology: technologyDetails
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: this.authTokenString
+          }
+        }
+      )
+      .then(response => {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error creating technology', error)
       })
   }
 }

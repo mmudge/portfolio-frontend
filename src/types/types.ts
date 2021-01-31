@@ -18,3 +18,9 @@ export interface Skill {
   color: string
   icon: string
 }
+
+export interface TechnologyDetails {
+  name: string
+  icon: string
+  color: string
+}

@@ -20,7 +20,7 @@
         >
         <v-btn
           class="ml-1"
-          color="red lighten-1"
+          color="red2"
           text
           dark
           x-small
