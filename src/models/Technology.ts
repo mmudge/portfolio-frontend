@@ -5,8 +5,10 @@ import { TechnologyDetails } from '@/types/types'
 export default class Technology {
   id!: number
   name!: string
+  text!: string
   color!: string
   icon!: string
+  hierarchy!: number
   errors!: string[]
 
   static async fetchAll() {

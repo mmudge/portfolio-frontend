@@ -8,24 +8,33 @@
       <v-text-field v-model="name" tabindex="1" outlined label="Name">
       </v-text-field>
 
+      <v-textarea v-model="text" tabindex="2" outlined label="Text" rows="3">
+      </v-textarea>
+
       <v-text-field
         v-model="icon"
-        tabindex="2"
+        tabindex="3"
         outlined
         label="Icon"
       ></v-text-field>
       <v-text-field
         v-model="color"
-        tabindex="3"
+        tabindex="4"
         outlined
         label="Color"
+      ></v-text-field>
+      <v-text-field
+        v-model="hierarchy"
+        tabindex="5"
+        outlined
+        label="Hierarchy"
       ></v-text-field>
     </v-form>
 
     <template v-if="technologyToUpdateId">
       <v-btn
         color="primary"
-        tabindex="4"
+        tabindex="6"
         dark
         block
         class="mt-5"
@@ -38,7 +47,7 @@
     <template v-else>
       <v-btn
         color="primary"
-        tabindex="4"
+        tabindex="6"
         class="mt-5"
         dark
         block
@@ -66,6 +75,8 @@ export default class CreateOrUpdateTechnology extends AppComponent {
   name: string = ''
   icon: string = ''
   color: string = ''
+  text: string = ''
+  hierarchy: number = 0
 
   @Watch('formOpened', { immediate: true })
   onFormOpenChanged() {
@@ -80,6 +91,8 @@ export default class CreateOrUpdateTechnology extends AppComponent {
     this.name = ''
     this.icon = ''
     this.color = ''
+    this.text = ''
+    this.hierarchy = 0
   }
 
   setTechnology() {
@@ -97,7 +110,9 @@ export default class CreateOrUpdateTechnology extends AppComponent {
     const technology: TechnologyDetails = {
       name: this.name,
       icon: this.icon,
-      color: this.color
+      color: this.color,
+      text: this.text,
+      hierarchy: this.hierarchy
     }
 
     const result = await Technology.updateTechnology(
@@ -117,7 +132,9 @@ export default class CreateOrUpdateTechnology extends AppComponent {
     const technology: TechnologyDetails = {
       name: this.name,
       icon: this.icon,
-      color: this.color
+      color: this.color,
+      text: this.text,
+      hierarchy: this.hierarchy
     }
 
     const result = await Technology.createTechnology(technology)

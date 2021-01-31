@@ -12,9 +12,15 @@
     >
       <template v-slot:item.icon="{ item }">
         <v-layout>
-          <p class="mb-0 mr-2">{{ item.icon }}</p>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon class="mr-5" :color="item.color">{{ item.icon }}</v-icon>
+          <p class="mb-0">{{ item.icon }}</p>
         </v-layout>
+      </template>
+
+      <template v-slot:item.text="{ item }">
+        <div class="py-2">
+          <p class="mb-0">{{ item.text }}</p>
+        </div>
       </template>
 
       <template v-slot:item.color="{ item }">
@@ -79,6 +85,13 @@ export default class TechnologiesTable extends AppComponent {
       value: 'name'
     },
     {
+      text: 'Text',
+      align: 'left',
+      sortable: false,
+      value: 'text',
+      width: '25%'
+    },
+    {
       text: 'Icon',
       align: 'left',
       sortable: false,
@@ -89,6 +102,12 @@ export default class TechnologiesTable extends AppComponent {
       align: 'left',
       sortable: false,
       value: 'color'
+    },
+    {
+      text: 'Hierarchy',
+      align: 'left',
+      sortable: false,
+      value: 'hierarchy'
     },
     {
       text: 'Actions',

@@ -21,6 +21,8 @@ export interface Skill {
 
 export interface TechnologyDetails {
   name: string
+  text: string
   icon: string
   color: string
+  hierarchy: number
 }
