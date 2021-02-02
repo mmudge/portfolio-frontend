@@ -14,6 +14,10 @@ export default class TechnologiesModule extends VuexModule {
     this.technologiesState = [...this.technologiesState, technology]
   }
 
+  @Mutation addTechnologies(technologies: Technology[]): void {
+    this.technologiesState = [...this.technologiesState, ...technologies]
+  }
+
   @Mutation removeTechnology(technologyId: number): void {
     this.technologiesState = this.technologiesState.filter(
       (t: Technology) => t.id != technologyId

@@ -33,12 +33,25 @@
         color="success"
         tabindex="5"
       ></v-switch>
+      <v-select
+        v-model="projectTechnologies"
+        :items="technologies"
+        item-text="name"
+        :return-object="true"
+        attach
+        chips
+        label="Technologies"
+        multiple
+        outlined
+        tabindex="6"
+        menu-props="auto, overflowY"
+      ></v-select>
     </v-form>
 
     <template v-if="projectToUpdateId">
       <v-btn
         color="primary"
-        tabindex="6"
+        tabindex="7"
         dark
         block
         class="mt-5"
@@ -51,7 +64,7 @@
     <template v-else>
       <v-btn
         color="primary"
-        tabindex="6"
+        tabindex="7"
         class="mt-5"
         dark
         block
@@ -68,6 +81,7 @@ import { Component, Prop, Watch } from 'vue-property-decorator'
 import AppComponent from '@/components/AppComponent'
 import Project from '@/models/Project'
 import { ProjectDetails } from '@/types/types'
+import Technology from '@/models/Technology'
 
 @Component({
   components: {}
@@ -81,14 +95,28 @@ export default class CreateOrUpdateProject extends AppComponent {
   link: string = ''
   githubLink: string = ''
   published: boolean = false
+  projectTechnologies: Technology[] = []
 
   @Watch('formOpened', { immediate: true })
-  onFormOpenChanged() {
+  onFormOpenChanged(newOpened: boolean) {
     if (this.projectToUpdateId) {
       this.setProject()
     } else if (!this.formOpened) {
       this.resetDataProps()
     }
+  }
+
+  @Watch('projectTechnologies')
+  onProjectTechnologiesChanged(newTechnologies: Technology[]) {
+    console.log('new technologies watcher', newTechnologies)
+  }
+
+  get technologies() {
+    console.log(
+      'technologies',
+      this.$store.getters['technologies/technologies']
+    )
+    return this.$store.getters['technologies/technologies']
   }
 
   resetDataProps() {
@@ -97,6 +125,7 @@ export default class CreateOrUpdateProject extends AppComponent {
     this.link = ''
     this.published = false
     this.githubLink = ''
+    this.projectTechnologies = []
   }
 
   setProject() {
@@ -107,6 +136,7 @@ export default class CreateOrUpdateProject extends AppComponent {
       this.link = project.link
       this.published = project.published
       this.githubLink = project.github_link
+      this.projectTechnologies = project.technologies
     }
   }
 
@@ -116,7 +146,8 @@ export default class CreateOrUpdateProject extends AppComponent {
       description: this.description,
       link: this.link,
       published: this.published,
-      github_link: this.githubLink
+      github_link: this.githubLink,
+      technology_ids: this.projectTechnologies.map((t: Technology) => t.id)
     }
 
     const result = await Project.updateProject(this.projectToUpdateId, project)
@@ -135,7 +166,8 @@ export default class CreateOrUpdateProject extends AppComponent {
       description: this.description,
       link: this.link,
       published: this.published,
-      github_link: this.githubLink
+      github_link: this.githubLink,
+      technology_ids: this.projectTechnologies.map((t: Technology) => t.id)
     }
 
     const result = await Project.createProject(project)

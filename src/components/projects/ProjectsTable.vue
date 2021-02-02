@@ -76,13 +76,20 @@ export default class ProjectsTable extends AppComponent {
       align: 'left',
       sortable: false,
       value: 'link',
-      width: '15%'
+      width: '10%'
     },
     {
       text: 'Github',
       align: 'left',
       sortable: false,
       value: 'github_link',
+      width: '10%'
+    },
+    {
+      text: 'Technologies',
+      align: 'left',
+      sortable: false,
+      value: 'prettyTechnologies',
       width: '15%'
     },
     {
@@ -97,7 +104,7 @@ export default class ProjectsTable extends AppComponent {
       align: 'right',
       sortable: false,
       value: 'actions',
-      width: '15%'
+      width: '10%'
     }
   ]
 

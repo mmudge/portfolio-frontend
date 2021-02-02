@@ -71,6 +71,7 @@ import ProjectsTable from '@/components/projects/ProjectsTable.vue'
 import CreateOrUpdateProject from '@/components/projects/CreateOrUpdateProject.vue'
 import TechnologiesTable from '@/components/technologies/TechnologiesTable.vue'
 import CreateTechnologyButton from '@/components/technologies/CreateTechnologyButton.vue'
+import Technology from '@/models/Technology'
 
 @Component({
   components: {
@@ -94,6 +95,10 @@ export default class Admin extends AppComponent {
 
   onCloseDialog() {
     this.createProjectDialog = false
+  }
+
+  created() {
+    Technology.fetchAll()
   }
 }
 </script>
