@@ -106,11 +106,6 @@ export default class CreateOrUpdateProject extends AppComponent {
     }
   }
 
-  @Watch('projectTechnologies')
-  onProjectTechnologiesChanged(newTechnologies: Technology[]) {
-    console.log('new technologies watcher', newTechnologies)
-  }
-
   get technologies() {
     console.log(
       'technologies',
