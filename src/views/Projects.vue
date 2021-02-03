@@ -12,7 +12,7 @@
               PROJECTS
             </h1>
             <p class="text-h6 pt-5 font-weight-light mediumGray--text">
-              Some of my work over the past few years
+              Some of my recent work
             </p>
           </div>
         </v-layout>
