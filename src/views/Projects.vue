@@ -18,13 +18,21 @@
         </v-layout>
       </template>
     </PageBanner>
-    <PageContainer>
+    <!-- <PageContainer>
       <template v-slot:content>
         <template v-for="project in publishedProjects">
           <ProjectCard :key="project.id" :project="project" class="mb-5" />
         </template>
       </template>
-    </PageContainer>
+    </PageContainer> -->
+
+    <template v-for="project in publishedProjects">
+      <PageContainer :key="project.id">
+        <template v-slot:content>
+          <ProjectSection :project="project" />
+        </template>
+      </PageContainer>
+    </template>
   </div>
 </template>
 
@@ -34,12 +42,14 @@ import Project from '@/models/Project'
 import AppComponent from '@/components/AppComponent'
 import PageContainer from '@/components/PageContainer.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectSection from '@/components/projects/ProjectSection.vue'
 import PageBanner from '@/components/PageBanner.vue'
 
 @Component({
   components: {
     PageContainer,
     ProjectCard,
+    ProjectSection,
     PageBanner
   }
 })
