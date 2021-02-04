@@ -98,23 +98,6 @@
       </template>
     </PageContainer>
 
-    <!-- <PageTextContent class="pt-10">
-        <template v-slot:title>
-          Personal
-
-        </template>
-
-        <template v-slot:content>
-          <p class="body-1 mb-0">
-            I'm an American living in the Netherlands working as a software
-            developer. I moved to the Netherlands in 2018 to be with my Dutch
-            girlfriend. My hobbies are playing with computers, sports, cooking,
-            reading, traveling, chess, fitness, and video games. I am currently
-            learning to speak Dutch.
-          </p>
-        </template>
-      </PageTextContent> -->
-
     <PageContainer :bgColor="'#f5f5f5'">
       <template v-slot:content>
         <PageTextContent>
