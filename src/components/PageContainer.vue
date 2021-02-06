@@ -14,9 +14,12 @@ export default class PageContainer extends AppComponent {
 
   get containerStyle() {
     if (this.xl) {
+      // hits for my 27" screen
       return `padding-left: 350px; padding-right: 350px; padding-top: 200px; padding-bottom: 150px; background-color: ${this.bgColor}`
     } else if (this.lg) {
-      return `padding-left: 275px; padding-right: 275px; padding-top: 150px; padding-bottom: 150px; background-color: ${this.bgColor}`
+      // hits for my 13" screen
+      // return `padding-left: 275px; padding-right: 275px; padding-top: 150px; padding-bottom: 150px; background-color: ${this.bgColor}`
+      return `padding-left: 225px; padding-right: 225px; padding-top: 150px; padding-bottom: 150px; background-color: ${this.bgColor}`
     } else if (this.md) {
       return `padding-left: 100px; padding-right: 100px; padding-top: 150px; padding-bottom: 150px; background-color: ${this.bgColor}`
     } else {
