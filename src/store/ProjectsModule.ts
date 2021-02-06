@@ -1,10 +1,12 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 import Project from '@/models/Project'
 import Vue from 'vue'
+import { PexelPhoto } from '@/types/types'
 
 @Module({ namespaced: true, name: 'projects' })
 export default class ProjectsModule extends VuexModule {
   projectsState: Project[] | [] = []
+  projectPhotosState: PexelPhoto[] = []
 
   @Mutation setProjects(projects: Project[]): void {
     this.projectsState = projects
@@ -39,11 +41,19 @@ export default class ProjectsModule extends VuexModule {
     }
   }
 
+  @Mutation setProjectPhotos(photos: PexelPhoto[]): void {
+    this.projectPhotosState = photos
+  }
+
   get projects(): Project[] {
     return this.projectsState
   }
 
   get publishedProjects(): Project[] {
     return this.projectsState.filter((p: Project) => p.published)
+  }
+
+  get projectPhotos(): PexelPhoto[] {
+    return this.projectPhotosState
   }
 }

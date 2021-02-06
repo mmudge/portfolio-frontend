@@ -18,13 +18,21 @@
         </v-layout>
       </template>
     </PageBanner>
-    <PageContainer>
-      <template v-slot:content>
-        <template v-for="project in publishedProjects">
-          <ProjectCard :key="project.id" :project="project" class="mb-5" />
+
+    <template v-for="(project, index) in publishedProjects">
+      <PageContainer
+        :key="project.id"
+        :bgColor="evenIndex(index) ? '#f5f5f5' : '#fafafa'"
+      >
+        <template v-slot:content>
+          <ProjectSection
+            :project="project"
+            :evenIndex="evenIndex(index)"
+            :photo="photos[index]"
+          />
         </template>
-      </template>
-    </PageContainer>
+      </PageContainer>
+    </template>
   </div>
 </template>
 
@@ -34,22 +42,47 @@ import Project from '@/models/Project'
 import AppComponent from '@/components/AppComponent'
 import PageContainer from '@/components/PageContainer.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
+import ProjectSection from '@/components/projects/ProjectSection.vue'
 import PageBanner from '@/components/PageBanner.vue'
+import Api from '@/api'
+import { PexelPhoto } from '@/types/types'
 
 @Component({
   components: {
     PageContainer,
     ProjectCard,
+    ProjectSection,
     PageBanner
   }
 })
 export default class Projects extends AppComponent {
+  created() {
+    this.fetchPhotos()
+  }
+
   mounted() {
     Project.fetchAll()
   }
 
   get publishedProjects(): Project[] {
     return this.$store.getters['projects/publishedProjects']
+  }
+
+  get photos(): PexelPhoto[] {
+    return this.$store.getters['projects/projectPhotos']
+  }
+
+  async fetchPhotos() {
+    if (this.photos.length < 1) {
+      const result = await Api.getProjectPhotos(this.publishedProjects.length)
+      if (result) {
+        this.$store.commit('projects/setProjectPhotos', result.photos)
+      }
+    }
+  }
+
+  evenIndex(index: number) {
+    return index % 2 === 0
   }
 }
 </script>
