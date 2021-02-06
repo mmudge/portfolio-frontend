@@ -53,12 +53,14 @@
 
     <PageContainer :style="mdAndUp ? '' : ''">
       <template v-slot:content>
-        <v-layout align-center :wrap="smAndDown">
-          <v-flex shrink :class="smAndDown ? 'mx-auto' : ''">
-            <Avatar :size="300" :showRedBg="true" />
+        <v-layout align-center justify-center :wrap="smAndDown">
+          <v-flex sm12 md6 :class="smAndDown ? 'mx-auto' : ''">
+            <div style="width: 300px;">
+              <Avatar :size="300" />
+            </div>
           </v-flex>
-          <v-flex :class="smAndDown ? 'pt-16' : ''">
-            <div class="mx-auto" :style="mdAndUp ? 'max-width: 60%;' : ''">
+          <v-flex sm12 md6 :class="smAndDown ? 'pt-16' : ''">
+            <div class="mx-auto" :style="mdAndUp ? '' : ''">
               <p class="text-h3 grayText--text">
                 Hello, I'm Mike!
               </p>
