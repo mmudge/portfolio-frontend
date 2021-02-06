@@ -35,6 +35,7 @@
             :color="chip.color"
             :icon="chip.icon"
             :key="chip.name"
+            :small="true"
             class="mr-4 mb-3"
           />
         </template>
@@ -49,14 +50,14 @@
             :width="mdAndDown ? 0 : 450"
           ></v-img>
 
-          <v-layout class="pt-5" justify-center align-center>
-            <div style="width: 75px;" class="mr-5">
+          <v-layout class="pt-3" justify-center align-center>
+            <div style="width: 50px;" class="mr-5">
               <a href="https://www.pexels.com">
                 <v-img src="https://images.pexels.com/lib/api/pexels.png" />
               </a>
             </div>
 
-            <p class="gratText--text mb-0">
+            <p class="gratText--text mb-0 caption">
               This
               <a :href="photo.url">Photo</a>
               was taken by

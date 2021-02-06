@@ -4,6 +4,7 @@
     outlined
     class="cursor-pointer-on-hover"
     tile
+    :small="small"
   >
     <v-icon v-if="icon" small fab class="mr-2">{{ icon }}</v-icon>
     <p class="mb-0 font-weight-bold">{{ text }}</p>
@@ -17,6 +18,7 @@ export default class Chip extends Vue {
   @Prop() color!: string
   @Prop() icon!: string
   @Prop() text!: string
+  @Prop() small!: boolean
 }
 </script>
 
