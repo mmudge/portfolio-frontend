@@ -15,6 +15,10 @@ export default class AppComponent extends Vue {
     return this.md || this.lg || this.xl
   }
 
+  get mdAndDown() {
+    return this.md || this.sm || this.xs
+  }
+
   get lgAndUp() {
     return this.lg || this.xl
   }
