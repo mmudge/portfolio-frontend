@@ -29,14 +29,14 @@
         <h6 style="font-size: 18px;" class="font-weight-bold pb-3">
           SKILLS USED
         </h6>
-        <template v-for="chip in project.technologies">
+        <template v-for="chip in project.sortedTechnologies">
           <Chip
             :text="chip.name"
             :color="chip.color"
             :icon="chip.icon"
             :key="chip.name"
             :small="true"
-            class="mr-4 mb-3"
+            class="mr-2 mb-2"
           />
         </template>
       </div>

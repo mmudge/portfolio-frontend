@@ -35,9 +35,6 @@
 
         <v-tab-item :value="'tab-1'">
           <div class="white3 py-5 ">
-            <!-- <v-btn dark color="red2" @click="createTechnology"
-              >Create Technology</v-btn
-            > -->
             <CreateTechnologyButton />
           </div>
 
@@ -87,10 +84,6 @@ export default class Admin extends AppComponent {
 
   createProject() {
     this.createProjectDialog = true
-  }
-
-  createTechnology() {
-    console.log('create technology')
   }
 
   onCloseDialog() {

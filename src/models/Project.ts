@@ -83,6 +83,19 @@ export default class Project {
     )
   }
 
+  static newProject(p: Project) {
+    return new Project(
+      p.id,
+      p.title,
+      p.description,
+      p.link,
+      p.github_link,
+      p.published,
+      p.technologies,
+      p.errors
+    )
+  }
+
   get prettyTechnologies(): string {
     if (this.technologies?.length) {
       let nameString = ''
@@ -100,16 +113,11 @@ export default class Project {
     }
   }
 
-  static newProject(p: Project) {
-    return new Project(
-      p.id,
-      p.title,
-      p.description,
-      p.link,
-      p.github_link,
-      p.published,
-      p.technologies,
-      p.errors
-    )
+  get sortedTechnologies() {
+    if (this.technologies?.length) {
+      return this.technologies.sort(
+        (a: Technology, b: Technology) => a.hierarchy - b.hierarchy
+      )
+    }
   }
 }

@@ -32,13 +32,13 @@
 
           <template v-slot:content>
             <v-layout wrap class="pb-2">
-              <template v-for="chip in skills">
+              <template v-for="chip in technologies">
                 <Chip
-                  :text="chip.title"
+                  :text="chip.name"
                   :color="chip.color"
                   :icon="chip.icon"
-                  :key="chip.text"
-                  class="mr-4 mb-3"
+                  :key="chip.name"
+                  class="mr-3 mb-3"
                 />
               </template>
             </v-layout>
@@ -140,6 +140,7 @@ import PageContainer from '@/components/PageContainer.vue'
 import ContactForm from '@/components/ContactForm.vue'
 import PageBanner from '@/components/PageBanner.vue'
 import { Skill } from '@/types/types.ts'
+import Technology from '@/models/Technology'
 
 @Component({
   components: {
@@ -153,11 +154,19 @@ import { Skill } from '@/types/types.ts'
   }
 })
 export default class About extends AppComponent {
-  get skills(): Skill[] {
-    return this.$store.getters.skills
-  }
+  // get skills(): Skill[] {
+  //   return this.$store.getters.skills
+  // }
   get eduChips() {
     return this.$store.getters.eduChips
+  }
+
+  get technologies(): Technology[] {
+    return this.$store.getters['technologies/technologies']
+  }
+
+  created() {
+    Technology.fetchAll()
   }
 }
 </script>

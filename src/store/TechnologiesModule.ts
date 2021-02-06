@@ -44,6 +44,8 @@ export default class TechnologiesModule extends VuexModule {
   }
 
   get technologies(): Technology[] {
-    return this.technologiesState
+    return this.technologiesState.sort((a: Technology, b: Technology) => {
+      return a.hierarchy - b.hierarchy
+    })
   }
 }
