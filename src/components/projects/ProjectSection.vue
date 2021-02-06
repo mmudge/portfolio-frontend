@@ -1,6 +1,6 @@
 <template>
   <v-layout
-    align-center
+    justify-space-between
     :class="`${evenIndex ? 'flex-row-reverse' : 'flex-row'}`"
     :wrap="smAndDown"
   >
