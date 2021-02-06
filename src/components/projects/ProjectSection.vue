@@ -29,7 +29,7 @@
         <h6 style="font-size: 18px;" class="font-weight-bold pb-3">
           SKILLS USED
         </h6>
-        <template v-for="chip in project.sortedTechnologies">
+        <template v-for="chip in project.technologies">
           <Chip
             :text="chip.name"
             :color="chip.color"
