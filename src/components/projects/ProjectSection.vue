@@ -7,7 +7,7 @@
     <v-flex md6 class="px-10">
       <div class="grayText--text">
         <v-layout justify-start align-baseline :wrap="smAndDown">
-          <h1 class="display-2 font-weight-medium">
+          <h1 class="display-1 font-weight-medium">
             <a :href="getHref" target="_blank" class="project-title-btn">
               {{ project.title }}
             </a>
@@ -22,7 +22,7 @@
             ><v-icon>fab fa-github</v-icon></v-btn
           >
         </v-layout>
-        <p class="headline font-weight-normal mb-14 mt-7">
+        <p class="title font-weight-regular mb-14 mt-7">
           {{ project.description }}
         </p>
 
