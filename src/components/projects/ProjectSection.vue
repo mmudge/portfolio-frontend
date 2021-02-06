@@ -45,8 +45,8 @@
         <div>
           <v-img
             :src="photo.src.medium"
-            :height="mdAndDown ? 200 : 400"
-            :width="mdAndDown ? 300 : 600"
+            :height="mdAndDown ? 0 : 300"
+            :width="mdAndDown ? 0 : 450"
           ></v-img>
 
           <v-layout class="pt-5" justify-center align-center>
