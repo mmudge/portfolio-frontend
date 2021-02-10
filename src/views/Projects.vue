@@ -76,7 +76,9 @@ export default class Projects extends AppComponent {
     if (this.photos.length < 1) {
       const result = await Api.getProjectPhotos(10)
       if (result) {
-        this.$store.commit('projects/setProjectPhotos', result)
+        // this.$store.commit('projects/setProjectPhotos', result)
+        console.log('resulting photos', result.photos)
+        this.$store.commit('projects/setProjectPhotos', result.photos)
       }
     }
   }
