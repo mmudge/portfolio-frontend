@@ -303,41 +303,40 @@ export default class Api {
       })
   }
 
-  static getProjectPhotos(amount: number) {
-    const url = `https://api.pexels.com/v1/search?query=code&per_page=${amount}`
+  // static getProjectPhotos(amount: number) {
+  //   const url = `https://api.pexels.com/v1/search?query=code&per_page=${amount}`
+  //   return axios
+  //     .get(url, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization:
+  //           '563492ad6f917000010000013b80bf8234b4451aba29349e5ccbaa0e'
+  //       }
+  //     })
+  //     .then((response: any) => {
+  //       return response.data
+  //     })
+  //     .catch(error => console.log('error photos from pexels', error))
+  // }
+
+  static getProjectPhotos(amount?: number) {
+    let url = baseUrl
+
+    if (amount) {
+      url += `project_photos?amount=${amount}`
+    } else {
+      url += 'project_photos'
+    }
+
     return axios
       .get(url, {
         headers: {
-          'Content-Type': 'application/json',
-          Authorization:
-            '563492ad6f917000010000013b80bf8234b4451aba29349e5ccbaa0e'
+          'Content-Type': 'application/json'
         }
       })
       .then((response: any) => {
         return response.data
       })
-      .catch(error => console.log('error photos from pexels', error))
+      .catch(error => console.log('error fetching photos', error))
   }
 }
-
-//   static getProjectPhotos(amount?: number) {
-//     let url = baseUrl
-
-//     if (amount) {
-//       url += `project_photos?amount=${amount}`
-//     } else {
-//       url += 'project_photos'
-//     }
-
-//     return axios
-//       .get(url, {
-//         headers: {
-//           'Content-Type': 'application/json'
-//         }
-//       })
-//       .then((response: any) => {
-//         return response.data
-//       })
-//       .catch(error => console.log('error fetching photos', error))
-//   }
-// }
