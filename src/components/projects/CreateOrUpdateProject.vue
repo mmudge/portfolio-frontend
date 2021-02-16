@@ -27,11 +27,17 @@
         outlined
         label="Github Link"
       ></v-text-field>
+      <v-text-field
+        v-model="hierarchy"
+        tabindex="5"
+        outlined
+        label="Hierarchy"
+      ></v-text-field>
       <v-switch
         v-model="published"
         label="Published"
         color="success"
-        tabindex="5"
+        tabindex="6"
       ></v-switch>
       <v-select
         v-model="projectTechnologies"
@@ -43,7 +49,7 @@
         label="Technologies"
         multiple
         outlined
-        tabindex="6"
+        tabindex="7"
         menu-props="auto, overflowY"
       ></v-select>
     </v-form>
@@ -51,7 +57,7 @@
     <template v-if="projectToUpdateId">
       <v-btn
         color="primary"
-        tabindex="7"
+        tabindex="8"
         dark
         block
         class="mt-5"
@@ -64,7 +70,7 @@
     <template v-else>
       <v-btn
         color="primary"
-        tabindex="7"
+        tabindex="8"
         class="mt-5"
         dark
         block
@@ -96,6 +102,7 @@ export default class CreateOrUpdateProject extends AppComponent {
   githubLink: string = ''
   published: boolean = false
   projectTechnologies: Technology[] = []
+  hierarchy: number = 0
 
   @Watch('formOpened', { immediate: true })
   onFormOpenChanged(newOpened: boolean) {
@@ -121,6 +128,7 @@ export default class CreateOrUpdateProject extends AppComponent {
     this.published = false
     this.githubLink = ''
     this.projectTechnologies = []
+    this.hierarchy = 0
   }
 
   setProject() {
@@ -131,6 +139,7 @@ export default class CreateOrUpdateProject extends AppComponent {
       this.link = project.link
       this.published = project.published
       this.githubLink = project.github_link
+      this.hierarchy = project.hierarchy
       this.projectTechnologies = project.technologies
     }
   }
@@ -142,6 +151,7 @@ export default class CreateOrUpdateProject extends AppComponent {
       link: this.link,
       published: this.published,
       github_link: this.githubLink,
+      hierarchy: this.hierarchy,
       technology_ids: this.projectTechnologies.map((t: Technology) => t.id)
     }
 
@@ -162,6 +172,7 @@ export default class CreateOrUpdateProject extends AppComponent {
       link: this.link,
       published: this.published,
       github_link: this.githubLink,
+      hierarchy: this.hierarchy,
       technology_ids: this.projectTechnologies.map((t: Technology) => t.id)
     }
 

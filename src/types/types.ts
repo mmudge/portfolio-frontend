@@ -4,6 +4,7 @@ export interface ProjectDetails {
   link: string
   github_link: string
   published: boolean
+  hierarchy: number
   technology_ids: number[]
 }
 

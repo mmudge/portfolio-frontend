@@ -50,7 +50,11 @@ export default class ProjectsModule extends VuexModule {
   }
 
   get publishedProjects(): Project[] {
-    return this.projectsState.filter((p: Project) => p.published)
+    return this.projectsState
+      .filter((p: Project) => p.published)
+      .sort((a: Project, b: Project) => {
+        return a.hierarchy - b.hierarchy
+      })
   }
 
   get projectPhotos(): PexelPhoto[] {

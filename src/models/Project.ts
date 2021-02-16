@@ -12,6 +12,7 @@ export default class Project {
     github_link: string,
     published: boolean,
     technologies: Technology[],
+    hierarchy: number,
     errors: string[]
   ) {
     this.id = id
@@ -21,6 +22,7 @@ export default class Project {
     this.github_link = github_link
     this.published = published
     this.technologies = technologies
+    this.hierarchy = hierarchy
     this.errors = errors
   }
 
@@ -30,6 +32,7 @@ export default class Project {
   link!: string
   github_link!: string
   published!: boolean
+  hierarchy!: number
   technologies!: Technology[]
 
   errors!: string[]
@@ -92,6 +95,7 @@ export default class Project {
       p.github_link,
       p.published,
       p.technologies,
+      p.hierarchy,
       p.errors
     )
   }

@@ -62,7 +62,7 @@ export default class ProjectsTable extends AppComponent {
       align: 'left',
       sortable: false,
       value: 'title',
-      width: '20%'
+      width: '15%'
     },
     {
       text: 'Description',
@@ -97,6 +97,13 @@ export default class ProjectsTable extends AppComponent {
       align: 'left',
       sortable: false,
       value: 'published',
+      width: '5%'
+    },
+    {
+      text: 'Hierarchy',
+      align: 'left',
+      sortable: false,
+      value: 'hierarchy',
       width: '5%'
     },
     {
